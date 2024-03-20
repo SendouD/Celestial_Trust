@@ -1,0 +1,399 @@
+*,
+*::after,
+*::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+a{
+    color:#000 !important;
+    text-decoration: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme:wght@200..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Quicksand:wght@300..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+
+input,
+button {
+    font: inherit;
+}
+
+
+img {
+    object-fit: cover;
+}
+.phone_num{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+.email{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    
+}
+/* css variables */
+:root {
+    --header_color: #ecf0f1;
+
+}
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+
+}
+
+@font-face {
+    font-family: 'csc';
+    src: url(../fonts/CarosSoft.otf)format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Paddington';
+    src: url(../fonts/paddingtonbold.ttf);
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.header {
+    position: sticky;
+    min-width: 100vw;
+    /* background-color:transparent; */
+    opacity: 0.7;
+    height: auto;
+    /* display: flex; */
+    z-index: 1000;
+
+}
+
+.header div:last-child {
+    margin-left: auto;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.text{
+    color: #f9c107;
+}
+.icon_list{
+    list-style: none;
+    display:flex;
+    justify-content: center;
+}
+
+.foot_text {
+    font-family: 'Paddington', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.center_foot .footer_head{
+    font-size: 1.5rem;
+    word-wrap: nowrap;
+}
+
+.foot_divs{
+    padding: 10px 40px;
+}
+
+.foot_logo{
+    padding-top: 0.5rem;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.foot_logo{
+    background-color: #333;
+    padding: 1rem;
+    padding-top: 2rem;
+
+}
+.foot_quote{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size:1.3rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.footer_head{
+    color:#f9c107;
+}
+.center_foot{
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    
+    
+}
+.foot_divs{
+    padding-top: 2rem;
+    padding-left: 1rem;
+}
+.right_foot{
+    background-color: #333;
+}
+.center_list{
+    list-style: none;
+
+    justify-content: space-evenly;
+    font-size: 1.1rem;
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap:5px;
+    
+}
+
+.left_foot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 30vw;
+    
+    background-color: #333;
+    
+
+
+
+
+}
+.name{
+    display:flex;
+    padding: 0.5rem;
+    padding-left: 0;
+}
+
+.sign-in-btn:hover {
+    background-color: #464343;
+  }
+  .sign-in-btn {
+    text-wrap: nowrap;
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.1s;
+    font-family: "Quicksand", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+
+.foot_input{
+    display: flex;
+    gap:5px;
+    padding: 0.5rem;
+    padding-left: 0;
+    width: inherit;
+}
+.foot_input input {
+    font-family: "Quicksand", serif;
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+
+#news_letter_label {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+#news_letter:focus{
+    border-color: #464343;
+}
+
+.footer {
+    width: 100vw;
+    height: fit-content;
+    background-color: #333;
+    color: white;
+    margin-top: 100px;
+}
+.blocks{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+.btn {
+    position: absolute !important;
+    background-color: transparent;
+    color: #fff;
+    border: none
+}
+
+
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+.home,.about,.getinvolved,.Projects{
+    text-decoration: none;
+    color: #fff;
+    word-wrap: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.right div {
+    margin: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+#logo {
+    object-fit: cover;
+}
+
+.poster {
+    position: relative;
+    z-index: 100000;
+    width: 100vw;
+    height: 100px;
+
+}
+
+.donate-button {
+    position: absolute;
+    top: 90%;
+    z-index: 1000000000000000000000000000000;
+    right: 10%;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: none;
+    font-size: 1vw;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    font-family: "BioRhyme", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+.poster:hover .donate-button {
+    display: inline-block;
+}
+
+.donate-button:hover {
+    background-color: #45a049;
+}
+
+.poster img {
+    position: absolute;
+    width: 100vw;
+    height: 200px;
+    z-index: 100000000000000;
+    object-fit: cover;
+}
+
+.copyright p{
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.copyright p a{
+    font-weight:bolder;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+

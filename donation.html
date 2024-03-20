@@ -1,0 +1,463 @@
+<!doctype html>
+
+
+
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Donation</title>
+
+  <link rel="stylesheet" href="bulma/bulma.min.css">
+
+
+  <link rel="stylesheet" href="icofont/icofont.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/donation.css">
+  <link rel="stylesheet" href="css/about.css">
+	
+
+</head>
+
+<body>
+
+           <!-- Header Start --> 
+
+	<div class="head">
+		<div class="left">
+		  <div class="logo">
+			<img
+			  id="logo"
+			  src="../images/logo.png"
+			  alt=""
+			  style="width: 50px; height: 50px; padding-top: 10px"
+			/>
+		  </div>
+  
+		  <div class="title">
+			<p>Charityforpoor</p>
+		  </div>
+		</div>
+		<div class="right">
+		  <div class="navlink">
+			<a href="account.html">Home</a>
+		  </div>
+		  <div class="navlink">
+			<a href="account.html">About</a>
+		  </div>
+		  <div class="navlink">
+			<a href="account.html">Get Involved</a>
+		  </div>
+		  <div class="navlink">
+			<a href="account.html">Projects</a>
+		  </div>
+		  <div class="navlink">
+			<a href="account.html">My Account</a>
+		  </div>
+		  <div class="navlink">
+			<a href="account.html">Sign in</a>
+		  </div>
+		</div>
+	  </div>
+
+          <!-- Header Close -->
+<section class="page-title bg-1">
+   <div class="container">
+      <div class="columns">
+         <div class="column is-12">
+            <div class="block has-text-centered">
+               <span class="text-white">Donation confirmation</span>
+               <h1 class="is-capitalize text-lg">Donation details</h1>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section class="section donation">
+	<div class="container">
+		<div class="columns is-multiline is-desktop">
+			<div class="column is-8-desktop">
+				<div class="donation-wrap">
+					<h2 class="text-md mb-5">I want to support you</h2>
+					<p class="mb-6 is-size-5">Soluta odit consequuntur adipisci consectetur culpa sequi exercitationem molestias dolores saepe, aut, ratione quam recusandae nulla. Beatae eius, voluptas.</p>
+
+					<form class="donation-form">
+						<fieldset>
+							<div class="columns is-multiline">
+								<label class="column is-3 has-text-weight-bold h3">Donation</label>
+								<div class="column is-9">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+										<label class="form-check-label" for="gridRadios1">
+											Rs. 5,000/- 
+										</label>
+									</div>
+
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+											value="option2">
+										<label class="form-check-label" for="gridRadios2">
+											Rs. 2,500/- 
+										</label>
+									</div>
+
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3"
+											value="option3">
+										<label class="form-check-label" for="gridRadios3">
+											Rs. 1,000/- 
+										</label>
+									</div>
+									<div class="columns is-align-items-center">
+										<label class="column has-text-weight-bold is-4">Other amount: </label>
+										<div class="column is-8">
+											<input type="number" class="input" id="inputamount" placeholder="25000">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="mt-6">
+								<label class="mb-4 h3 is-block">Select Payment Method</label>
+								<ul class="list-inline has-background-white is-inline-block has-text-centered is-rounded">
+									<li onclick="toggleDropdown('card')" class="list-inline-item"><a class="is-inline-block px-5 py-3" ><i class="icofont-credit-card mr-2"></i></i>Credit Card</a></li>
+									
+
+
+									<li onclick="toggleDropdown('Netbank')"  class="list-inline-item border-left"><a class="is-inline-block px-5 py-3" ><i class="icofont-bank-transfer-alt mr-2"></i>Bank Transfer</a></li>
+									<li onclick="toggleDropdown('upi')" class="list-inline-item border-left"><a class="is-inline-block px-5 py-3" ><i class="icofont-brand-paypal mr-2"></i>UPI</a>
+									</li>
+								</ul>
+							</div>
+							<!-- Card -->
+						<div class="dropdown__content" id="card">
+							<div class="mt-6">
+								<h3 class="mb-4 border-bottom">Your Account Credential</h3>
+								<div class="mb-4">
+									<label class="has-text-weight-bold is-inline-block mb-1">Name on card</label>
+									<input type="text" class="input" id="paycardname" placeholder="Your Name">
+								</div>
+								<div class="mb-4">
+									<label class="has-text-weight-bold is-inline-block mb-1">Card Number</label>
+									<input type="text" class="input" id="paycardnumber" placeholder="0000-0000-0000-0000">
+								</div>
+							</div>
+
+							<div class="columns is-multiline">
+								<div class="column is-4-desktop is-6-tablet">
+									<label class="has-text-weight-bold is-inline-block mb-1">Month</label>
+									<select id="inputmonth" class="input">
+										<option selected>Choose...</option>
+										<option>2019</option>
+										<option>2018</option>
+									</select>
+								</div>
+
+								<div class="column is-4-desktop is-6-tablet">
+									<label class="has-text-weight-bold is-inline-block mb-1">Year</label>
+									<select id="inputyear" class="input">
+										<option selected>Choose...</option>
+										<option>2019</option>
+										<option>2018</option>
+									</select>
+								</div>
+								<div class="column is-4-desktop is-12-tablet">
+									<label class="has-text-weight-bold is-inline-block mb-1">CVV</label>
+									<input type="text" class="input" id="inputZip">
+								</div>
+							</div>
+
+						</div>
+
+
+						<!-- Bank Transfer -->
+						<div class="dropdown__content" id="Netbank">
+							<div class="mt-6">
+								<h3 class="mb-4 border-bottom">Your Account Credential</h3>
+								<div class="mb-4">
+									<label class="has-text-weight-bold is-inline-block mb-1">Account number</label>
+									<input type="text" class="input" id="paycardname" placeholder="Account number">
+								</div>
+								<div class="mb-4">
+									<label class="has-text-weight-bold is-inline-block mb-1">IFSC</label>
+									<input type="text" class="input" id="paycardnumber" placeholder="IFSC Code">
+								</div>
+							</div>
+
+							<div class="columns is-multiline">
+								<div class="column is-4-desktop is-6-tablet">
+									<label class="has-text-weight-bold is-inline-block mb-1">Bank</label>
+									<select id="inputmonth" class="input">
+										<option selected>Choose...</option>
+										<option>SBI</option>
+										<option>Canara</option>
+										<option>KVB</option>
+									</select>
+								</div>
+
+								<div class="column is-4-desktop is-6-tablet">
+									<label class="has-text-weight-bold is-inline-block mb-1">Country</label>
+									<select id="inputyear" class="input">
+										<option selected>Choose Country</option>
+									<option>USA</option>
+									<option>Italy</option>
+									<option>BD</option>
+									<option>India</option>
+									<option>Pakistan</option>
+									<option>Japan</option>
+									<option>Nethdarland</option>
+									<option>China</option>
+									</select>
+								</div>
+							
+							</div>
+
+						</div>
+
+
+						<!-- UPI -->
+						<div class="dropdown__content" id="upi">
+							<div class="mt-6">
+								<h3 class="mb-4 border-bottom">Your Account Credentials</h3>
+								<div class="mb-4">
+									<label class="has-text-weight-bold is-inline-block mb-1">UPI ID</label>
+									<input type="text" class="input" id="paycardname" placeholder="UPI ID">
+							
+							</div>
+
+						</div>
+				
+
+						</fieldset>
+
+
+						<h2 class="mb-5 mt-6 border-bottom pb-3">Donor Details</h2>
+
+						<div class="columns is-gapless is-align-items-center is-multiline">
+							<label class="column is-3-desktop has-text-weight-bold">Your Name</label>
+							<div class="column is-9-desktop">
+								<input type="text" class="input" id="inputname" placeholder="Your Name">
+							</div>
+						</div>
+
+						<div class="columns is-gapless is-align-items-center is-multiline">
+							<label class="column is-3-desktop has-text-weight-bold">Email</label>
+							<div class="column is-9-desktop">
+								<input type="email" class="input" id="inputEmail3" placeholder="Email">
+							</div>
+						</div>
+
+
+						<div class="columns is-gapless is-align-items-center is-multiline">
+							<label class="column is-3-desktop has-text-weight-bold">Phone</label>
+							<div class="column is-9-desktop">
+								<input type="number" class="input" id="inputphone" placeholder="Phone">
+							</div>
+						</div>
+
+						<div class="columns is-gapless is-align-items-center is-multiline">
+							<label class="column is-3-desktop has-text-weight-bold">Country</label>
+							<div class="column is-9-desktop">
+								<select id="inputState" class="input">
+									<option selected>Choose Country</option>
+									<option>USA</option>
+									<option>Italy</option>
+									<option>BD</option>
+									<option>India</option>
+									<option>Pakistan</option>
+									<option>Japan</option>
+									<option>Nethdarland</option>
+									<option>China</option>
+								</select>
+							</div>
+						</div>
+						<div class="columns is-gapless is-align-items-center is-multiline">
+							<label class="column is-3-desktop has-text-weight-bold">Address</label>
+							<div class="column is-9-desktop">
+								<input type="text" class="input" id="inputname2" placeholder="Your Name">
+							</div>
+						</div>
+
+						<div class="columns is-gapless is-align-items-center is-multiline">
+							<label class="column is-3-desktop has-text-weight-bold">City</label>
+							<div class="column is-9-desktop">
+								<input type="text" class="input" id="inputname3" placeholder="Your Name">
+							</div>
+						</div>
+
+						<div class="columns is-gapless is-align-items-center is-multiline">
+							<div class="column is-3-desktop has-text-weight-bold">
+								<strong>Anonymous donation?</strong>
+							</div>
+							<div class="column is-9-desktop">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="gridCheck135">
+									<label class="form-check-label" for="gridCheck135">
+										Hide my personal info from donators list
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="columns is-gapless is-align-items-center is-multiline">
+							<div class="column sm-12">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="gridCheck232">
+									<label class="form-check-label" for="gridCheck232">
+										I give my <span class="has-text-weight-bold">consent for authorized representatives</span>
+										of Smile Foundation to contact me occasionally by mobile and email for informing on the
+										latest developments and updated offerings.
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="columns is-gapless is-multiline mt-4">
+							<div class="column sm-10">
+								<a class="btn btn-main-2 is-rounded" id="donate-btn">Donate Now</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+
+			<div class="column is-4-desktop">
+				<div class="offline-donation">
+					<h4 class="mb-5">In order to send goods to the orphanages please follow these instructions:
+					</h4>
+
+					<ul class="list-unstyled">
+						<li>1. Make sure the goods you send are not <span>"Damaged"</span></li>
+						<li>2. On the courier please write the proper charity name and their <span>"Address"</span>
+						</li>
+						<li>4. Email us in detials : <span>donation@Celestial.org</span></li>
+						<li>5. Contact us at Phone: <span>+91-11-41716555, Mob: +91 8130088239</span></li>
+					</ul>
+
+				</div>
+
+			<br><br><br><br><br>
+				<div class="offline-donation">
+					<h4 class="mb-5">In order to make an offline donationwe ask that you please follow these instructions:
+					</h4>
+
+					<ul class="list-unstyled">
+						<li>1. Make a check payable to <span>"Charite"</span></li>
+						<li>2. On the memo line of the check, please indicate that the donation is for <span>"Charite"</span>
+						</li>
+						<li>3. Please mail your check to:
+
+							<address>
+								Celestial charity
+								North Madras.
+								Tamil Nadu,639004
+							</address>
+						</li>
+						<li>4. Email us in detials : <span>donation@chareti.org</span></li>
+						<li>5. Contact us at Phone: <span>+91-11-41716555, Mob: +91 8130088239</span></li>
+					</ul>
+
+					<p>All contributions will be gratefully acknowledged and are tax deductible.</p>
+				</div>
+			
+				
+			</div>
+			
+		</div>
+	</div>
+</section>
+<!-- Section About End -->
+<!-- footer Start -->
+
+<footer class="footer">
+    <div class="blocks">
+      <div class="foot_logo foot_divs">
+        <div class="title footer_head">
+          <p>Charityforpoor</p>
+        </div>
+        <div class="foot_quote">
+          <span class="first_line">&#8220;IT'S NOT HOW MUCH WE GIVE</span><br />
+          <span class="second_line">BUT HOW MUCH WE PUT INTO GIVING&#8221;</span><br />
+          <div class="name">
+            <span class="author">--Mother Theresa</span><span class="material-symbols-outlined"> cardiology
+            </span><br />
+          </div>
+        </div>
+      </div>
+      <div class="left_foot foot_divs">
+        <div class="foot_text footer_head">
+          <h4>GET IN TOUCH</h4>
+        </div>
+        <div class="footer_form">
+          <form action="" method="post">
+            <label for="news_letter" id="news_letter_label">Subscribe for our NewsLetter</label><br />
+            <div class="foot_input">
+              <input type="text" placeholder="Name" class="news_letter" />
+            </div>
+            <div class="foot_input">
+              <input type="email" name="news_email" id="news_letter" class="news_letter"
+                placeholder="Email id" /><button type="submit" class="sign-in-btn">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="center_foot foot_divs">
+        <div class="footer_head foot_text">
+          <h5>USEFUL LINKS</h5>
+        </div>
+        <ul class="center_list">
+          <li>Terms and Conditions</li>
+          <li>Events</li>
+          <li>Community</li>
+          <li>Your Account</li>
+          <li>Support Request</li>
+        </ul>
+      </div>
+      <div class="right_foot foot_divs">
+        <div class="followus">
+          <div class="foot_text text">Follow Us</div>
+          <div class="icons">
+            <ul class="icon_list">
+              <li>
+                <a href="#" class="text-white"><i class="fa-brands fa-facebook me-2 fa-1x"></i></a>
+              </li>
+              <li>
+                <a href="#" class="text-white"><i class="fa-brands fa-whatsapp mx-2 fa-1x"></i></a>
+              </li>
+              <li>
+                <a href="#" class="text-white"><i class="fa-brands fa-youtube mx-2 fa-1x"></i></a>
+              </li>
+              <li>
+                <a href="#" class="text-white"><i class="fa-brands fa-instagram mx-2 fa-1x"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="contact_us">
+          <div class="foot_text text">Contact us</div>
+          <div class="phone_num">
+            <span class="material-symbols-outlined"> call </span>
+            <span>1223-456-7890</span>
+          </div>
+          <div class="email">
+            <span class="material-symbols-outlined"> Mail </span>
+            <span>summer@trustit.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p id="copyright-p">&copy; 2022 Copyright <a href="#">The make life better</a></p>
+    </div>
+  </footer>
+
+
+  
+    <script src="donation.js"></script>
+
+
+  </body>
+  </html>

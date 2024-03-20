@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+*,*::after,*::before{
+   margin :0px;
+   padding :0px;
+   box-sizing: border-box;
+}
+input,button{
+        font:inherit;	
+}
+@font-face {
+    font-family: 'csc';
+    src: url(../fonts/CarosSoft.otf)format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.title {
+    font-size: 1.5rem;
+    font-family: 'csc', serif;
+    font-weight: 600;
+    color:#f1f1f1;
+    font-weight: bold;
+    text-wrap: nowrap;
+    
+    
+
+}.head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    position:sticky;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    min-width: 100vw;
+    width: 100%;
+    background-color:#262626;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navlink:hover   a{
+    cursor: pointer;
+    transform: Scale(1.1);
+    
+
+}.left {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    margin-left: 2rem; 
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    width: 100%;
+    align-self: center;
+    margin-right: 4rem;         
+    height: inherit;
+    gap: 20px;
+    
+
+}.navlink  a {
+    color:#f1f1f1;
+    font-size: 1rem!important;
+    text-decoration: none;
+    font-weight:500;
+    letter-spacing: 1px;
+    font-family: "Titillium Web", sans-serif;
+
+
+
+}
+
+#logo {
+    object-fit: cover;
+}
+.navlink {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    text-decoration: none;
+    color:#1C0118;
+    font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:600;
+  font-style: normal;
+  
+}
+.us_title p{
+    font-family: "Poppins";
+    font-size: 2rem;
+    color: #222020;
+    width: 95vw;
+    letter-spacing: 1.5px;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border-left: #f5c92b solid 5px;
+    margin: 0.3rem;
+
+}
+
+.paras{
+    text-indent:150px;
+    break-inside: avoid;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial;
+    padding: 1rem;
+    padding-left:2rem;
+}
+.about_us{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content:center;
+    flex-direction: column;
+    gap: 35px;
+    margin-top: 50px;
+}
+.testimonials{
+    
+        
+        margin-top: 50px;
+        height:70vh;
+        
+        
+
+    
+}
+.story{
+    display: flex;
+    gap: 60px;
+    flex-direction: column;
+}
+
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+.active{
+    opacity: 1;
+    transform: translateY(0px);
+}.dot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    position: absolute;
+    left: 45%;
+    bottom: 20px;
+}.slider{
+    position: relative !important;
+    min-width: 100vw;
+    height: 60vh;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden; 
+    white-space: nowrap;
+    margin-top: 2rem;
+    
+
+}
+.slider .img img{
+    display: inline-block;
+    width: 100%;
+}
+.img {
+    width: inherit;
+    height: inherit;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+    background-position: top;
+
+}
+
+.img img:hover {
+    background-blend-mode: hard-light;
+    background-position: center;
+    cursor: pointer;
+
+}
+.dots .material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 700,
+        'GRAD' 0,
+        'opsz' 24;
+    font-size: 15px;
+    color: #fff;
+}
+.slider .img img{
+    display: inline-block;
+    width: 100%;
+}
+.img {
+    width: inherit;
+    height: inherit;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+    background-position: top;
+
+}
+
+.img img:hover {
+    background-blend-mode: hard-light;
+    background-position: center;
+    cursor: pointer;
+
+}
+.dots .material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 700,
+        'GRAD' 0,
+        'opsz' 24;
+    font-size: 15px;
+    color: #fff;
+}
+
+
+.test_container{
+    background-color: #fff;
+    width: 100vw;
+    margin: auto;
+    padding: 5% 5%;
+}
+.content{
+    background-color: #fff;
+    width: 500px;
+    padding:30px;
+    text-align: center;
+    border-radius: 30px;
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+}
+.text-content {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.text-content p{
+    line-height: 1.8;
+    font-size: 1rem;
+    text-indent: 50px;
+    font-family: "Poppins";
+
+}
+.text-content h2{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family:"Montserrat" ;
+}
+
+.owl-theme .owl-controls{
+    margin-top:150px;
+    margin-left: 30px;
+
+}
+
+.item{
+    margin: 1rem;
+}
+
+.owl-dots{
+    text-align: center;
+    margin-top: 3%;
+
+}
+
+.owl-dot{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    opacity: 0.8;
+    border-radius: 50%;
+    margin: 0 50px;
+}
