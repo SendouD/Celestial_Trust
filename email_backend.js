@@ -7,19 +7,19 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-async function success() {
+async function success(recieverID,amount) {
   
   const info = await transporter.sendMail({
     from: '"ik " <inthrakumar.a22@iiits.com>', 
-    to:'jayaram.v22@iiits.in', 
-    subject: "Hello ✔", 
-    text: "",
+    to:`${recieverID}`, 
+    subject: "Confirmation of Donation ", 
+    text: `Your Donation of RS ${amount} is successful the receipt is attached with this Mail . Thank You for being a part of making a change :>`,
   });
-  success();
+  
 
   console.log("Message sent: %s", info.messageId);
 }
-success();
+
 
 async function newsletter() {
   
@@ -45,3 +45,4 @@ async function failure() {
   console.log("Message sent: %s", info.messageId);
 }
 // failure();
+module.exports = { success };

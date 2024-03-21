@@ -28,12 +28,7 @@
 	<div class="head">
 		<div class="left">
 		  <div class="logo">
-			<img
-			  id="logo"
-			  src="../images/logo.png"
-			  alt=""
-			  style="width: 50px; height: 50px; padding-top: 10px"
-			/>
+		
 		  </div>
   
 		  <div class="title">
@@ -84,7 +79,7 @@
 					<h2 class="text-md mb-5">I want to support you</h2>
 					<p class="mb-6 is-size-5">Soluta odit consequuntur adipisci consectetur culpa sequi exercitationem molestias dolores saepe, aut, ratione quam recusandae nulla. Beatae eius, voluptas.</p>
 
-					<form class="donation-form">
+					<form class="donation-form"  action="/donate" method="POST">
 						<fieldset>
 							<div class="columns is-multiline">
 								<label class="column is-3 has-text-weight-bold h3">Donation</label>
@@ -114,7 +109,7 @@
 									<div class="columns is-align-items-center">
 										<label class="column has-text-weight-bold is-4">Other amount: </label>
 										<div class="column is-8">
-											<input type="number" class="input" id="inputamount" placeholder="25000">
+											<input type="number" class="input" id="inputamount" placeholder="25000" name="donationAmount">
 										</div>
 									</div>
 								</div>
@@ -190,7 +185,7 @@
 							<div class="columns is-multiline">
 								<div class="column is-4-desktop is-6-tablet">
 									<label class="has-text-weight-bold is-inline-block mb-1">Bank</label>
-									<select id="inputmonth" class="input">
+									<select id="inputmonth" class="input" >
 										<option selected>Choose...</option>
 										<option>SBI</option>
 										<option>Canara</option>
@@ -239,14 +234,14 @@
 						<div class="columns is-gapless is-align-items-center is-multiline">
 							<label class="column is-3-desktop has-text-weight-bold">Your Name</label>
 							<div class="column is-9-desktop">
-								<input type="text" class="input" id="inputname" placeholder="Your Name">
+								<input type="text" class="input" id="inputname" placeholder="Your Name" name="name">
 							</div>
 						</div>
 
 						<div class="columns is-gapless is-align-items-center is-multiline">
 							<label class="column is-3-desktop has-text-weight-bold">Email</label>
 							<div class="column is-9-desktop">
-								<input type="email" class="input" id="inputEmail3" placeholder="Email">
+								<input type="email" class="input" id="inputEmail3" placeholder="Email" name="email">
 							</div>
 						</div>
 
@@ -254,14 +249,14 @@
 						<div class="columns is-gapless is-align-items-center is-multiline">
 							<label class="column is-3-desktop has-text-weight-bold">Phone</label>
 							<div class="column is-9-desktop">
-								<input type="number" class="input" id="inputphone" placeholder="Phone">
+								<input type="number" class="input" id="inputphone" placeholder="Phone" name="phone">
 							</div>
 						</div>
 
 						<div class="columns is-gapless is-align-items-center is-multiline">
 							<label class="column is-3-desktop has-text-weight-bold">Country</label>
 							<div class="column is-9-desktop">
-								<select id="inputState" class="input">
+								<select id="inputState" class="input" name="country">
 									<option selected>Choose Country</option>
 									<option>USA</option>
 									<option>Italy</option>
@@ -277,14 +272,14 @@
 						<div class="columns is-gapless is-align-items-center is-multiline">
 							<label class="column is-3-desktop has-text-weight-bold">Address</label>
 							<div class="column is-9-desktop">
-								<input type="text" class="input" id="inputname2" placeholder="Your Name">
+								<input type="text" class="input" id="inputname2" placeholder="Your Name" name="address">
 							</div>
 						</div>
 
 						<div class="columns is-gapless is-align-items-center is-multiline">
 							<label class="column is-3-desktop has-text-weight-bold">City</label>
 							<div class="column is-9-desktop">
-								<input type="text" class="input" id="inputname3" placeholder="Your Name">
+								<input type="text" class="input" id="inputname3" placeholder="Your Name" name="city">
 							</div>
 						</div>
 
@@ -294,7 +289,7 @@
 							</div>
 							<div class="column is-9-desktop">
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="gridCheck135">
+									<input class="form-check-input" type="checkbox" id="gridCheck135" name="anonymous">
 									<label class="form-check-label" for="gridCheck135">
 										Hide my personal info from donators list
 									</label>
@@ -304,7 +299,7 @@
 						<div class="columns is-gapless is-align-items-center is-multiline">
 							<div class="column sm-12">
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="gridCheck232">
+									<input class="form-check-input" type="checkbox" id="gridCheck232" name="consent">
 									<label class="form-check-label" for="gridCheck232">
 										I give my <span class="has-text-weight-bold">consent for authorized representatives</span>
 										of Smile Foundation to contact me occasionally by mobile and email for informing on the
@@ -316,7 +311,7 @@
 
 						<div class="columns is-gapless is-multiline mt-4">
 							<div class="column sm-10">
-								<a class="btn btn-main-2 is-rounded" id="donate-btn">Donate Now</a>
+								<button class="btn btn-main-2 is-rounded" id="donate-btn" type="submit">Donate Now</button>
 							</div>
 						</div>
 					</form>
