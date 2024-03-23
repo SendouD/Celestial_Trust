@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container" id="main">
+      <div class="sign-up">
+        <form action="/signup" method="post">
+          <h1>Trust Create Account</h1>
+          <!--<div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>-->
+
+          <p>Use your email for registration.</p>
+          <input type="text" name="txt" placeholder="Trust-Name" required />
+          <input type="email" name="email" placeholder="Trust-Email" required />
+          <input
+            type="number"
+            name="trust_no"
+            id="trust_id"
+            placeholder="Trust-Identification-Number"
+            required
+          />
+          <span class="file-label">Verification Documents</span>
+
+          <input
+            type="file"
+            name="t_docs"
+            placeholder="Trust_verification_docs"
+            required
+            multiple
+          />
+
+          <input
+            list="indian_states"
+            name="indian_state"
+            id="states_list"
+            placeholder="Trust State"
+          />
+          <datalist id="indian_states">
+            <option value="Andhra Pradesh"></option>
+            <option value="Arunachal Pradesh"></option>
+            <option value="Assam"></option>
+            <option value="Bihar"></option>
+            <option value="Chhattisgarh"></option>
+            <option value="Goa"></option>
+            <option value="Gujarat"></option>
+            <option value="Haryana"></option>
+            <option value="Himachal Pradesh"></option>
+            <option value="Jharkhand"></option>
+            <option value="Karnataka"></option>
+            <option value="Kerala"></option>
+            <option value="Madhya Pradesh"></option>
+            <option value="Maharashtra"></option>
+            <option value="Manipur"></option>
+            <option value="Meghalaya"></option>
+            <option value="Mizoram"></option>
+            <option value="Nagaland"></option>
+            <option value="Odisha"></option>
+            <option value="Punjab"></option>
+            <option value="Rajasthan"></option>
+            <option value="Sikkim"></option>
+            <option value="Tamil Nadu"></option>
+            <option value="Telangana"></option>
+            <option value="Tripura"></option>
+            <option value="Uttar Pradesh"></option>
+            <option value="Uttarakhand"></option>
+            <option value="West Bengal"></option>
+            <option value="Andaman and Nicobar Islands"></option>
+            <option value="Chandigarh"></option>
+            <option value="Dadra and Nagar Haveli"></option>
+            <option value="Daman and Diu"></option>
+            <option value="Lakshadweep"></option>
+            <option value="Delhi"></option>
+            <option value="Puducherry"></option>
+          </datalist>
+
+          <input
+            type="password"
+            name="trust_pass"
+            id="t_pass"
+            placeholder="Enter the new Password"
+            required
+          />
+
+          <button>Sign Up</button>
+        </form>
+      </div>
+      <div class="sign-in">
+        <form action="/login" method="post">
+          <h1>Trust Log in</h1>
+          <!--<div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>-->
+          <input
+            type="email"
+            name="email"
+            placeholder="Trust Email"
+            required=""
+          />
+          <input
+            type="password"
+            name="pswd"
+            placeholder="Trust Password"
+            required=""
+          />
+          <a href="#">Forgot your Password?</a>
+          <button>Log In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>Login With Trust Credentials</p>
+            <button id="signIn">Log In</button>
+          </div>
+          <div class="overlay-right">
+            <h1>Hello, User</h1>
+            <p>Enter your Trust details and start the journey with us!</p>
+            <button id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/t_script.js"></script>
+  </body>
+</html>
