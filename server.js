@@ -81,6 +81,12 @@ app.post('/register', async (req, res) => {
 });
 
 
+
+
+
+
+
+
 // login
 app.post('/login', async (req, res) => {
   const { email,pswd} = req.body;
@@ -144,6 +150,15 @@ app.post('/donate', async (req, res) => {
     res.status(500).send('Error saving donation');
   }
 });
+
+
+
+
+
+
+
+
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
