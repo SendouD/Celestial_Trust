@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 const donate=require('./routes/donate');
 const login=require('./routes/login');
 const {register,User}=require('./routes/register')
-
+const volunteer=require('./routes/volunteer')
 
 
 
@@ -18,6 +18,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(bodyParser.json());
+
 
 
 
@@ -39,7 +40,7 @@ db.once('open', () => {
 
 
 app.get('/', (req, res) => {
-  return res.redirect('/login-sign.html');
+  return res.redirect('/volunteer.html');
 });
 
 
@@ -48,9 +49,7 @@ app.get('/', (req, res) => {
 app.use("/donate",donate)
 app.use("/login",login)
 app.use("/register",register)
-
-
-
+app.use("/volunteer",volunteer)
 
 
 
