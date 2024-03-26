@@ -1,17 +1,9 @@
 const express=require("express");
 let register= express.Router();
 const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
+const User=require('../Models/User_schema')
 
 
-const usersSchema = new mongoose.Schema({
-    username: String,
-    email: String,
-    phonenumber: Number,
-    password: String
-  });
-  
-const User = mongoose.model('User', usersSchema);
 
 
 register.route('/').post(async (req, res) => {
@@ -38,4 +30,4 @@ register.route('/').post(async (req, res) => {
     }
   });
 
-module.exports={register,User}
+module.exports=register

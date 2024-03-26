@@ -1,13 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const Mailsender = require('./routes/email_backend');
+const Mailsender = require('./controller/email_backend');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const donate=require('./routes/donate');
-const login=require('./routes/login');
-const {register,User}=require('./routes/register')
-const volunteer=require('./routes/volunteer')
+const donate=require('./controller/donate');
+const login=require('./controller/login');
+const register=require('./controller/register')
+const volunteer=require('./controller/volunteer_form')
 
 
 
@@ -16,7 +16,7 @@ const volunteer=require('./routes/volunteer')
 const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('views'));
 app.use(bodyParser.json());
 
 

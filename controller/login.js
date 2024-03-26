@@ -1,8 +1,7 @@
 const express=require("express");
 let login= express.Router();
 const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
-const {register,User}=require("./register")
+const User=require('../Models/User_schema')
 
   
 

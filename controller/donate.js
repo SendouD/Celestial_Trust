@@ -2,21 +2,22 @@ const express=require("express");
 let donate= express.Router();
 const Mailsender = require('./email_backend');
 const mongoose = require('mongoose');
+const Donation=require('../Models/Donation_schema')
 
 
-const donationSchema = new mongoose.Schema({
-  donationAmount: Number,
-  paymentMethod: String,
-  name: String,
-  email: String,
-  phone: String,
-  country: String,
-  address: String,
-  city: String,
-  anonymous: Boolean,
-  consent: Boolean
-});
-const Donation = mongoose.model('Donation', donationSchema);
+// const donationSchema = new mongoose.Schema({
+//   donationAmount: Number,
+//   paymentMethod: String,
+//   name: String,
+//   email: String,
+//   phone: String,
+//   country: String,
+//   address: String,
+//   city: String,
+//   anonymous: Boolean,
+//   consent: Boolean
+// });
+// const Donation = mongoose.model('Donation', donationSchema);
 
 donate.route("/").post(async (req, res) => {
     console.log("hii");
