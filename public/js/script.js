@@ -219,13 +219,3 @@ login.addEventListener('submit', async (event) => {
 
 
 
-// setInterval(imagechanger,4000);
-
-
-// Get the slider element
-
-
-
-
-
-
