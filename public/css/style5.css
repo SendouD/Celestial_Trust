@@ -1,0 +1,48 @@
+/* Styles for dropdown */
+.navlink {
+    position: relative;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Optional: include this line to ensure padding and border are included in element's total width and height */
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #262626;
+    box-shadow: 2px 5px 25px rgb(21, 21, 21);
+    border-radius: 5px;
+    padding: 2.5px 7px;
+    width: 150px;
+    display: none;
+    margin-left: 0px;
+    
+}
+
+.dropdown li {
+    list-style: none;
+}
+
+#dropdown-list-choice{
+    color: black !important;
+}
+
+.navlink:hover .dropdown {
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background-color: gray;
+    border-radius: 5px;
+}

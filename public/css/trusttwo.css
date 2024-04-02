@@ -1,0 +1,48 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.trust-info {
+    display: grid;
+    grid-template-columns: 60% 1fr;
+    height: 800px;
+}
+
+.trust-content-btn {
+    padding: 100px;
+    display: grid;
+    grid-template-rows: 80% 1fr;
+    background-color: rgb(231, 231, 231);
+}
+
+.trust-content {
+    font-size: 30px;
+}
+
+.donate-btn {
+    border: none;
+    font-size: 20px;
+    padding: 20px 40px;
+    border-radius: 40px;
+    margin-left: 10px;
+    background-color: #f9c11b;
+    transition: all 0.15s ease-in;
+    margin-top: 40px;
+}
+
+.donate-btn:hover {
+    background-color: #f9c11beb;
+    color: white;
+}
+
+.photo {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

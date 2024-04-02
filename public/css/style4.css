@@ -1,0 +1,160 @@
+/* dont disturb this page */
+/* dont disturb this page */
+/* dont disturb this page */
+/* dont disturb this page */
+/* dont disturb this page */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Optional: include this line to ensure padding and border are included in element's total width and height */
+}
+
+ul {
+  list-style: none;
+
+  margin: 0px;
+  padding: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+ul li {
+  display: inline-block;
+  position: relative;
+}
+
+ul li a {
+  display: block;
+
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+}
+
+ul li ul.GI li {
+  display: block;
+}
+
+ul li ul.GI {
+  width: 100%;
+  background: #31363F;
+  position: absolute;
+  border-radius: 5px;
+  z-index: 1;
+  display: none;
+}
+
+
+.user-choice-dropdown {
+  padding: 5px 10px;
+
+}
+
+ul li.user-choice-dropdown:hover {
+  background: #7b7c7e;
+  border-radius: 5px;
+}
+
+ul li:hover ul.GI {
+  display: block;
+  background-color: #fff;
+  color: black;
+}
+
+#dropdown-a-tag {
+  color: #000;
+  text-decoration: none;
+}
+
+/* dont disturb this page */
+/* dont disturb this page */
+/* dont disturb this page */
+/* dont disturb this page */
+/* dont disturb this page */
+/* dont disturb this page */
+/* dont disturb this page */
+/* dont disturb this page */
+
+nav {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  width: 250px;
+}
+
+.navigation {
+  position: fixed;
+  right: -500px;
+  width: 350px;
+  height: 100%;
+  background-color: #262626;
+  transition: .5s;
+  z-index: 500000000000000000000000000000000000000;
+  font-family: "Poppins";
+}
+
+.navigation ul li {
+  color: #fff;
+  text-align: right;
+  text-transform: uppercase;
+  list-style-type: none;
+  font-size: 1em;
+  padding: 20px 30px;
+  border-bottom: 1pt solid #252525;
+}
+
+.hamburger,
+.bar {
+  position: sticky;
+  z-index: 50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+}
+
+.hamburger {
+  display: block;
+  top: 6.5%;
+  left: 95%;
+  width: 22px;
+  height: 6px;
+  transform: translateY(-50%);
+  border: 0;
+  background: 0 0;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.bar {
+  top: 3px;
+  background: #fff;
+  width: 100%;
+  height: 2px;
+  transition: all .3s ease-in;
+}
+
+#bar2 {
+  top: 9px;
+}
+
+#bar3 {
+  top: 15px;
+}
+
+.navigation.active {
+  right: 0;
+}
+
+.hamburger.open #bar1 {
+  background-color: #fff;
+  transform: rotate(45deg) translate(6px, 5px);
+}
+
+.hamburger.open #bar2 {
+  background-color: transparent;
+}
+
+.hamburger.open #bar3 {
+  background-color: #fff;
+  transform: rotate(-45deg) translate(6px, -5px);
+}

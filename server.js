@@ -1,57 +1,54 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const Mailsender = require('./controller/email_backend');
-const cors = require('cors');
-const bcrypt = require('bcrypt');
-const donate=require('./controller/donate');
-const login=require('./controller/login');
-const register=require('./controller/register')
-const volunteer=require('./controller/volunteer_form')
-
-
-
-
-
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const app = express();
+
+const Mailsender = require("./controller/email_backend");
+const cors = require("cors");
+const path = require("path");
+const ejs = require("ejs");
+const cookie = require("cookie-parser");
+app.use(cookie());
+
+const bcrypt = require("bcrypt");
+const donate = require("./controller/donate");
+const account = require("./controller/account");
+const login = require("./controller/login");
+const register = require("./controller/register");
+const volunteer = require("./controller/volunteer_form");
+app.use(express.static(path.join(process.cwd(), "public")));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+console.log(path.join(__dirname, "views"));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('views'));
 app.use(bodyParser.json());
+app.use(express.json());
 
-
-
-
-
-// database connection
-mongoose.connect('mongodb://127.0.0.1:27017/your_database', {
+mongoose.connect("mongodb://127.0.0.1:27017/your_database", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB database successfully');
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", () => {
+  console.log("Connected to MongoDB database successfully");
 });
 
-
-
-
-
-app.get('/', (req, res) => {
-  return res.redirect('/volunteer.html');
+app.get("/", (req, res) => {
+  if (req.cookies.cookie) {
+    return res.render("index", { signin: "Logout" });
+  } else {
+    return res.render("index", { signin: "Signin" });
+  }
 });
 
-
-
-// routes
-app.use("/donate",donate)
-app.use("/login",login)
-app.use("/register",register)
-app.use("/volunteer",volunteer)
-
-
+app.use("/donate", donate);
+app.use("/login", login);
+app.use("/register", register);
+app.use("/volunteer", volunteer);
+app.use("/account", account);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

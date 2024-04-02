@@ -1,6 +1,5 @@
 # Project Name: CelestialTrust
-
-Welcome to CelestialTrust, an innovative web application designed to streamline charitable donations by providing a centralized platform for various charitable organizations. CelestialTrust is built using Node.js and follows the Model-View-Controller (MVC) architecture, ensuring a structured and maintainable codebase.
+keep ur ejs files in views middlewares in middlewares folder css,js and respectiveimages in the public folder.
 
 # Project Overview:
 
