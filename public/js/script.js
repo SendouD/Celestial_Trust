@@ -187,8 +187,12 @@ document.addEventListener("DOMContentLoaded", () => {
           "Content-Type": "application/json",
         },
       });
-      console.log(response.ok);
-      window.location.href = "/"; // Reset the form fields
+      console.log(response.status);
+      if(response.ok){
+        window.location.href = "/";
+      }
+      
+       // Reset the form fields
     } catch (error) {
       console.error("Error:", error);
     }
@@ -197,4 +201,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 donate_btn.addEventListener("click", function (e) {
   window.location.href = "/donate";
+});
+
+const volunteer_btn = document.getElementById("volunteer-btn");
+volunteer_btn.style.backgroundColor="blue"
+volunteer_btn.addEventListener("click", function (e) {
+  console.log("janan")
+  window.location.href = "/volunteer";
+  
 });

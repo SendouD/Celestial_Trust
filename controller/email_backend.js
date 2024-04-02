@@ -36,7 +36,7 @@ async function newsletter() {
 
 async function failure() {
   const info = await transporter.sendMail({
-    from: '"ik 👻" <inthrakumar.a22@iiits.com>',
+    from: '"ik " <inthrakumar.a22@iiits.com>',
     to:'jananathan.m22@iiits.in',
     subject: "Hello ✔",
     text: "Your Payment has not been accepted due to some circumstancial issues. Please try again",
