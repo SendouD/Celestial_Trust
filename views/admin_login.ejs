@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container" id="main">
+      
+      <div class="sign-in">
+        <form id="login">
+          <h1>Log in</h1>
+          <!--<div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>-->
+          <input type="email" name="email" placeholder="Enter the Admin Email" required="" />
+          <input
+            type="password"
+            name="pswd"
+            placeholder="Enter the Password"
+            required=""
+          />
+          <a href="#">Forgot your Password?</a>
+          <button>Log In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>
+              Give Your Credentials to Login as Admin
+            </p>
+            <button id="signIn">Log In</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

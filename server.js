@@ -52,5 +52,5 @@ app.use("/account", account);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`server is running in http://localhost:3000/`);
 });

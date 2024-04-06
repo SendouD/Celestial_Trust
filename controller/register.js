@@ -12,8 +12,13 @@ register.route("/").post(async (req, res) => {
     // If the email already exists, send a response indicating the conflict
     return res.status(409).send("Email already exists");
   }
+  if(req.body.newpassword===" "||req.body.newpassword===""||req.body.newpassword!==req.body.repass){
+    console.log("err");
+    return res.status(409).send("");
+  }
   const hashedpassword = await bcrypt.hash(req.body.newpassword, 10);
   const newUser = new User({
+    name:req.body.name,
     username: req.body.username,
     email: req.body.email,
     phonenumber: req.body.phno,
@@ -27,7 +32,7 @@ register.route("/").post(async (req, res) => {
     });
     res.cookie("id", newUser._id, { maxAge: 7 * 24 * 60 * 60 * 1000 });
 
-    res.status(200).redirect("/");
+     return res.status(200).redirect("/");
   } catch (err) {
     console.log(err);
   }

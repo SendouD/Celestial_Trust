@@ -2,9 +2,19 @@ const express = require("express");
 let login = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../Models/User_schema");
+const cookie = require("cookie-parser");
+const jsonwebtoken_verification = require("./jwt_verification");
+login.use(cookie());
 
 login.route("/").get((req, res) => {
-  res.render("user_login");
+  if(req.cookies.cookie && req.cookies.id){
+    res.clearCookie('cookie');
+    res.clearCookie('id');
+    res.render("index",{signin:"Signin"});
+    
+  }else{
+    res.render("user_login");
+  }
 });
 login.route("/").post(async (req, res) => {
   const { email, pswd } = req.body;
@@ -17,8 +27,11 @@ login.route("/").post(async (req, res) => {
       const passwordMatch = await bcrypt.compare(pswd, user.password);
 
       if (passwordMatch) {
-        console.log("logged in");
-        return res.status(200).redirect("/");
+        res.cookie("cookie", jsonwebtoken_verification.setuser(user), {
+          maxAge: 7 * 24 * 60 * 60 * 1000,
+        });
+        res.cookie("id", user._id, { maxAge: 7 * 24 * 60 * 60 * 1000 });
+        res.render("index",{signin:"Logout"})
       } else {
         res.status(401).json({ message: "Incorrect email or password" });
       }
