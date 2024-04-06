@@ -277,3 +277,12 @@ datalist option:hover {
     border-color: #007bff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
 }
+
+#user_redirection a{
+    text-decoration: none;
+    padding: 0.5rem;
+}
+#user_redirection a:hover{
+    text-decoration: underline;
+    padding: 0.5rem;
+}

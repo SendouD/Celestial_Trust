@@ -16,6 +16,8 @@ const account = require("./controller/account");
 const login = require("./controller/login");
 const register = require("./controller/register");
 const volunteer = require("./controller/volunteer_form");
+const admin=require("./controller/admin/admin");
+const trust=require("./controller/trust/trust")
 app.use(express.static(path.join(process.cwd(), "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -49,6 +51,8 @@ app.use("/login", login);
 app.use("/register", register);
 app.use("/volunteer", volunteer);
 app.use("/account", account);
+app.use("/trust",trust);
+app.use("/admin",admin);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
