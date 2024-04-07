@@ -1,8 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
 const app = express();
-
+require('./mongodb');
 const Mailsender = require("./controller/email_backend");
 const cors = require("cors");
 const path = require("path");
@@ -27,16 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/your_database", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-db.once("open", () => {
-  console.log("Connected to MongoDB database successfully");
-});
 
 app.get("/", (req, res) => {
   if (req.cookies.cookie) {
