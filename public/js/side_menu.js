@@ -1,5 +1,4 @@
 function show() {
-  console.log("svjzflj");
   document.querySelector(".hamburger").classList.toggle("open");
   document.querySelector(".navigation").classList.toggle("active");
 }

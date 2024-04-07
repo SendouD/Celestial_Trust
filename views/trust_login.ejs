@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="./css/login.css" />
+    <link rel="stylesheet" type="text/css" href="./css/trust_login.css" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -14,7 +14,7 @@
   <body>
     <div class="container" id="main">
       <div class="sign-up">
-        <form action="/signup" method="post">
+        <form id="sign-up-form">
           <h1>Trust Create Account</h1>
           <!--<div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -26,11 +26,18 @@
           <input type="text" name="txt" placeholder="Trust-Name" required />
           <input type="email" name="email" placeholder="Trust-Email" required />
           <input
-            type="number"
+            type="text"
             name="trust_no"
             id="trust_id"
             placeholder="Trust-Identification-Number"
             required
+          />
+          <input
+            type="tel"
+            name="phno"
+            placeholder="Phone Number"
+            required=""
+            maxlength="10"
           />
           <span class="file-label">Verification Documents</span>
 
@@ -93,15 +100,25 @@
             placeholder="Enter the new Password"
             required
           />
+          <input
+            type="password"
+            name="re_trust_pass"
+            id="r_t_pass"
+            placeholder="Enter the new Password"
+            required
+          />
 
-          <button>Sign Up</button>
+          <button id="sign-up-btn">Sign Up</button>
+          <p class="successregister" style="display: none">
+            *Registration successful
+          </p>
           <div id="user_redirection">
             Login in as <a href="/admin">Admin</a><a href="/login">User</a>
           </div>
         </form>
       </div>
       <div class="sign-in">
-        <form action="/login" method="post">
+        <form action="/trust/data/login" method="post">
           <h1>Trust Log in</h1>
           <!--<div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -121,7 +138,7 @@
             required=""
           />
           <a href="#">Forgot your Password?</a>
-          <button>Log In</button>
+          <button type="submit">Log In</button>
           <div id="user_redirection">
             Login in as <a href="/admin">Admin</a><a href="/login">User</a>
           </div>
@@ -143,5 +160,7 @@
         </div>
       </div>
     </div>
+    <script src="./js/script.js"></script>
+    <script src="./js/trust_main_script.js"></script>
   </body>
 </html>
