@@ -4,17 +4,13 @@ const successMessage=document.getElementsByClassName("successregister")[0];
 trust_btn.addEventListener('click',async(event)=>{
     event.preventDefault();
     const formData = new FormData(trust_form);
-    const res = Object.fromEntries(formData);
-    const payload = JSON.stringify(res);
-    console.log(payload);
+    
     try {
         console.log("start");
         const response = await fetch("/trust/data/signup", {
           method: "POST",
-          body: payload,
-          headers: {
-            "Content-Type": "application/json",
-          },
+          body: formData,
+          
         });
         console.log("end");
         console.log(response.ok);
