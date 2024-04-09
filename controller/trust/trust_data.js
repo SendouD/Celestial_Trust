@@ -1,10 +1,20 @@
 const database = require("../../Models/Trust_Schema");
 const express = require("express");
 let route = express.Router();
+require("dotenv").config();
 const bcrypt = require("bcrypt");
 const cookie = require("cookie-parser");
 const jsonwebtoken_verification = require("../jwt_verification");
+const multer=require("multer");
+const {s3uploadV2}=require('../aws_file_upload');
+
 route.use(cookie());
+const storage = multer.memoryStorage();
+
+const upload = multer({
+  storage,
+  limits: { fileSize: 1000000000},
+});
 route.post("/login", async (req, res) => {
   const { email, pswd } = req.body;
 
@@ -33,7 +43,7 @@ route.post("/login", async (req, res) => {
   }
 });
 
-route.post("/signup", async (req, res) => {
+route.post("/signup",upload.single('t_docs'), async (req, res) => {
   const existing_trust = await database.findOne({ email: req.body.email });
   if (existing_trust) {
     // If the email already exists, send a response indicating the conflict
@@ -47,6 +57,8 @@ route.post("/signup", async (req, res) => {
     console.log("err");
     return res.status(409).send("Enter  Trust password correctly");
   }
+  const result=await s3uploadV2(req.file);
+  console.log("done");
   const hashedpassword = await bcrypt.hash(req.body.trust_pass, 10);
   const newTrustdetail = new database({
     name: req.body.txt,
