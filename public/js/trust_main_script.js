@@ -1,8 +1,14 @@
 const trust_btn=document.getElementById("sign-up-btn");
 const trust_form=document.getElementById("sign-up-form");
 const successMessage=document.getElementsByClassName("successregister")[0];
+const loader = document.querySelector(".loader");
+const container = document.querySelector(".container");
+console.log(loader);
+
 trust_btn.addEventListener('click',async(event)=>{
     event.preventDefault();
+    loader.style.display='block';
+    container.style.display='none';
     const formData = new FormData(trust_form);
     
     try {
@@ -24,5 +30,8 @@ trust_btn.addEventListener('click',async(event)=>{
         }
       } catch (error) {
         console.error("Error:", error);
+      }finally{
+        loader.style.display='none';
+        container.style.display='block';
       }
 })

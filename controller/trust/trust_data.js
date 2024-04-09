@@ -45,9 +45,11 @@ route.post("/login", async (req, res) => {
 
 route.post("/signup",upload.single('t_docs'), async (req, res) => {
   const existing_trust = await database.findOne({ email: req.body.email });
+  console.log(req.body);
+  console.log(existing_trust);
   if (existing_trust) {
     // If the email already exists, send a response indicating the conflict
-    return res.status(409).send("Trust Email already exists");
+     res.status(409).send("Trust Email already exists");
   }
   if (
     req.body.trust_pass === " " ||
@@ -55,7 +57,7 @@ route.post("/signup",upload.single('t_docs'), async (req, res) => {
     req.body.trust_pass !== req.body.re_trust_pass
   ) {
     console.log("err");
-    return res.status(409).send("Enter  Trust password correctly");
+     res.status(409).send("Enter  Trust password correctly");
   }
   const result=await s3uploadV2(req.file);
   console.log("done");
