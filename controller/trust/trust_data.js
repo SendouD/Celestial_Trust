@@ -7,6 +7,7 @@ const cookie = require("cookie-parser");
 const jsonwebtoken_verification = require("../jwt_verification");
 const multer=require("multer");
 const {s3uploadV2}=require('../aws_file_upload');
+const trust_verify=require('../../middlewares/trust_check');
 
 route.use(cookie());
 const storage = multer.memoryStorage();
@@ -43,14 +44,8 @@ route.post("/login", async (req, res) => {
   }
 });
 
-route.post("/signup",upload.single('t_docs'), async (req, res) => {
-  const existing_trust = await database.findOne({ email: req.body.email });
-  console.log(req.body);
-  console.log(existing_trust);
-  if (existing_trust) {
-    // If the email already exists, send a response indicating the conflict
-     res.status(409).send("Trust Email already exists");
-  }
+route.post("/signup",trust_verify,upload.single('t_docs'), async (req, res) => {
+  
   if (
     req.body.trust_pass === " " ||
     req.body.re_trsut_pass === "" ||
@@ -71,7 +66,6 @@ route.post("/signup",upload.single('t_docs'), async (req, res) => {
     password:hashedpassword,
   });
   try {
-    console.log(newTrustdetail);
     const newTrustdetail_info = await newTrustdetail.save();
     res.cookie("cookie", jsonwebtoken_verification.setuser(newTrustdetail), {
       maxAge: 7 * 24 * 60 * 60 * 1000,
