@@ -22,11 +22,15 @@ trust_btn.addEventListener('click',async(event)=>{
         console.log(response.ok);
   
         if (response.ok) {
-          successMessage.style.display = "block"; 
-          trust_form.reset();
-          window.location.href = "/"; 
+          successMessage.style.display = "block"; // Show success message
+          registerForm.reset();
+          window.location.href = "/"; // Reset the form fields
         } else {
-          console.error("Registration failed");
+          if(confirm("Email already exists !!!! Login Again")){
+            window.location.href = "/login";
+            registerForm.reset();
+          }
+          
         }
       } catch (error) {
         console.error("Error:", error);

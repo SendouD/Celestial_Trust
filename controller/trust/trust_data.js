@@ -44,14 +44,18 @@ route.post("/login", async (req, res) => {
   }
 });
 
-route.post("/signup",trust_verify,upload.single('t_docs'), async (req, res) => {
+route.post("/signup",upload.single('t_docs'), async (req, res) => {
+  const existingUser = await database.findOne({ email: req.body.email });
+  if (existingUser) {
+    // If the email already exists, send a response indicating the conflict
+    return res.status(409).send("Email already exists");
+  }
   
   if (
     req.body.trust_pass === " " ||
     req.body.re_trsut_pass === "" ||
     req.body.trust_pass !== req.body.re_trust_pass
   ) {
-    console.log("err");
      res.status(409).send("Enter  Trust password correctly");
   }
   const result=await s3uploadV2(req.file);

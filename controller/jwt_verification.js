@@ -1,5 +1,6 @@
 const js = require("jsonwebtoken");
-const secret = "celestial";
+require("dotenv").config();
+const secret = `${process.env.JWT_SECRET}`;
 function setuser(user) {
   return js.sign(
     {

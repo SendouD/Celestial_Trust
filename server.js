@@ -10,6 +10,7 @@ const cookie = require("cookie-parser");
 app.use(cookie());
 
 const bcrypt = require("bcrypt");
+const about=require("./controller/about")
 const donate = require("./controller/donate");
 const account = require("./controller/account");
 const login = require("./controller/login");
@@ -63,6 +64,7 @@ app.use("/volunteer", volunteer);
 app.use("/account", account);
 app.use("/trust",trust);
 app.use("/admin",admin);
+app.use("/about",about);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
