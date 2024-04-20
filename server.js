@@ -29,10 +29,30 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-  if (req.cookies.cookie) {
-    return res.render("index", { signin: "Logout" });
-  } else {
-    return res.render("index", { signin: "Signin" });
+  const role=req.cookies.role;
+  if(!role){
+    if (req.cookies.cookie) {
+      return res.render("index", { signin: "Logout" });
+    } else {
+      return res.render("index", { signin: "Signin" });
+    }
+  }else{
+    if(role==="admin"){
+      if (req.cookies.cookie) {
+        return res.render("admin_index", { signin: "Logout" });
+      } else {
+        return res.render("admin_index", { signin: "Signin" });
+      }
+      
+
+    }else{
+      if (req.cookies.cookie) {
+        return res.render("trust_index", { signin: "Logout" });
+      } else {
+        return res.render("trust_index", { signin: "Signin" });
+      }
+
+    }
   }
 });
 

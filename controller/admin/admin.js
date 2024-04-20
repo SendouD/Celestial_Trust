@@ -16,10 +16,10 @@ route.post("/", (req, res) => {
     res.cookie("cookie", jsonwebtoken_verification.setuser(req.body.email), {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
-    res.cookie("id",req.body.email+"admin" , { maxAge: 7 * 24 * 60 * 60 * 1000 });
-    res.cookie("role",bcrypt.hash(req.body.email,5), { maxAge: 7 * 24 * 60 * 60 * 1000 });
+    res.cookie("id",req.body.email , { maxAge: 7 * 24 * 60 * 60 * 1000 });
+    res.cookie("role","admin", { maxAge: 7 * 24 * 60 * 60 * 1000 });
 
-    res.render("index", { signin: "Logout" });
+    res.redirect("/");
   }
 });
 module.exports = route;
