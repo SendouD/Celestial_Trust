@@ -78,23 +78,9 @@ ul li:hover ul.GI {
 /* dont disturb this page */
 /* dont disturb this page */
 
-nav {
-  position: absolute;
-  top: 100px;
-  right: 50px;
-  width: 250px;
-}
 
-.navigation {
-  position: fixed;
-  right: -500px;
-  width: 350px;
-  height: 100%;
-  background-color: #262626;
-  transition: .5s;
-  z-index: 500000000000000000000000000000000000000;
-  font-family: "Poppins";
-}
+
+
 
 .navigation ul li {
   color: #fff;
@@ -106,55 +92,8 @@ nav {
   border-bottom: 1pt solid #252525;
 }
 
-.hamburger,
-.bar {
-  position: sticky;
-  z-index: 50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
-}
 
-.hamburger {
-  display: block;
-  top: 6.5%;
-  left: 95%;
-  width: 22px;
-  height: 6px;
-  transform: translateY(-50%);
-  border: 0;
-  background: 0 0;
-  margin-top: 5px;
-  margin-left: 10px;
-}
 
-.bar {
-  top: 3px;
-  background: #fff;
-  width: 100%;
-  height: 2px;
-  transition: all .3s ease-in;
-}
 
-#bar2 {
-  top: 9px;
-}
 
-#bar3 {
-  top: 15px;
-}
 
-.navigation.active {
-  right: 0;
-}
-
-.hamburger.open #bar1 {
-  background-color: #fff;
-  transform: rotate(45deg) translate(6px, 5px);
-}
-
-.hamburger.open #bar2 {
-  background-color: transparent;
-}
-
-.hamburger.open #bar3 {
-  background-color: #fff;
-  transform: rotate(-45deg) translate(6px, -5px);
-}

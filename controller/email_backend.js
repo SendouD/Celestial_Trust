@@ -1,16 +1,17 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "inthrakumar.a22@iiits.in",
-    pass: "wvef uhhv enyk thop",
+    user: `${process.env.EMAIL_ID}`,
+    pass: `${process.env.EMAIL_PASS}`,
   },
 });
 
 async function success(recieverID,amount) {
   
   const info = await transporter.sendMail({
-    from: '"ik " <inthrakumar.a22@iiits.com>', 
+    from: `"ik " <${process.env.EMAIL_ID}>`, 
     to:`${recieverID}`, 
     subject: "Confirmation of Donation ", 
     text: `Your Donation of RS ${amount} is successful the receipt is attached with this Mail . Thank You for being a part of making a change :>`,
@@ -24,7 +25,7 @@ async function success(recieverID,amount) {
 async function newsletter() {
   
   const info = await transporter.sendMail({
-    from: '"ik " <inthrakumar.a22@iiits.com>', 
+    from: `"ik " <${process.env.EMAIL_ID}>`, 
     to: 'jananathan.m22@iiits.in',
     subject: "Hello ✔", 
     text: "Congratulation You Will be receiving a newsletter from our side, based on our ongoing projects", // plain text body
@@ -36,7 +37,7 @@ async function newsletter() {
 
 async function failure() {
   const info = await transporter.sendMail({
-    from: '"ik " <inthrakumar.a22@iiits.com>',
+    from: `"ik " <${process.env.EMAIL_ID}>`,
     to:'jananathan.m22@iiits.in',
     subject: "Hello ✔",
     text: "Your Payment has not been accepted due to some circumstancial issues. Please try again",
@@ -45,4 +46,4 @@ async function failure() {
   console.log("Message sent: %s", info.messageId);
 }
 // failure();
-module.exports = { success };
+module.exports = { success,failure,newsletter};

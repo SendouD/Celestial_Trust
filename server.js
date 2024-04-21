@@ -10,6 +10,7 @@ const cookie = require("cookie-parser");
 app.use(cookie());
 
 const bcrypt = require("bcrypt");
+const about=require("./controller/about")
 const donate = require("./controller/donate");
 const account = require("./controller/account");
 const login = require("./controller/login");
@@ -30,10 +31,30 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-  if (req.cookies.cookie) {
-    return res.render("index", { signin: "Logout" });
-  } else {
-    return res.render("index", { signin: "Signin" });
+  const role=req.cookies.role;
+  if(!role){
+    if (req.cookies.cookie) {
+      return res.render("index", { signin: "Logout" });
+    } else {
+      return res.render("index", { signin: "Signin" });
+    }
+  }else{
+    if(role==="admin"){
+      if (req.cookies.cookie) {
+        return res.render("admin_index", { signin: "Logout" });
+      } else {
+        return res.render("admin_index", { signin: "Signin" });
+      }
+      
+
+    }else{
+      if (req.cookies.cookie) {
+        return res.render("trust_index", { signin: "Logout" });
+      } else {
+        return res.render("trust_index", { signin: "Signin" });
+      }
+
+    }
   }
 });
 
@@ -44,7 +65,11 @@ app.use("/volunteer", volunteer);
 app.use("/account", account);
 app.use("/trust",trust);
 app.use("/admin",admin);
+<<<<<<< HEAD
 app.use("/trustInfo",trustInfo);
+=======
+app.use("/about",about);
+>>>>>>> 668a728ea7f98595a5ee17001bd440035b73a2a6
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

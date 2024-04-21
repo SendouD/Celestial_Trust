@@ -12,10 +12,7 @@ register.route("/").post(async (req, res) => {
     // If the email already exists, send a response indicating the conflict
     return res.status(409).send("Email already exists");
   }
-  if(req.body.newpassword===" "||req.body.newpassword===""||req.body.newpassword!==req.body.repass){
-    console.log("err");
-    return res.status(409).send("Enter pasword correctly");
-  }
+  
   const hashedpassword = await bcrypt.hash(req.body.newpassword, 10);
   const newUser = new User({
     name:req.body.name,

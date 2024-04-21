@@ -7,8 +7,10 @@ const donate_btn = document.getElementById("donate-btn");
 let v = 1;
 // Get the slider element
 
-console.log("hiii");
-
+function show() {
+  document.querySelector(".hamburger").classList.toggle("open");
+  document.querySelector(".navigation").classList.toggle("active");
+}
 var revelance = () => {
   var reveals = document.querySelectorAll(".reveal");
   for (var i = 0; i < reveals.length; i++) {
@@ -162,7 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
         registerForm.reset();
         window.location.href = "/"; // Reset the form fields
       } else {
-        console.error("Registration failed");
+        if(confirm("Email already exists !!!! Login Again")){
+          window.location.href = "/login";
+          registerForm.reset();
+        }
+        
       }
     } catch (error) {
       console.error("Error:", error);
