@@ -70,7 +70,7 @@ body {
 
 .body-photo {
     height: 80vh;
-    background-image: url('./images/gallery/1.jpg');
+    background-image: url('../images/1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -222,8 +222,6 @@ button:hover {
     /* Company name color */
     font-weight: bold;
     text-wrap: nowrap;
-
-
 }
 
 .head {
@@ -308,4 +306,38 @@ button:hover {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+}
+
+.trust-hyperlinks {
+    display: flex  ;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color:#333;
+    font-size: 17px;
+}
+
+.t-hy {
+    padding: 0px 7px;
+    text-decoration: underline;
+    border-radius: 5px;
+    color: white;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.t-hy:hover {
+    background-color:#f9c11b;
+    text-decoration: none;
+    color: black;
+}
+
+.t-hy1 {
+    text-decoration: none;
+}
+
+.searches_trust {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

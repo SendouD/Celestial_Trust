@@ -5,7 +5,6 @@ donate_btn.addEventListener('click',async(e)=>{
     const email = document.getElementById('inputEmail3');
     console.log(email.value);
     
-
 })
 
 

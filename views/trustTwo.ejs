@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="./project_display1.css"> -->
 
 
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/style1.css">
-    <link rel="stylesheet" href="/style2.css">
-    <link rel="stylesheet" href="/style5.css">
-    <link rel="stylesheet" href=/about.css">
-    <link rel="stylesheet" href="/trustone.css">
-    <link rel="stylesheet" href="/trusttwo.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style1.css">
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/style5.css">
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="/css/trustone.css">
+    <link rel="stylesheet" href="/css/trusttwo.css">
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,0,0" />
@@ -84,13 +84,9 @@
         </div>
         <div class="trust-content-btn">
             <div class="trust-content">
-                <h2>Child Education Trust:</h2>
+                <h2><%= trust.name %></h2>
                 <p>
-                    Join us at the Child Education Trust in our mission to provide every child, regardless of
-                    background, with the opportunity to thrive through education. We believe that education is the key
-                    to unlocking a brighter future, and we're dedicated to offering scholarships, resources, and support
-                    to underprivileged children. Together, we can ensure that every child has access to quality
-                    education and the chance to reach their full potential.
+                    <%= trust.about2 %>
                 </p>
             </div>
             <div>
