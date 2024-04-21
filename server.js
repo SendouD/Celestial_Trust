@@ -2,12 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 require('./mongodb');
-const Mailsender = require("./controller/email_backend");
 const cors = require("cors");
 const path = require("path");
 const ejs = require("ejs");
 const cookie = require("cookie-parser");
 app.use(cookie());
+require("dotenv").config()
 
 const bcrypt = require("bcrypt");
 const about=require("./controller/about")
@@ -68,7 +68,7 @@ app.use("/admin",admin);
 app.use("/trustInfo",trustInfo);
 app.use("/about",about);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`server is running in http://localhost:3000/`);
 });
