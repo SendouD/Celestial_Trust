@@ -3,7 +3,7 @@ require("dotenv").config();
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: `${process.env.EMAIL_ID}`,
+    user: `${process.env.EMAIL_ID}.in`,
     pass: `${process.env.EMAIL_PASS}`,
   },
 });
@@ -37,7 +37,7 @@ async function newsletter() {
 
 async function failure() {
   const info = await transporter.sendMail({
-    from: `"ik " <${process.env.EMAIL_ID}>`,
+    from: `"ik " <${process.env.EMAIL_ID}.com>`,
     to:'jananathan.m22@iiits.in',
     subject: "Hello ✔",
     text: "Your Payment has not been accepted due to some circumstancial issues. Please try again",
