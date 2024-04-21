@@ -10,7 +10,6 @@ let name2 = "Elder"
 t_info.route("/")
     .get(async(req,res) => {
         let str = '';
-        let str1 = '';
         let length;
         try {
             if(flag1 === 1)
@@ -18,9 +17,11 @@ t_info.route("/")
             else if(type1 === 'All')
                 await trustInfo.find({}).then((data) => trusts = data);
             else
-                await trustInfo.find({trust_type : type1}).then((data) => trusts = data);
-            if(trusts.length === 0)
+                await trustInfo.find({trust_types : { $in: [type1] }}).then((data) => trusts = data);
+            if(trusts.length === 0){
                 await trustInfo.find({}).then((data) => trusts = data); 
+                console.log("No trusts found!");
+            }
             length = trusts.length;
             for(let i=1;i<(length/4)+1;i++) str = str + '<div class="t-hy hyp'+i+'">'+i+'</div>';
             res.render("trustOne",{ trust1 : trusts[(4*(page_no-1))%length] , trust2 : trusts[(1+4*(page_no-1))%length] , trust3 : trusts[(4*(page_no-1)+2)%length] , trust4 : trusts[(4*(page_no-1)+3)%length] , hyperlinks : str});

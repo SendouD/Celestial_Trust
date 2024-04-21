@@ -65,11 +65,8 @@ app.use("/volunteer", volunteer);
 app.use("/account", account);
 app.use("/trust",trust);
 app.use("/admin",admin);
-<<<<<<< HEAD
 app.use("/trustInfo",trustInfo);
-=======
 app.use("/about",about);
->>>>>>> 668a728ea7f98595a5ee17001bd440035b73a2a6
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

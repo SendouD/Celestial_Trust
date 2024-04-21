@@ -4,8 +4,8 @@ const TrustInfoSchema = new mongoose.Schema({
     name: String,
     about1: String,
     about2: String, 
-    trust_unique_no:String,
-    trust_type: String,
+    trust_unique_no: String,
+    trust_types: [String],
 });
 
 const Trust_Info = mongoose.model("TrustInfo", TrustInfoSchema);
