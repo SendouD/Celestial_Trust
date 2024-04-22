@@ -28,6 +28,7 @@ donate.route("/").post(async (req, res) => {
   console.log("hii");
   console.log(req.body);
   const newDonation = new Donation({
+    
     donationAmount: req.body.donationAmount,
     paymentMethod: req.body.paymentMethod,
     name: req.body.name,
@@ -44,7 +45,7 @@ donate.route("/").post(async (req, res) => {
     const savedDonation = await newDonation.save();
     Mailsender.success(savedDonation.email, savedDonation.donationAmount);
     console.log("success");
-    res.status(200).redirect("confirmation.html");
+    res.status(200).redirect("confirmation");
   } catch (error) {
     console.error(error);
     console.log("error");

@@ -1828,6 +1828,12 @@ h3.quote::before {
  
 }
 
+.dropdown__content_items{
+  display: none;
+ 
+}
+
+
 .donation-wrap{
   padding-bottom: 90px;
 }

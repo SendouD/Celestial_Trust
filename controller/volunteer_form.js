@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const volunteerdata=require('../Models/volunteer_schema')
 
 // Route to handle form submission
-volunteer.route('/').post( async (req, res) => {
+volunteer.route('/').get(async(req,res)=>{res.render('volunteer')}).post( async (req, res) => {
     try {
         // Create a new instance of volunteerdata model with data from the request body
         const newvolunteerdata = new volunteerdata({
