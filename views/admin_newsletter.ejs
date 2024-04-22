@@ -1,0 +1,69 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/admin_newsletter.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="us_title">
+      <p>News Letter</p>
+    </div>
+
+    <div class="news_letter_form">
+      <form action="/admin/news_letter"method="post" role="form" >
+        <div class="mb-3">
+          <label for="week_number" class="form-label">Week Number</label>
+          <input
+            type="number"
+            class="form-control email"
+            id="week_number"
+            name="week_no"
+            aria-describedby="emailHelp"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="subject_email" class="form-label"
+            >Subject Of The News Letter</label
+          >
+          <input type="text" class="form-control sub" id="subject_email" name="sub" required/>
+        </div>
+        <div class="mb-3">
+            <div class="form-floating">
+                <textarea
+                    class="form-control textarea"
+                    id="floatingTextarea2"
+                    name="text"
+                    style="height: 50vh"
+                    required
+                ></textarea>
+                <label for="floatingTextarea2">Content of the News_letter</label>
+            </div>
+            
+        </div>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+      </form>
+    </div>
+    <div class="quote-section">
+        <blockquote class="quote">
+            "The only way to do great work is to love what you do."
+            <footer class="blockquote-footer">Steve Jobs</footer>
+        </blockquote>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="/js/admin_newsletter"></script>
+  </body>
+</html>

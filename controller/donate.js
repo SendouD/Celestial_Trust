@@ -43,7 +43,7 @@ donate.route("/").post(async (req, res) => {
 
   try {
     const savedDonation = await newDonation.save();
-    Mailsender.success(savedDonation.email, savedDonation.donationAmount);
+    Mailsender.doantion_success(savedDonation.email, savedDonation.donationAmount);
     console.log("success");
     res.status(200).redirect("confirmation");
   } catch (error) {

@@ -18,8 +18,8 @@
 
   <title>Volunteer Form</title>
 
-  <link rel="stylesheet" href="bulma/bulma.min.css">
-  <link rel="stylesheet" href="css/donation.css">
+  <link rel="stylesheet" href="/bulma/bulma.min.css">
+  <link rel="stylesheet" href="/css/donation.css">
 
 </head>
 
@@ -156,6 +156,10 @@
 				<h2 class="mb-5 text-md">Become A Volunteer</h2>
 				<form action="/volunteer" class="volunteer-form" method="POST">
 					<div class="mb-4">
+						<label for="Trust_name" class="label"> <a href="/trustinfo">Not sure about the Trust?</a><label>
+						<input type="text" class="input" placeholder="Trust Name" name="Trust_name" value = "<%- trust_name %>" style="font-weight: 700;" disabled>
+					</div>
+					<div class="mb-4">
 						<input type="text" class="input" placeholder="Full Name" name="full_name">
 					</div>
 					<div class="mb-4">
@@ -167,11 +171,14 @@
 					<div class="mb-4">
 						<input type="text" class="input" placeholder="Address" name="address">
 					</div>
-					<!-- <div class="mb-4">
-						<input type="text" class="input" placeholder="Occupation" name="occupation">
-					</div> -->
 					<div class="mb-4">
-						<textarea name="message" id="#" cols="30" rows="6" class="input" placeholder="Your Message"></textarea>
+						<label for="date_name" class="label">You will volunteer from:</label>
+						<input type="date" id="date_name" name="start_date">
+						<input type="date" id="date_name" name="end_date">
+					</div>
+					
+					<div class="mb-4">
+						<textarea name="message" id="#" cols="30" rows="4" class="input" placeholder="Your Message"></textarea>
 					</div>
 				
 					<button type="submit" class="btn btn-main-2 is-rounded mt-3">Send Message</button>
@@ -294,7 +301,11 @@
     <script src="plugins/google-map/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>    
     
-    <script src="js/script.js"></script>
+
+
+
+
+    <script src="/js/script.js"></script>
 
   </body>
   </html>

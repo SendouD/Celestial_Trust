@@ -37,7 +37,7 @@ async function newsletter() {
 
 async function failure() {
   const info = await transporter.sendMail({
-    from: `"ik " <${process.env.EMAIL_ID}.com>`,
+    from: `"ik " <${process.env.EMAIL_ID}>`,
     to:'jananathan.m22@iiits.in',
     subject: "Hello ✔",
     text: "Your Payment has not been accepted due to some circumstancial issues. Please try again",
@@ -45,5 +45,25 @@ async function failure() {
 
   console.log("Message sent: %s", info.messageId);
 }
+
+
+async function volunteer(recieverID){
+  const mailOptions =await transporter.sendMail({
+    from: `"ik " <${process.env.EMAIL_ID}.com>`,
+    to: `${recieverID}`, // Use the email obtained from the form
+    subject: 'Thank you for volunteering!',
+    text: 'Thank you for your interest in volunteering with us. We will get back to you soon.'
+});
+
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+      console.error('Error sending email:', error);
+  } else {
+      console.log('Email sent:', info.response);
+  }
+});
+
+}
+
 // failure();
-module.exports = { success,failure,newsletter};
+module.exports = { success,failure,newsletter,volunteer};
