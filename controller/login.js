@@ -10,6 +10,9 @@ login.route("/").get((req, res) => {
   if(req.cookies.cookie && req.cookies.id){
     res.clearCookie('cookie');
     res.clearCookie('id');
+    if(req.cookies.role){
+      res.clearCookie('role');
+    }
     res.render("index",{signin:"Signin"});
     
   }else{
