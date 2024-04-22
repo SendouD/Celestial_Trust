@@ -5,16 +5,17 @@ require("dotenv").config();
 const bcrypt = require("bcrypt");
 const cookie = require("cookie-parser");
 const jsonwebtoken_verification = require("../jwt_verification");
-const multer=require("multer");
-const {s3uploadV2}=require('../aws_file_upload');
-const trust_verify=require('../../middlewares/trust_check');
+const multer = require("multer");
+const { s3uploadV2, getobjecturl } = require('../aws_file_upload');
+const trust_verify = require('../../middlewares/trust_check');
+const trust_file = require("../../Models/Trust_files");
 
 route.use(cookie());
 const storage = multer.memoryStorage();
 
 const upload = multer({
   storage,
-  limits: { fileSize: 1000000000},
+  limits: { fileSize: 1000000000 },
 });
 route.post("/login", async (req, res) => {
   const { email, pswd } = req.body;
@@ -44,30 +45,36 @@ route.post("/login", async (req, res) => {
   }
 });
 
-route.post("/signup",upload.single('t_docs'), async (req, res) => {
+route.post("/signup", upload.single('t_docs'), async (req, res) => {
   const existingUser = await database.findOne({ email: req.body.email });
   if (existingUser) {
     // If the email already exists, send a response indicating the conflict
     return res.status(409).send("Email already exists");
   }
-  
+
   if (
     req.body.trust_pass === " " ||
     req.body.re_trsut_pass === "" ||
     req.body.trust_pass !== req.body.re_trust_pass
   ) {
-     res.status(409).send("Enter  Trust password correctly");
+    res.status(409).send("Enter  Trust password correctly");
   }
-  const result=await s3uploadV2(req.file);
-  console.log("done");
+  new Promise((resolve, reject) => {
+   s3uploadV2(req.file, req.body.trust_no, process.env.TRUST_VERIFY_BUCKET);
+    const url =  getobjecturl(process.env.TRUST_VERIFY_BUCKET, req.body.trust_no);
+     trust_file.create(
+      { trust_no: req.body.trust_no, signed_url: url }
+    );
+    resolve(true);
+  })
   const hashedpassword = await bcrypt.hash(req.body.trust_pass, 10);
   const newTrustdetail = new database({
     name: req.body.txt,
-    state:req.body.indian_state ,
-    trust_unique_no:req.body.trust_no,
+    state: req.body.indian_state,
+    trust_unique_no: req.body.trust_no,
     email: req.body.email,
     phonenumber: req.body.phno,
-    password:hashedpassword,
+    password: hashedpassword,
   });
   try {
     const newTrustdetail_info = await newTrustdetail.save();
@@ -83,4 +90,4 @@ route.post("/signup",upload.single('t_docs'), async (req, res) => {
   }
 });
 
-module.exports=route;
+module.exports = route;

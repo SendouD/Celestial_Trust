@@ -23,12 +23,11 @@ trust_btn.addEventListener('click',async(event)=>{
   
         if (response.ok) {
           successMessage.style.display = "block"; // Show success message
-          registerForm.reset();
+          console.log("came here");
           window.location.href = "/"; // Reset the form fields
         } else {
           if(confirm("Email already exists !!!! Login Again")){
             window.location.href = "/login";
-            registerForm.reset();
           }
           
         }
