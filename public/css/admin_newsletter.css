@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.us_title p {
+    font-family: "Poppins";
+    font-size: 2rem;
+    color: #222020;
+    width: 95vw;
+    letter-spacing: 1.5px;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border-left: #f5c92b solid 5px;
+    margin: 0.3rem;
+
+}
+
+.news_letter_form{
+    padding: 2rem;
+}
+
+
+.email{
+    width: 50vw;
+}
+
+.sub{
+    width: 50vw;
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+label{
+    font-weight: 500;
+}
+
+
+.textarea{
+    height: 50vh !important;
+}
+
+.btn{
+    font: Roboto !important;
+    width: 10vw;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: space-evenly;
+}
+
+
+.quote-section {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5c92b;
+    color: #222020;
+}
+
+.quote {
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+    text-align: center;
+}

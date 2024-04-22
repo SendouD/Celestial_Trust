@@ -3,7 +3,7 @@ require('dotenv').config();
 const s3uploadV2=async(file)=>{
     const s3=new S3();
     const params={
-        Bucket:"ctrust" ,
+        Bucket:`${process.env.TRUST_VERIFY_BUCKET}` ,
         Key:`${file.originalname}`,
         Body:file.buffer
 
