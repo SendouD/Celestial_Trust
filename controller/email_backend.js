@@ -3,12 +3,12 @@ require("dotenv").config();
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: `inthrakumar.a22@iiits.in`,
-    pass: `ssoe xolm vssm hcwc`,
+    user: `${process.env.EMAIL_ID}.in`,
+    pass: `${process.env.EMAIL_PASS}`,
   },
 });
 
-async function donation_success(recieverID,amount) {
+async function success(recieverID,amount) {
   
   const info = await transporter.sendMail({
     from: `"ik " <${process.env.EMAIL_ID}>`, 
@@ -18,88 +18,52 @@ async function donation_success(recieverID,amount) {
   });
   
 
+  console.log("Message sent: %s", info.messageId);
 }
 
 
-async function newsletter(mail_id) {
+async function newsletter() {
   
   const info = await transporter.sendMail({
-    from: `"ik " inthrakumar.a22@iiits.com`, 
-    to: `${mail_id}`,
-    subject: "News Letter", 
+    from: `"ik " <${process.env.EMAIL_ID}>`, 
+    to: 'jananathan.m22@iiits.in',
+    subject: "Hello ✔", 
     text: "Congratulation You Will be receiving a newsletter from our side, based on our ongoing projects", // plain text body
   });
-  
 
+  console.log("Message sent: %s", info.messageId);
 }
 // newsletter();
 
-async function donation_failure() {
+async function failure() {
   const info = await transporter.sendMail({
-    from: `"ik " <${process.env.EMAIL_ID}.com>`,
+    from: `"ik " <${process.env.EMAIL_ID}>`,
     to:'jananathan.m22@iiits.in',
     subject: "Hello ✔",
     text: "Your Payment has not been accepted due to some circumstancial issues. Please try again",
   });
 
+  console.log("Message sent: %s", info.messageId);
 }
 
-async function donation_failure() {
-  const info = await transporter.sendMail({
+
+async function volunteer(recieverID){
+  const mailOptions =await transporter.sendMail({
     from: `"ik " <${process.env.EMAIL_ID}.com>`,
-    to:'jananathan.m22@iiits.in',
-    subject: "Hello ✔",
-    text: "Your Payment has not been accepted due to some circumstancial issues. Please try again",
-  });
+    to: `${recieverID}`, // Use the email obtained from the form
+    subject: 'Thank you for volunteering!',
+    text: 'Thank you for your interest in volunteering with us. We will get back to you soon.'
+});
+
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+      console.error('Error sending email:', error);
+  } else {
+      console.log('Email sent:', info.response);
+  }
+});
 
 }
 
-async function weekly_newsletter(to,week,sub,text) {
-  const info = await transporter.sendMail({
-    from: `"ik " <${process.env.EMAIL_ID}.com>`,
-    to:`${to}`,
-    subject: `${sub}`,
-    html: `<!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-      </head>
-      <body>
-        <div
-          class="mail"
-          style="
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-          "
-        >
-          <div
-            class="week_no"
-            style="
-              color: #222020;
-              margin: 0.3rem;
-              font-size: 1.5rem;
-              padding: 0.5rem;
-              padding-left: 1rem;
-              font-family: 'Times New Roman', Times, serif;
-            "
-          >
-            <p>Week no ${week}</p>
-          </div>
-          
-          <div class="text" style="width:70vw; font-size:1rem; font-family:Arial, Helvetica, sans-serif">
-            <p>
-              ${text}
-            </p>
-          </div>
-        </div>
-      </body>
-    </html>
-    `,
-  });
-
-}
-// donation_failure();
-module.exports = { donation_success,donation_failure,newsletter,weekly_newsletter};
+// failure();
+module.exports = { success,failure,newsletter,volunteer};

@@ -2,12 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 require('./mongodb');
+const Mailsender = require("./controller/email_backend");
 const cors = require("cors");
 const path = require("path");
 const ejs = require("ejs");
 const cookie = require("cookie-parser");
 app.use(cookie());
-require("dotenv").config()
 
 const bcrypt = require("bcrypt");
 const about=require("./controller/about")
@@ -19,7 +19,7 @@ const volunteer = require("./controller/volunteer_form");
 const admin=require("./controller/admin/admin");
 const trust=require("./controller/trust/trust");
 const trustInfo=require("./controller/trustInfo");
-const footer=require("./controller/footer");
+const confirmation=require("./controller/confirmation")
 app.use(express.static(path.join(process.cwd(), "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -62,19 +62,17 @@ app.get("/", (req, res) => {
 app.use("/donate", donate);
 app.use("/login", login);
 app.use("/register", register);
-app.use("/volunteer", volunteer);
+app.use("/trustInfo", volunteer);
 app.use("/account", account);
 app.use("/trust",trust);
 app.use("/admin",admin);
-
 app.use("/trustInfo",trustInfo);
 
 app.use("/about",about);
+app.use("/confirmation",confirmation);
 
-app.use("/footer",footer);
 
-
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`server is running in http://localhost:${process.env.PORT}/`);
+  console.log(`server is running in http://localhost:3000/`);
 });
