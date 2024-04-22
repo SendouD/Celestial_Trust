@@ -124,8 +124,8 @@ label {
 }
 
 .trust-display {
-    background-color: rgb(212, 212, 212);
     padding: 30px;
+    background-color: #c2c2c2;
 }
 
 #trust-type {
@@ -141,14 +141,15 @@ label {
 }
 
 .trust-window {
-    width: 550px;
-    height: 350px;
+    width: 650px;
+    height: 400px;
     margin: 20px 10px;
     padding: 25px;
-    border-radius: 40px;
     background-color: white;
-    background-repeat: no-repeat;
+    font-weight: bolder;
+    border-radius: 40px;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
@@ -167,7 +168,7 @@ button:hover {
 .window-content {
     height: 100%;
     width: 100%;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: white;
@@ -175,8 +176,28 @@ button:hover {
     font-weight: 700;
 }
 
+.content1,.content2,.content3,.content4 {
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
 
-.trust1:hover .c1,.trust2:hover .c2,.trust3:hover .c3,.trust4:hover .c4 {
+.con1,.con2,.con3,.con4 {
+    display: none;
+}
+
+.btns1,.btns2,.btns3,.btns4{
+    display: none;
+}
+
+.trust1, .trust2, .trust3, .trust4 {
+    position: relative;
+}
+
+.trust1:hover .con1,.trust2:hover .con2,.trust3:hover .con3,.trust4:hover .con4 {
+    display: flex;
+}
+
+.trust1:hover .btns1,.trust2:hover .btns2,.trust3:hover .btns3,.trust4:hover .btns4 {
     display: flex;
 }
 
@@ -185,6 +206,8 @@ button:hover {
     font-size: 20px;
     padding: 20px 40px;
     border-radius: 40px;
+    margin-left: 10px;
+    margin-top: 40px;
     background-color: white;
     transition: all 0.15s ease-in;
 }
