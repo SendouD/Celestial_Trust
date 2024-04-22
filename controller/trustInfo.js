@@ -2,6 +2,8 @@ const express = require("express");
 let t_info = express.Router();
 const mongoose = require("mongoose");
 const trustInfo = require("../Models/TrustInfo_schema");
+const donate_middleware = require("../middlewares/verify_login");
+const Donation = require("../Models/Donation_schema");
 var trusts;
 let type1 = 'All';
 let page_no = 1,flag1=0; 
@@ -29,8 +31,6 @@ t_info.route("/")
             console.log(error);
         }
     })
-
-t_info.route("/")
     .post( (req, res) => {
         const { type,num,name1,flag } = req.body;
         if(flag === 0) { type1 = type; page_no = 1; }
@@ -48,8 +48,44 @@ t_info.route("/:id")
         let trust;
         let trustId = req.params.id;
         await trustInfo.find({trust_unique_no : trustId}).then((data) => trust = data);
-        console.log(trust);
-        res.render("trustTwo", {trust : trust[0]});
+        res.render("trustTwo", {trust : trust[0],trustId : trustId});
+    })
+    .post( (req, res) => {
+        let trustId = req.params.id;
+        res.redirect("/trustInfo/"+trustId+"/volunteer");
+    });
+
+t_info.route("/:id/donate")
+  .all(donate_middleware)
+  .get((req, res) => {
+    res.render("donation");
+  })
+  .post(async (req, res) => {
+    console.log("hii");
+    console.log(req.body);
+    const newDonation = new Donation({
+        donationAmount: req.body.donationAmount,
+        paymentMethod: req.body.paymentMethod,
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        country: req.body.country,
+        address: req.body.address,
+        city: req.body.city,
+        anonymous: req.body.anonymous === "on",
+        consent: req.body.consent === "on",
+    });
+
+    try {
+        const savedDonation = await newDonation.save();
+        Mailsender.success(savedDonation.email, savedDonation.donationAmount);
+        console.log("success");
+        res.status(200).redirect("confirmation.html");
+    } catch (error) {
+        console.error(error);
+        console.log("error");
+        res.status(500).send("Error saving donation");
+    }
     });
 
 module.exports = t_info;

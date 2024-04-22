@@ -7,10 +7,14 @@ const btn = document.querySelector('.filter1');
 const btn1 = document.querySelector('.search1');
 const t_hyp = document.querySelectorAll('.t-hy');
 const searchbar = document.querySelector('.filter-by-type');
-const d_btn1 = document.querySelector('.btn1');
-const d_btn2 = document.querySelector('.btn2');
-const d_btn3 = document.querySelector('.btn3');
-const d_btn4 = document.querySelector('.btn4');
+const details_btn1 = document.querySelector('.btn1');
+const details_btn2 = document.querySelector('.btn2');
+const details_btn3 = document.querySelector('.btn3');
+const details_btn4 = document.querySelector('.btn4');
+const donate_btn1 = document.querySelector('.d_btn1');
+const donate_btn2 = document.querySelector('.d_btn2');
+const donate_btn3 = document.querySelector('.d_btn3');
+const donate_btn4 = document.querySelector('.d_btn4');
 const namesearchbar = document.querySelector('.search-by-name');
 
 let trustId;
@@ -68,24 +72,43 @@ async function fetch_post(flag){
     }
 }
 
-d_btn1.addEventListener('click',async() => {
+details_btn1.addEventListener('click',async() => {
     trustId = document.querySelector(".trust1_id").innerText;
     window.location.href = `/trustInfo/${trustId}`;
-    console.log("inside");
 });
 
-d_btn2.addEventListener('click',async() => {
+details_btn2.addEventListener('click',async() => {
     trustId = document.querySelector(".trust2_id").innerText;
     window.location.href = `/trustInfo/${trustId}`;
 });
 
-d_btn3.addEventListener('click',async() => {
+details_btn3.addEventListener('click',async() => {
     trustId = document.querySelector(".trust3_id").innerText;
     window.location.href = `/trustInfo/${trustId}`;
 });
 
-d_btn4.addEventListener('click',async() => {
+details_btn4.addEventListener('click',async() => {
     trustId = document.querySelector(".trust4_id").innerText;
     window.location.href = `/trustInfo/${trustId}`;
+});
+
+donate_btn1.addEventListener('click',async() => {
+    trustId = document.querySelector(".trust1_id").innerText;
+    window.location.href = `/trustInfo/${trustId}/donate`;
+});
+
+donate_btn2.addEventListener('click',async() => {
+    trustId = document.querySelector(".trust2_id").innerText;
+    window.location.href = `/trustInfo/${trustId}/donate`;
+});
+
+donate_btn3.addEventListener('click',async() => {
+    trustId = document.querySelector(".trust3_id").innerText;
+    window.location.href = `/trustInfo/${trustId}/donate`;
+});
+
+donate_btn4.addEventListener('click',async() => {
+    trustId = document.querySelector(".trust4_id").innerText;
+    window.location.href = `/trustInfo/${trustId}/donate`;
 });
 
