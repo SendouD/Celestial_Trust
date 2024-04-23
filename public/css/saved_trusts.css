@@ -1,0 +1,95 @@
+body {
+    margin: 0px;
+    border: none;
+    padding: 0px;
+}
+
+.saved-trust {
+    background-color: rgb(177, 177, 177);
+    height: 340px;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 5px 5px rgb(235, 235, 235);
+}
+
+.trust-img {
+    margin: 20px;
+    height: 300px;
+    width: 900px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.trust-info {
+    margin: 20px;
+    padding: 5px;
+    height: 270px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.trust-btns {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 10px;
+    height: 60px
+}
+
+.details-btn {
+    border: none;
+    font-size: 20px;
+    padding: 20px 40px;
+    border-radius: 40px;
+    margin-left: 10px;
+    margin-top: 40px;
+    background-color: white;
+    transition: all 0.15s ease-in;
+}
+
+.donate-btn {
+    border: none;
+    font-size: 20px;
+    padding: 20px 40px;
+    border-radius: 40px;
+    margin-left: 10px;
+    background-color: #f9c11b;
+    transition: all 0.15s ease-in;
+}
+
+.details-btn:hover {
+    cursor: pointer;
+    background-color: #5490c2;
+    color: white;
+}
+
+.donate-btn:hover {
+    cursor: pointer;
+    background-color: #f9c11beb;
+    color: white;
+}
+
+.delete-btn {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    transition: all 0.3s ease-in;
+}
+
+.delete-btn:hover {
+    cursor: pointer;
+    color: red;
+    border: 1px black;
+}
+
+.info-heading {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.info {
+    padding: 10px;
+}

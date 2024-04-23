@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/saved_trusts.css">
+</head>
+<body>
+    <% for(let i=0;i < trusts.length; i++) { %>
+        <div class="saved-trust">
+            <div class="trust-img">
+    
+            </div>
+            <div class="trust-info">
+                <div class="<%- trusts[i].trust_unique_no %>" style="display: flex; justify-content: flex-end;"><button class="delete-btn">&#10006;</button></div>
+                <div class="info" style="padding-top: 0px;"><span class="info-heading">Name: </span><%= trusts[i].name %></div>
+                <div class="info"><span class="info-heading">Trust Type: </span><%= trusts[i].trust_type %></div>
+                <div class="info"><span class="info-heading">Email: </span><%= trusts[i].email %></div>
+                <div class="info"><span class="info-heading">Phone No.: </span><%= trusts[i].phone_no %></div>
+                <div class="info"><span class="info-heading">Address: </span><%= trusts[i].address %></div>
+                <div class="trust-btns">
+                    <button class="details-btn">Details</button>
+                    <button class="donate-btn">Donate</button>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+    <script src="/js/savedtrusts.js"></script>
+</body>
+</html>

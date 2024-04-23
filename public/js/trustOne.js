@@ -15,9 +15,13 @@ const donate_btn1 = document.querySelector('.d_btn1');
 const donate_btn2 = document.querySelector('.d_btn2');
 const donate_btn3 = document.querySelector('.d_btn3');
 const donate_btn4 = document.querySelector('.d_btn4');
+const save_btn1 = document.querySelector('.s_btn1');
+const save_btn2 = document.querySelector('.s_btn2');
+const save_btn3 = document.querySelector('.s_btn3');
+const save_btn4 = document.querySelector('.s_btn4');
 const namesearchbar = document.querySelector('.search-by-name');
 
-let trustId;
+let trustId,trustId1;
 let type = 'All';
 let num = '1';
 let name1 = 'Child';
@@ -47,7 +51,27 @@ t_hyp.forEach(t_hy => {
         console.log(num);
         fetch_post(1);
     });
-})
+});
+
+save_btn1.addEventListener('click', () => {
+    trustId1 = document.querySelector(".trust1_id").innerText;
+    fetch_post(3);
+});
+
+save_btn2.addEventListener('click', () => {
+    trustId1 = document.querySelector(".trust2_id").innerText;
+    fetch_post(3);
+});
+
+save_btn3.addEventListener('click', () => {
+    trustId1 = document.querySelector(".trust3_id").innerText;
+    fetch_post(3);
+});
+
+save_btn4.addEventListener('click', () => {
+    trustId1 = document.querySelector(".trust4_id").innerText;
+    fetch_post(3);
+});
 
 async function fetch_post(flag){
     try {
@@ -56,7 +80,7 @@ async function fetch_post(flag){
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ type,num,name1,flag })
+            body: JSON.stringify({ type,num,name1,trustId1,flag })
         });
         console.log(response);
         

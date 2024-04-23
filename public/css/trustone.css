@@ -189,6 +189,10 @@ button:hover {
     display: none;
 }
 
+.s_btn1, .s_btn2, .s_btn3, .s_btn4 {
+    display: none;
+}
+
 .trust1, .trust2, .trust3, .trust4 {
     position: relative;
 }
@@ -198,6 +202,10 @@ button:hover {
 }
 
 .trust1:hover .btns1,.trust2:hover .btns2,.trust3:hover .btns3,.trust4:hover .btns4 {
+    display: flex;
+}
+
+.trust1:hover .s_btn1,.trust2:hover .s_btn2,.trust3:hover .s_btn3,.trust4:hover .s_btn4 {
     display: flex;
 }
 
@@ -230,6 +238,29 @@ button:hover {
 .donate-btn:hover {
     background-color: #f9c11beb;
     color: white;
+}
+
+.save-btn {
+    border: none;
+    height: 50px;
+    width: 50px;
+    margin-top: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.664);
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in;
+}
+
+.butns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.save-btn:hover {
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
 }
 
 .footer {
