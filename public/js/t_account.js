@@ -1,6 +1,7 @@
 
 const save_changes=document.getElementById("save_changes");
 const details=document.querySelectorAll(".detail_info p");
+console.log(save_changes);
 
 function toggleEditMode(event, fieldId) {
   event.preventDefault();
@@ -32,16 +33,21 @@ save_changes.addEventListener("click", async()=>{
   });
   const detail ={
     name:updatedDetails[0],
-    username:updatedDetails[1],
+    trust_unique_no:updatedDetails[1],
     phonenumber:updatedDetails[2], 
     state:updatedDetails[3],
     email:updatedDetails[4],
     address:updatedDetails[5],
-    contri_num:updatedDetails[6]
+    contri_received:updatedDetails[6],
+    Date_Joined:updatedDetails[7],
+  
+  
+
+
   }
   console.log(detail);
   
-  const result=await fetch("/account",{
+  const result=await fetch("/trust/account",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -50,7 +56,7 @@ save_changes.addEventListener("click", async()=>{
   })
   
   if(result.ok){
-    window.location.href="/account";
+    window.location.href="/trust/account";
   }else{
     console.log("error: ");
   }

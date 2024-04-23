@@ -17,7 +17,7 @@ route.get("/", verify, async (req, res) => {
     email: details.email,
     address: details.address,
   };
-
+  
   res.render("account", { user: newuser });
 });
 route.post("/",async(req, res)=>{

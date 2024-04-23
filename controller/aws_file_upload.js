@@ -2,7 +2,7 @@ const {S3}=require('aws-sdk');
 const {GetObjectCommand, S3Client }=require("@aws-sdk/client-s3");
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 require('dotenv').config();
-const client = new S3Client({});
+const client = new S3Client({region: 'eu-north-1'});
 const s3uploadV2=async(file,filename_of_file,bucket)=>{
     const s3=new S3();
     const params={
@@ -23,7 +23,13 @@ const getobjecturl=async(bucket,filename)=>{
         Key:`${filename}`
     });
     const result=await client.send(command);
-    const url = await getSignedUrl(client, command, { expiresIn:60*60*24*27 });
+    console.log("got in ");
+    let url;
+     await getSignedUrl(client, command, { expiresIn:60*60*24*7 }).then((data)=>{
+        console.log(data);
+        url=data;
+     });
+     console.log(url);
     return url;
 }
 

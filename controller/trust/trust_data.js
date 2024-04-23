@@ -59,14 +59,14 @@ route.post("/signup", upload.single('t_docs'), async (req, res) => {
   ) {
     res.status(409).send("Enter  Trust password correctly");
   }
-  new Promise((resolve, reject) => {
-   s3uploadV2(req.file, req.body.trust_no, process.env.TRUST_VERIFY_BUCKET);
-    const url =  getobjecturl(process.env.TRUST_VERIFY_BUCKET, req.body.trust_no);
+
+   await s3uploadV2(req.file, req.body.trust_no, process.env.TRUST_VERIFY_BUCKET);
+    const url =    await getobjecturl(process.env.TRUST_VERIFY_BUCKET, req.body.trust_no);
+    console.log(url);
      trust_file.create(
       { trust_no: req.body.trust_no, signed_url: url }
     );
-    resolve(true);
-  })
+   
   const hashedpassword = await bcrypt.hash(req.body.trust_pass, 10);
   const newTrustdetail = new database({
     name: req.body.txt,
@@ -78,7 +78,8 @@ route.post("/signup", upload.single('t_docs'), async (req, res) => {
   });
   try {
     const newTrustdetail_info = await newTrustdetail.save();
-    res.cookie("cookie", jsonwebtoken_verification.setuser(newTrustdetail), {
+    console.log(newTrustdetail_info);
+    res.cookie("cookie", jsonwebtoken_verification.setuser(newTrustdetail_info), {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.cookie("id", newTrustdetail._id, { maxAge: 7 * 24 * 60 * 60 * 1000 });

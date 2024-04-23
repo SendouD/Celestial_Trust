@@ -24,7 +24,7 @@ register.route("/").post(async (req, res) => {
   try {
     console.log(newUser);
     const newuserdetail = await newUser.save();
-    res.cookie("cookie", jsonwebtoken_verification.setuser(newUser), {
+    res.cookie("cookie", jsonwebtoken_verification.setuser(newuserdetail), {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.cookie("id", newUser._id, { maxAge: 7 * 24 * 60 * 60 * 1000 });
