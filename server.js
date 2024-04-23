@@ -19,7 +19,7 @@ const volunteer = require("./controller/volunteer_form");
 const admin=require("./controller/admin/admin");
 const trust=require("./controller/trust/trust");
 const trustInfo=require("./controller/trustInfo");
-const savedTrusts=require("./controller/saved_trusts");
+const confirmation=require("./controller/confirmation")
 app.use(express.static(path.join(process.cwd(), "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -70,6 +70,7 @@ app.use("/trustInfo",trustInfo);
 app.use("/savedTrusts",savedTrusts);
 
 app.use("/about",about);
+app.use("/confirmation",confirmation);
 
 
 const port = process.env.PORT || 3000;

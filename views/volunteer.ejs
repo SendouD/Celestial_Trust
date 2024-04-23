@@ -154,8 +154,9 @@
 			<div class="column is-6-desktop is-6-tablet">
 				<span class="text-color">Join With Us</span>
 				<h2 class="mb-5 text-md">Become A Volunteer</h2>
-				<form action="/volunteer" class="volunteer-form" method="POST">
+				<form action="/trustInfo/:id/volunteer" class="volunteer-form" method="POST">
 					<div class="mb-4">
+						
 						<label for="Trust_name" class="label"> <a href="/trustinfo">Not sure about the Trust?</a><label>
 						<input type="text" class="input" placeholder="Trust Name" name="Trust_name" value = "<%- trust_name %>" style="font-weight: 700;" disabled>
 					</div>
@@ -305,7 +306,7 @@
 
 
 
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 
   </body>
   </html>
