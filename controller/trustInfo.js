@@ -66,7 +66,7 @@ t_info.route("/")
             flag2 = 1;
             trust_id = trustId1;
         }
-        return res.status(200).redirect('/');
+        return res.status(200).redirect('/trustInfo');
     });
 
 t_info.route("/:id")
