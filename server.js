@@ -19,7 +19,8 @@ const volunteer = require("./controller/volunteer_form");
 const admin=require("./controller/admin/admin");
 const trust=require("./controller/trust/trust");
 const trustInfo=require("./controller/trustInfo");
-const confirmation=require("./controller/confirmation")
+const confirmation=require("./controller/confirmation");
+const savedTrusts=require("./controller/saved_trusts");
 app.use(express.static(path.join(process.cwd(), "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
