@@ -88,7 +88,7 @@ async function fetch_post(flag){
             throw new Error('Network response was not ok');
         }
 
-        window.location.reload();
+        if(flag !== 3) window.location.reload();
 
         console.log('Data posted successfully');
     } catch (error) {

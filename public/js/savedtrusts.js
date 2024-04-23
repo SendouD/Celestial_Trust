@@ -1,8 +1,23 @@
 const del_btns = document.querySelectorAll('.delete-btn');
+const det_btns = document.querySelectorAll('.details-btn');
+const don_btns = document.querySelectorAll('.donate-btn');
 
 let trustId;
 
+det_btns.forEach( det_btn => {
+    det_btn.addEventListener('click', async (event) => {
+        console.log('inside');
+        trustId = event.target.parentNode.classList[1];
+        window.location.href = '/trustInfo/'+trustId;
+    })
+});
 
+don_btns.forEach( don_btn => {
+    don_btn.addEventListener('click', async (event) => {
+        trustId = event.target.parentNode.classList[1];
+        window.location.href = '/trustInfo/'+trustId+'/donate';
+    })
+});
 
 del_btns.forEach( del_btn => {
     del_btn.addEventListener('click', async (event) => {
