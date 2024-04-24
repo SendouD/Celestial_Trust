@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyWork</title>
-    <link rel="stylesheet" href="./css/contribution.css" />
+    <link rel="stylesheet" href="/css/contribution.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
@@ -60,23 +59,27 @@
     <div class="account_info">
       <div class="name info">
         <div>Name</div>
-        <div>Inthra kumar</div>
+        <div><%- user.name %></div>
       </div>
       <div class="user_id info">
-        <div>Unique Id</div>
-        <div>123435yfd</div>
+        <div>username</div>
+        <div><%- user.user_name %></div>
       </div>
       <div class="date_joined info">
         <div>Date Joined</div>
-        <div>12/12/2024</div>
+        <div>12/12/24</div>
       </div>
-      <div class="most_active info">
-        <div>Most Active</div>
-        <div>October 2024</div>
+      <div class="phno info">
+        <div>Phone Number</div>
+        <div><%- user.phone_no%></div>
+      </div>
+      <div class="volunteer info">
+        <div>Volunteer</div>
+        <div><%- user.volunteer %></div>
       </div>
     </div>
-    <div class="us_title">
-      <p class="account_para">My Contribution</p>
+    <div class="us_title donate_text">
+      <p class="account_para ">My Contribution</p>
     </div>
 
     <div class="give_the_date_range">
@@ -95,7 +98,7 @@
         </div>
       </form>
     </div>
-    <div class="project_display_table">
+    <div class="project_display_table donate_table">
       <table class="display_table">
         <tbody id="tableBody">
           <tr class="t_header">
@@ -104,77 +107,30 @@
             <th>Date of Donation</th>
             <th>Amount Donated</th>
           </tr>
-          <tr>
-            <td>1</td>
-            <td><a href="">IK</a></td>
-            <td>8-10-23</td>
-            <td>10,000</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><a href="">ABC Foundation</a></td>
-            <td>9-15-23</td>
-            <td>15,000</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td><a href="">Hope for Tomorrow</a></td>
-            <td>7-5-23</td>
-            <td>5,500</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td><a href="">Compassion for All</a></td>
-            <td>10-2-23</td>
-            <td>20,000</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td><a href="">Dreams Unlimited</a></td>
-            <td>6-12-23</td>
-            <td>12,500</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td><a href="">Hearts of Gold</a></td>
-            <td>11-8-23</td>
-            <td>8,700</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td><a href="">Charity for All</a></td>
-            <td>4-20-23</td>
-            <td>17,800</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td><a href="">Helping Hands</a></td>
-            <td>8-30-23</td>
-            <td>6,200</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td><a href="">Unity in Action</a></td>
-            <td>5-17-23</td>
-            <td>11,300</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td><a href="">Visionary Foundation</a></td>
-            <td>12-3-23</td>
-            <td>9,900</td>
-          </tr>
-          <tr>
-            <td>11</td>
-            <td><a href="">Brighter Futures</a></td>
-            <td>3-28-23</td>
-            <td>14,600</td>
-          </tr>
+          <% if(donated_trusts.length != 0) { %>
+            <% donated_trusts.forEach((donated_trust) => { %>
+              <tr>
+                <td><%- donated_trust.trust_id %></td>
+                <td><a href=""><%- donated_trust.trust_name %></a></td>
+                <td><%- donated_trust.date_of_Donation %></td>
+                <td><%- donated_trust.amount_Donated %></td>
+              </tr>
+            <% }); %>
+          
+           <% }else{ %>
+              <tr>
+                <td colspan="5">No Donation Work</td>
+              </tr>
+          <%  } %>
         </tbody>
       </table>
     </div>
-    <div class="us_title">
-      <p class="account_para">Volunteer Work</p>
+    
+    <div class="print_btn" id="donate_btn">
+      <button type="button" class="btn btn-dark btn-sm" style="width: 100px;">Print</button>
+    </div>
+    <div class="us_title volunteer_text">
+      <p class="account_para ">Volunteer Work</p>
     </div>
 
     <div class="give_the_date_range">
@@ -193,7 +149,7 @@
         </div>
       </form>
     </div>
-    <div class="project_display_table">
+    <div class="project_display_table volunteer_table">
       <table class="display_table">
         <tbody id="tableBody">
           <tr class="t_header">
@@ -201,75 +157,29 @@
             <th>Trust Name</th>
             <th>Start Date</th>
             <th>No of Hours</th>
+            <th>Review </th>
           </tr>
-          <tr>
-            <td>1</td>
-            <td><a href="">IK</a></td>
-            <td>8-10-23</td>
-            <td>10,000</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><a href="">ABC Foundation</a></td>
-            <td>9-15-23</td>
-            <td>15,000</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td><a href="">Hope for Tomorrow</a></td>
-            <td>7-5-23</td>
-            <td>5,500</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td><a href="">Compassion for All</a></td>
-            <td>10-2-23</td>
-            <td>20,000</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td><a href="">Dreams Unlimited</a></td>
-            <td>6-12-23</td>
-            <td>12,500</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td><a href="">Hearts of Gold</a></td>
-            <td>11-8-23</td>
-            <td>8,700</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td><a href="">Charity for All</a></td>
-            <td>4-20-23</td>
-            <td>17,800</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td><a href="">Helping Hands</a></td>
-            <td>8-30-23</td>
-            <td>6,200</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td><a href="">Unity in Action</a></td>
-            <td>5-17-23</td>
-            <td>11,300</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td><a href="">Visionary Foundation</a></td>
-            <td>12-3-23</td>
-            <td>9,900</td>
-          </tr>
-          <tr>
-            <td>11</td>
-            <td><a href="">Brighter Futures</a></td>
-            <td>3-28-23</td>
-            <td>14,600</td>
-          </tr>
+          <% if(volunteer_trusts.length != 0) { %>
+            <% volunteer_trusts.forEach((volunteer_trust) => { %>
+              <tr>
+                <td><%- volunteer_trust.trust_id %></td>
+                <td><a href=""><%- volunteer_trust.trust_name %></a></td>
+                <td><%- volunteer_trust.start_date %></td>
+                <td><%- volunteer_trust.no_of_hours %></td>
+                <td><a href="">Review</a></td>
+              </tr>
+            <% }); %>
+          <%  }else{ %>
+            <tr>
+              <td colspan="5">No Volunteer Work</td>
+            </tr>
+         <% } %>
         </tbody>
       </table>
+    </div>
+    
+    <div class="print_btn" id="volunteer_btn">
+      <button type="button" class="btn btn-dark btn-sm" style="width: 100px;">Print</button>
     </div>
     <div class="achievements">
       <div class="top_info">
@@ -326,6 +236,6 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="/js/contribution.js"></script>
   </body>
 </html>

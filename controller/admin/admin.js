@@ -34,14 +34,17 @@ route.post("/news_letter",async(req,res)=>{
   const users=await database.find({});
   console.log(users);
   
-  const p=new Promise((resolve,reject) =>{
-    users.forEach(async(user)=>{
-      console.log(user.email);
-      await mailer.weekly_newsletter(user.email,req.body.week_no,req.body.sub,req.body.text);
-      
+  if(user.length!=0){
+    const p=new Promise((resolve,reject) =>{
+      users.forEach(async(user)=>{
+        console.log(user.email);
+        await mailer.weekly_newsletter(user.email,req.body.week_no,req.body.sub,req.body.text);
+        
+      })
+      resolve(true);
     })
-    resolve(true);
-  })
+
+  }
   res.render("admin_index");
 })
 module.exports = route;

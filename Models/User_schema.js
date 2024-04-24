@@ -9,6 +9,7 @@ const usersSchema = new mongoose.Schema({
   state: { type: String, default: "Add State" },
   address: { type: String, default: "Add Address" },
   contri_num: { type: Number, default: 0 },
+  isvolunteer: { type: Boolean, default: false}
 });
 
 const User = mongoose.model("User", usersSchema);

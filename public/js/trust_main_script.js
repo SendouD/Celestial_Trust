@@ -26,7 +26,7 @@ trust_btn.addEventListener('click',async(event)=>{
           console.log("came here");
           window.location.href = "/"; // Reset the form fields
         } else {
-          if(confirm("Email already exists !!!! Login Again")){
+          if(confirm("Trust with same unique numberexists !!!! Register Again")){
             window.location.href = "/login";
           }
           

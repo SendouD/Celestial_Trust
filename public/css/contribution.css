@@ -73,6 +73,12 @@ button {
 
 }
 
+.print_btn{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}
+
 .top_info {
     display: flex;
     align-items: flex-start;

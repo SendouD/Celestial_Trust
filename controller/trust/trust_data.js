@@ -46,7 +46,7 @@ route.post("/login", async (req, res) => {
 });
 
 route.post("/signup", upload.single('t_docs'), async (req, res) => {
-  const existingUser = await database.findOne({ email: req.body.email });
+  const existingUser = await database.findOne({ trust_unique_no:req.body.trust_no });
   if (existingUser) {
     // If the email already exists, send a response indicating the conflict
     return res.status(409).send("Email already exists");
@@ -60,12 +60,20 @@ route.post("/signup", upload.single('t_docs'), async (req, res) => {
     res.status(409).send("Enter  Trust password correctly");
   }
 
-   await s3uploadV2(req.file, req.body.trust_no, process.env.TRUST_VERIFY_BUCKET);
+   if(!req.file){
+    trust_file.create(
+      { trust_no: req.body.trust_no, signed_url: "verification_doc_not_given" }
+    );   
+
+
+   }else{
+    await s3uploadV2(req.file, req.body.trust_no, process.env.TRUST_VERIFY_BUCKET);
     const url =    await getobjecturl(process.env.TRUST_VERIFY_BUCKET, req.body.trust_no);
     console.log(url);
      trust_file.create(
       { trust_no: req.body.trust_no, signed_url: url }
     );
+   }
    
   const hashedpassword = await bcrypt.hash(req.body.trust_pass, 10);
   const newTrustdetail = new database({

@@ -9,7 +9,8 @@ const TrustSchema = new mongoose.Schema({
   password: String,
   address: { type: String, default: "Add Address" },
   contri_received: { type: Number, default: 0 },
-  Date_Joined:{type:Date,default:new Date()}
+  Date_Joined:{type:Date,default:new Date()},
+  isverified:{type:Boolean,default:false}
 });
 
 const Trust_Details = mongoose.model("Trust", TrustSchema);

@@ -34,7 +34,7 @@ login.route("/").post(async (req, res) => {
           maxAge: 7 * 24 * 60 * 60 * 1000,
         });
         res.cookie("id", user._id, { maxAge: 7 * 24 * 60 * 60 * 1000 });
-        res.render("index",{signin:"Logout"})
+        res.redirect("/");
       } else {
         res.status(401).json({ message: "Incorrect email or password" });
       }

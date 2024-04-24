@@ -5,10 +5,10 @@ const user_login_verification = (req, res, next) => {
     if (jsonwebtoken_verification.getuser(req.cookies.cookie)) {
       next();
     } else {
-      res.render("user_login");
+      res.redirect("/login");
     }
   } else {
-    res.render("user_login");
+    res.redirect("/login");
   }
 };
 
