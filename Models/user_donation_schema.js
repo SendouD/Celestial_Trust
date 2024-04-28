@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const user_donation = new mongoose.Schema({
     trust_id:String,
     trust_name:String,
-    date_of_Donation:String,
+    date_of_Donation:Date,
     amount_Donated:String,
     user_id:String
 

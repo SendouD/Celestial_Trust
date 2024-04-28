@@ -59,31 +59,35 @@
     <div class="account_info">
       <div class="name info">
         <div>Name</div>
-        <div><%- user.name %></div>
+        <div><%- trust.name %></div>
       </div>
       <div class="user_id info">
         <div>username</div>
-        <div><%- user.user_name %></div>
+        <div><%- trust.trust_unique_no %></div>
       </div>
       <div class="date_joined info">
         <div>Date Joined</div>
         <div>12/12/24</div>
       </div>
       <div class="phno info">
-        <div>Phone Number</div>
-        <div><%- user.phone_no%></div>
+        <div>Email</div>
+        <div><%- trust.email%></div>
       </div>
       <div class="volunteer info">
-        <div>Volunteer</div>
-        <div><%- user.volunteer %></div>
+        <div>State</div>
+        <div><%- trust.state %></div>
+      </div>
+      <div class="trust info">
+        <div>Contributions Received</div>
+        <div><%- trust.contri_received %></div>
       </div>
     </div>
     <div class="us_title donate_text">
-      <p class="account_para ">My Contribution</p>
+      <p class="account_para">Received Contribution</p>
     </div>
 
     <div class="give_the_date_range">
-      <form action="/contribution/donation-date-wise" method="post">
+      <form action="/contribution/trust/donation-date-wise" method="post">
         <div class="date">
           <div class="date_range">Enter the Date Range</div>
           <div class="main_content">
@@ -102,39 +106,37 @@
       <table class="display_table">
         <tbody id="tableBody">
           <tr class="t_header">
-            <th>Trust Id</th>
-            <th>Trust Name</th>
+            <th>User Name</th>
             <th>Date of Donation</th>
             <th>Amount Donated</th>
           </tr>
-          <% if(donated_trusts.length != 0) { %>
-            <% donated_trusts.forEach((donated_trust) => { %>
-              <tr>
-                <td><%- donated_trust.trust_id %></td>
-                <td><a href=""><%- donated_trust.trust_name %></a></td>
-                <td><%- donated_trust.date_of_Donation %></td>
-                <td><%- donated_trust.amount_Donated %></td>
-              </tr>
-            <% }); %>
-          
-           <% }else{ %>
-              <tr>
-                <td colspan="5">No Donation Work</td>
-              </tr>
-          <%  } %>
+          <% if(user_donations.length != 0) { %> <%
+          user_donations.forEach((user_donation) => { %>
+          <tr>
+            <td><a href=""><%- user_donation.user_name %></a></td>
+            <td><%- user_donation.date_of_Donation %></td>
+            <td><%- user_donation.amount_Donated %></td>
+          </tr>
+          <% }); %> <% }else{ %>
+          <tr>
+            <td colspan="5">No Donation Work</td>
+          </tr>
+          <% } %>
         </tbody>
       </table>
     </div>
-    
+
     <div class="print_btn" id="donate_btn">
-      <button type="button" class="btn btn-dark btn-sm" style="width: 100px;">Print</button>
+      <button type="button" class="btn btn-dark btn-sm" style="width: 100px">
+        Print
+      </button>
     </div>
     <div class="us_title volunteer_text">
-      <p class="account_para ">Volunteer Work</p>
+      <p class="account_para">Volunteer Work Received</p>
     </div>
 
     <div class="give_the_date_range">
-      <form action="/contribution/volunteer-date-wise" method="post">
+      <form action="/contribution/trust/volunteer-date-wise" method="post">
         <div class="date">
           <div class="date_range">Enter the Date Range</div>
           <div class="main_content">
@@ -153,33 +155,34 @@
       <table class="display_table">
         <tbody id="tableBody">
           <tr class="t_header">
-            <th>Trust Id</th>
-            <th>Trust Name</th>
+            <th>User Name</th>
             <th>Start Date</th>
             <th>No of Hours</th>
-            <th>Review </th>
+            <th>Review</th>
           </tr>
-          <% if(volunteer_trusts.length != 0) { %>
-            <% volunteer_trusts.forEach((volunteer_trust) => { %>
-              <tr>
-                <td><%- volunteer_trust.trust_id %></td>
-                <td><a href=""><%- volunteer_trust.trust_name %></a></td>
-                <td><%- volunteer_trust.start_date %></td>
-                <td><%- volunteer_trust.no_of_hours %></td>
-                <td><a href="">Review</a></td>
-              </tr>
-            <% }); %>
-          <%  }else{ %>
-            <tr>
-              <td colspan="5">No Volunteer Work</td>
-            </tr>
-         <% } %>
+          <% if(volunteer_users.length != 0) { %> <%
+          volunteer_users.forEach((volunteer_user) => { %>
+          <tr>
+            <td><a href=""><%- volunteer_user.user_name %></a></td>
+            <td><%- volunteer_user.start_date %></td>
+            <td><%- volunteer_user.end_date %></td>
+
+            <td><%- volunteer_user.no_of_hours %></td>
+            <td><a href="">Review</a></td>
+          </tr>
+          <% }); %> <% }else{ %>
+          <tr>
+            <td colspan="5">No Volunteer Work</td>
+          </tr>
+          <% } %>
         </tbody>
       </table>
     </div>
-    
+
     <div class="print_btn" id="volunteer_btn">
-      <button type="button" class="btn btn-dark btn-sm" style="width: 100px;">Print</button>
+      <button type="button" class="btn btn-dark btn-sm" style="width: 100px">
+        Print
+      </button>
     </div>
     <div class="achievements">
       <div class="top_info">

@@ -54,7 +54,7 @@ function incrementCounterOne() {
   var target = 200;
   var increment = 1;
   var intervalTime = 10; // Interval time in milliseconds
-
+  
   var timer = setInterval(function () {
     if (counter >= target) {
       clearInterval(timer);
@@ -71,7 +71,7 @@ function incrementCounterTwo() {
   var target = 1000;
   var increment = 1;
   var intervalTime = 10; // Interval time in milliseconds
-
+  
   var timer = setInterval(function () {
     if (counter >= target) {
       clearInterval(timer);
@@ -105,7 +105,7 @@ function incrementCounterFour() {
   var target = 50;
   var increment = 1;
   var intervalTime = 50; // Interval time in milliseconds
-
+  
   var timer = setInterval(function () {
     if (counter >= target) {
       clearInterval(timer);
