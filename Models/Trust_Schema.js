@@ -2,15 +2,17 @@ const mongoose = require("mongoose");
 
 const TrustSchema = new mongoose.Schema({
   name: String,
-  state:String,
+  state: String,
   email: String,
   phonenumber: Number,
-  trust_unique_no:String,
+  trust_unique_no: String,
   password: String,
   address: { type: String, default: "Add Address" },
   contri_received: { type: Number, default: 0 },
-  Date_Joined:{type:Date,default:new Date()},
-  isverified:{type:Boolean,default:false}
+  Date_Joined: { type: Date, default: new Date() },
+  isverified: { type: Boolean, default: false },
+  signed_url: String,
+
 });
 
 const Trust_Details = mongoose.model("Trust", TrustSchema);

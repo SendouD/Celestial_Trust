@@ -6,6 +6,9 @@ const trustDetails = require("../Models/Trust_Schema");
 const donate_middleware = require("../middlewares/verify_login");
 const Donation = require("../Models/Donation_schema");
 const savedTrusts = require("../Models/savedTrusts_schema");
+
+const review = require("../Models/reviews_schema");
+
 var trusts;
 let type1 = 'All';
 let page_no = 1,flag1=0,flag2 = 0; 
@@ -73,8 +76,18 @@ t_info.route("/:id")
     .get(async (req,res) => {
         let trust;
         let trustId = req.params.id;
+        let userreview;
         await trustInfo.find({trust_unique_no : trustId}).then((data) => trust = data);
-        res.render("trustTwo", {trust : trust[0],trustId : trustId});
+        console.log(trust);
+        try{
+            await review.find({trustname :trust[0].name}).then((data) => userreview = data);
+            console.log(userreview);
+        }
+        catch(e){
+            console.log('second run');
+        }
+        // const userreview=await review.find({});
+        res.render("trustTwo", {trust : trust[0],trustId : trustId ,jone:userreview});
     })
     .post( (req, res) => {
         let trustId = req.params.id;

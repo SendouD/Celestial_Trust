@@ -16,6 +16,11 @@ const account = require("./controller/account");
 const login = require("./controller/login");
 const register = require("./controller/register");
 const volunteer = require("./controller/volunteer_form");
+
+
+const reviews=require("./controller/reviews");
+
+
 const admin=require("./controller/admin/admin");
 const trust=require("./controller/trust/trust");
 const trustInfo=require("./controller/trustInfo");
@@ -72,7 +77,7 @@ app.use("/trustInfo",trustInfo);
 app.use("/trustInfo", volunteer);
 app.use("/savedTrusts",savedTrusts);
 app.use("/contribution",contribution);
-
+app.use("/reviews",reviews);
 app.use("/about",about);
 app.use("/confirmation",confirmation);
 

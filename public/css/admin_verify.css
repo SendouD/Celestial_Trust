@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+input,button{
+    font: inherit;
+}
+
+.verify:hover{
+    cursor: pointer;
+
+}
+.us_title p {
+    font-family: "Poppins";
+    font-size: 2rem;
+    color: #222020;
+    width: 95vw;
+    letter-spacing: 1.5px;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border-left: #f5c92b solid 5px;
+    margin: 0.3rem;
+
+}
+
+.info_div p{
+    
+    
+    font-family: "Poppins";
+    font-size: 0.8rem;
+    color: #222020;
+    margin-left: 3rem;
+}
+ table a{
+    text-decoration: none;
+    color: #222020;
+}
+
+table {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+td, th {
+    word-wrap: nowrap;
+    text-wrap: nowrap;
+}
+.content{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap:1rem;
+}

@@ -6,6 +6,10 @@ const mailer=require("../email_backend");
 route.use(cookie());
 const database=require("../../Models/Newsletter_schema");
 const admin_verify = require("../../data/admin_data.json");
+
+const trust_verify=require("./trust_verify");
+
+route.use("/trust_verify",trust_verify);
 route.get("/", (req, res) => {
   res.render("admin_login");
 });
@@ -47,4 +51,8 @@ route.post("/news_letter",async(req,res)=>{
   }
   res.render("admin_index");
 })
+
+
 module.exports = route;
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/trustInfo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Form Submission</title>
+  </head>
+
+  <body>
+    <div class="total">
+      <div class="us_title">
+        <p>Add Trust Information</p>
+      </div>
+
+      <div class="container">
+        <div class="form">
+          <div class="h1lol">
+            <h1>Verification Form</h1>
+          </div>
+          <form id="form" enctype="multipart/form-data" >
+            <label for="name">Name of Trust:</label><br />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autofocus
+              placeholder="Trust Name"
+            /><br />
+            <br />
+            <label for="nameOwner">Name of Owner:</label><br />
+            <input
+              type="text"
+              id="nameOwner"
+              name="nameOwner"
+              required
+              placeholder="Owner Name"
+            /><br />
+            <br />
+            <label for="trustno">Your Unique Trust ID:</label><br />
+            <input
+              type="text"
+              id="trustno"
+              name="trust_unique_no"
+              inputmode="numeric"
+              required
+              placeholder="Trust ID"
+            /><br />
+            <br />
+            <label for="type">Trust Type:</label><br />
+            <select
+              id="type"
+              name="trust_types"
+              required
+              placeholder="Trust Type"
+              multiple
+            >
+              <option value="">Select Trust Type</option>
+              <option value="Orphanage">Orphanage</option>
+              <option value="Women">Women</option>
+              <option value="Children">Children</option>
+              <option value="Elderly">Elderly</option>
+            </select>
+            <br />
+            <br />
+            <label for="AboutTrust">About your Trust:</label><br />
+            <textarea
+              id="AboutTrust"
+              name="about1"
+              rows="10"
+              cols="70"
+              required
+              placeholder="Describe in detail about your Trust work."
+            ></textarea
+            ><br />
+            <br />
+            <label for="services">Services provided by Trust:</label><br />
+            <textarea
+              id="services"
+              name="about2"
+              rows="10"
+              cols="70"
+              required
+              placeholder="Services provided by your Trust."
+            ></textarea
+            ><br />
+            <br />
+            <label for="fileUpload"
+              >Owner's verification documents [Aadhar card/ PAN card] [pdf
+              format]:</label
+            >
+            <input
+              type="file"
+              name="fileUpload"
+              accept=".pdf"
+            /><br />
+            <br />
+            <label for="fileUpload">Upload trust image [png/jpg format]:</label
+            ><br />
+            <input
+              type="file"
+              name="fileUpload"
+              accept=".jpeg, .jpg, .png"
+            /><br />
+            <br />
+            <br />
+            <div class="button">
+              <button type="submit" class="btn">Add Details</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="loader"></div>
+
+    <script src="/js/trustinfo.js"></script>
+  </body>
+</html>
