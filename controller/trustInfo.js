@@ -40,8 +40,9 @@ t_info.route("/")
             }
             if(flag1 === 1)
                 await trustInfo.find({name : {$regex : name2}}).then((data) => trusts = data);
-            else if(type1 === 'All')
+            else if(type1 === 'All'){
                 await trustInfo.find({}).then((data) => trusts = data);
+            }   
             else
                 await trustInfo.find({trust_types : { $in: [type1] }}).then((data) => trusts = data);
             if(trusts.length === 0){

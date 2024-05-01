@@ -76,9 +76,7 @@ app.use("/admin",admin);
 app.use("/trustInfo",trustInfo);
 app.use("/savedTrusts",savedTrusts);
 app.use("/contribution",contribution);
-
 app.use("/reviews",reviews);
-
 app.use("/about",about);
 app.use("/confirmation",confirmation);
 
