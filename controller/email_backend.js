@@ -99,6 +99,7 @@ async function weekly_newsletter(to,week,sub,text) {
     </html>
     `,
   });
+  
 
 }
 // donation_failure();
