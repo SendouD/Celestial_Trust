@@ -19,6 +19,18 @@ route.get("/", (req, res) => {
 })
 route.use('/data', trust_data_insert);
 
+function formatDate(dateString) {
+    const date = new Date(dateString);
+
+    // Extract date, month, and year
+    const year = date.getFullYear();
+    const month = date.toLocaleString('default', { month: 'long' });
+    const day = date.getDate();
+
+    // Construct formatted date string
+    const formattedDate = `${day} ${month} ${year}`;
+    return formattedDate;
+}
 
 
 route.get("/account", async (req, res) => {
