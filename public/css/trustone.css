@@ -176,10 +176,10 @@ button:hover {
     font-weight: 700;
 }
 
-.content1,.content2,.content3,.content4 {
+/* .content1,.content2,.content3,.content4 {
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
-}
+} */
 
 .con1,.con2,.con3,.con4 {
     display: none;
