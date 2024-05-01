@@ -575,3 +575,19 @@ nav {
     background-color: #fff;
     transform: rotate(-45deg) translate(6px, -5px);
 }
+.notification{
+    background-color: grey;
+}
+.details {
+    display: none; /* Initially hide details */
+  }
+  .approval{
+    display: flex;
+    justify-content:space-evenly
+  }
+  .approval button{
+    padding: 5px;
+  }
+  
+
+  

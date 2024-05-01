@@ -20,6 +20,18 @@ async function donation_success(recieverID,amount) {
 
 }
 
+async function volunteer(recieverID,amount) {
+  
+  const info = await transporter.sendMail({
+    from: `"ik " <${process.env.EMAIL_ID}>`, 
+    to:`${recieverID}`, 
+    subject: "volunteer application status", 
+    text: `your volunteer application is under review. Thank You for being a part of making a change :>`,
+  });
+  
+
+}
+
 
 async function newsletter(mail_id) {
   
@@ -102,4 +114,4 @@ async function weekly_newsletter(to,week,sub,text) {
 
 }
 // donation_failure();
-module.exports = { donation_success,donation_failure,newsletter,weekly_newsletter};
+module.exports = { donation_success,donation_failure,newsletter,weekly_newsletter,volunteer};

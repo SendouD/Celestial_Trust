@@ -1,12 +1,24 @@
 const route=require("express").Router();
 const trust_data_insert=require("./trust_data");
 const database_model=require("../../Models/Trust_Schema");
+const volunteerdata=require("../../Models/volunteer_schema");
 route.get("/",(req,res)=>{
     res.render("trust_login");
 
 })
 route.use('/data',trust_data_insert);
+function formatDate(dateString) {
+    const date = new Date(dateString);
 
+    // Extract date, month, and year
+    const year = date.getFullYear();
+    const month = date.toLocaleString('default', { month: 'long' });
+    const day = date.getDate();
+
+    // Construct formatted date string
+    const formattedDate = `${day} ${month} ${year}`;
+    return formattedDate;
+}
 
 
 route.get("/account",async (req,res)=>{
@@ -22,7 +34,32 @@ route.get("/account",async (req,res)=>{
         contri_received:details.contri_received,
         Date_Joined:details.Date_Joined
     };
-    res.render("trust_account", { trust: newuser });
+    
+    console.log(newuser.name);
+    let t_name=newuser.name
+    console.log(t_name)
+   
+    const volunt_req= await volunteerdata.find({Trust_name:newuser.name});
+    console.log(volunt_req);
+    let stdate=[];
+    let endate=[];
+    for(let i=0;i<volunt_req.length;i++){
+        let sdate=volunt_req[i].start_date;
+        let edate=volunt_req[i].end_date;
+        sdate=formatDate(sdate.toString())
+        edate=formatDate(edate.toString())
+        volunt_req[i].start_date=sdate;
+        volunt_req[i].end_date=edate;
+        stdate[i]=sdate;
+        endate[i]=edate;
+        
+        
+      
+
+    }
+
+
+    res.render("trust_account", { trust: newuser,volunt_req:volunt_req,sdate:stdate,edate:endate});
 
 })
 route.post("/account",async(req, res)=>{
