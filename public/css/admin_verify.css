@@ -14,7 +14,10 @@ input,button{
     font: inherit;
 }
 
+.verify:hover{
+    cursor: pointer;
 
+}
 .us_title p {
     font-family: "Poppins";
     font-size: 2rem;

@@ -10,6 +10,7 @@ const volunteerDataSchema = new mongoose.Schema({
     start_date:Date,
     end_date:Date,
     message: String,
+    iscertified:{type:Boolean, default:false}
 });
 
 const volunteerdata = mongoose.model('VolunteerData',volunteerDataSchema);

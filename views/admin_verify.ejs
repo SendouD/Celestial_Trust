@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -32,10 +31,10 @@
           <% if(unverified_trusts.length != 0) { %>
             <% unverified_trusts.forEach((trust) => { %>
               <tr>
-                <th scope="row" id="trust_id"><%- trust.trust_unique_no %></th>
+                <th scope="row" class="trust_id"><%- trust.trust_unique_no %></th>
                 <td><%- trust.name %> </td>
                 <td><a href="<%- trust.signed_url %>"><%- trust.trust_unique_no %>_doc</a></td>
-                <td><a class="verify">Review</a></td>
+                <td><a  class="verify">Review</a></td>
               </tr>
             <% }); %>
           
@@ -47,7 +46,7 @@
         </tbody>
       </table>
     </div>
-    <script src="/js/admin_verify"></script>
+    <script src="/js/admin_verify.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

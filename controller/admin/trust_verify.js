@@ -14,6 +14,7 @@ route.post("/",async(req,res)=>{
     const {trust_id}=req.body;
     console.log(req.body);
     const updated_trusts=await t_database.updateMany({trust_id,isverified:false},{$set :{isverified:true}});
-    return res.status(200);
+    console.log(updated_trusts);
+    return res.status(200).redirect("/");
 })
 module.exports=route;
