@@ -12,6 +12,7 @@ const s3uploadV2=async(file,filename_of_file,bucket)=>{
     
     };
     const result= await s3.upload(params).promise();
+    console.log("file added");
     return result;
 
 }
