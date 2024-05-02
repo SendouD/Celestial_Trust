@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/donation.css">
   <link rel="stylesheet" href="/css/about.css">
+  <link rel="stylesheet" href="/css/header.css">
 	
 
 </head>
@@ -25,37 +26,42 @@
 
            <!-- Header Start --> 
 
-	<div class="head">
-		<div class="left">
-		  <div class="logo">
-		
-		  </div>
-  
-		  <div class="title">
-			<p>Charityforpoor</p>
-		  </div>
-		</div>
-		<div class="right">
-		  <div class="navlink">
-			<a href="account.html">Home</a>
-		  </div>
-		  <div class="navlink">
-			<a href="account.html">About</a>
-		  </div>
-		  <div class="navlink">
-			<a href="account.html">Get Involved</a>
-		  </div>
-		  <div class="navlink">
-			<a href="account.html">Projects</a>
-		  </div>
-		  <div class="navlink">
-			<a href="account.html">My Account</a>
-		  </div>
-		  <div class="navlink">
-			<a href="account.html">Sign in</a>
-		  </div>
-		</div>
-	  </div>
+		   <header class="navigation" style="position: fixed; z-index:10000">
+			<div class="header">
+				<div class="left">
+				  <div class="img"><img src="/images/celestial-trust-network-favicon-white.png" alt=""></div>
+				  <div class="head_title">
+					<h1 style="color: #daac19;">Celestial Trust Network</h1>
+				  </div>
+				</div>
+				<div class="right">
+				  <div class="navlink">
+					<a href="/" style="color:#daac19 !important;" >Home</a>
+				  </div>
+				  <div class="navlink">
+					<a href="/about" style="color:#daac19 !important;">About</a>
+				  </div>
+				  <div class="navlink">
+					<a  href="/account" style="color:#daac19 !important;" >Account</a>
+				  </div>
+				  <div class="navlink">
+					<a href="/trustinfo" style="color:#daac19 !important;" >Projects</a>
+				  </div>
+				  <div class="navlink">
+					<a href="/prominent_trust" style="color:#daac19 !important;" >Prominent Trusts</a>
+				  </div>
+				  
+				  <div class="navlink">
+					<a href="/blog" style="color:#daac19 !important;" >Blog
+					</a>
+				  </div>
+				  <div class="navlink">
+					<a href="/contribution" style="color:#daac19 !important;" >Contribution</a>
+				  </div>
+				</div>
+			  </div>
+			
+		</header>
 
           <!-- Header Close -->
 <section class="page-title bg-1">
@@ -79,7 +85,7 @@
 					<h2 class="text-md mb-5">I want to support you</h2>
 					<p class="mb-6 is-size-5">Soluta odit consequuntur adipisci consectetur culpa sequi exercitationem molestias dolores saepe, aut, ratione quam recusandae nulla. Beatae eius, voluptas.</p>
 
-					<form class="donation-form"  action="/donate" method="POST" enctype="multipart/form-data">
+					<form class="donation-form"  action="/donate" method="POST">
 						<fieldset>
 							<div class="columns is-multiline">
 								<label class="column is-3 has-text-weight-bold h3">Donation</label>
@@ -152,14 +158,6 @@
 										<label class="has-text-weight-bold is-inline-block mb-1">Describe Damages if any </label>
 										<input type="text" class="input" id="inputZip" placeholder="Damage" name="Description">
 										
-									</div>
-									
-								</div>
-								<div class="mt-6">
-								
-									<div class="mb-4">
-										<label class="has-text-weight-bold is-inline-block mb-1">Item images </label>
-										<input type="file">
 									</div>
 									
 								</div>
@@ -424,7 +422,7 @@
     <div class="blocks">
       <div class="foot_logo foot_divs">
         <div class="title footer_head">
-          <p>Charityforpoor</p>
+          <p>CelestialTrust</p>
         </div>
         <div class="foot_quote">
           <span class="first_line">&#8220;IT'S NOT HOW MUCH WE GIVE</span><br />
@@ -440,10 +438,10 @@
           <h4>GET IN TOUCH</h4>
         </div>
         <div class="footer_form">
-          <form action="" method="post">
+          <form action="/footer/news_letter" method="post">
             <label for="news_letter" id="news_letter_label">Subscribe for our NewsLetter</label><br />
             <div class="foot_input">
-              <input type="text" placeholder="Name" class="news_letter" />
+              <input type="text" placeholder="Name" class="news_letter" name="name"/>
             </div>
             <div class="foot_input">
               <input type="email" name="news_email" id="news_letter" class="news_letter"

@@ -29,7 +29,10 @@ header {
     transform: Scale(1.1);
 
 }
-
+.navlink{
+    text-wrap: nowrap;
+    word-wrap: nowrap;
+}
 .left {
     display: flex;
     justify-content: space-evenly;
