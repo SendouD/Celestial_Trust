@@ -155,50 +155,48 @@
 					</div>
 				</div>
 
-				<div class="column is-6-desktop is-6-tablet">
-					<span class="text-color">Join With Us</span>
-					<h2 class="mb-5 text-md">Become A Volunteer</h2>
-					<form action="/trustInfo/:id/volunteer" class="volunteer-form" id="volunteerForm" method="POST">
-						<div class="mb-4">
-
-							<label for="Trust_name" class="label"> <a href="/trustinfo">Not sure about the
-									Trust?</a><label>
-									<div id="trustNameContainer">
-										<!-- This div will be replaced by either the input field or the selection bar -->
-									</div>
-						</div>
-
-
-						<div class="mb-4">
-							<input type="text" class="input" placeholder="Full Name" name="full_name">
-						</div>
-						<div class="mb-4">
-							<input type="email" class="input" placeholder="Email Address" name="email">
-						</div>
-						<div class="mb-4">
-							<input type="tel" class="input" placeholder="Phone Number" name="phone_number">
-						</div>
-						<div class="mb-4">
-							<input type="text" class="input" placeholder="Address" name="address">
-						</div>
-						<div class="mb-4">
-							<label for="date_name" class="label">You will volunteer from:</label>
-							<input type="date" id="date_name" name="start_date">
-							<input type="date" id="date_name" name="end_date">
-						</div>
-
-						<div class="mb-4">
-							<textarea name="message" id="#" cols="30" rows="4" class="input"
-								placeholder="Your Message"></textarea>
-						</div>
-
-						<button type="submit" class="btn btn-main-2 is-rounded mt-3">Send Message</button>
-					</form>
-
-				</div>
+			<div class="column is-6-desktop is-6-tablet">
+				<span class="text-color">Join With Us</span>
+				<h2 class="mb-5 text-md">Become A Volunteer</h2>
+				<form action="/trustInfo/<%- trustid %>/volunteer" class="volunteer-form" id="volunteerForm" method="POST">
+					<div class="mb-4">
+						
+						<label for="Trust_name" class="label"> <a href="/trustinfo">Not sure about the Trust?</a><label>
+							<div id="trustNameContainer">
+								<!-- This div will be replaced by either the input field or the selection bar -->
+							</div>
+					</div>
+					
+					  
+					<div class="mb-4">
+						<input type="text" class="input" placeholder="Full Name" name="full_name">
+					</div>
+					<div class="mb-4">
+						<input type="email" class="input" placeholder="Email Address" name="email">
+					</div>
+					<div class="mb-4">
+						<input type="tel" class="input" placeholder="Phone Number" name="phone_number">
+					</div>
+					<div class="mb-4">
+						<input type="text" class="input" placeholder="Address" name="address">
+					</div>
+					<div class="mb-4">
+						<label for="date_name" class="label">You will volunteer from:</label>
+						<input type="date" id="date_name" name="start_date">
+						<input type="date" id="date_name" name="end_date">
+					</div>
+					
+					<div class="mb-4">
+						<textarea name="message" id="#" cols="30" rows="4" class="input" placeholder="Your Message"></textarea>
+					</div>
+				
+					<button type="submit" class="btn btn-main-2 is-rounded mt-3">Send Message</button>
+				</form>
+				
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
 
 

@@ -111,12 +111,12 @@
         </div>
     </div>
     <div class="display-reviews">
-        <h1 class="review-heading">reviews</h1>
+        <h2 class="review-heading" style="margin-left: 15px; font-weight: 500;">Reviews</h2>
         <% jone.forEach(element=> { %>
             <div class="review-box">
-                <div class="review-p-name">Name:  <%- element.review_name %></div>
+                <div class="review-p-name" style="font-weight: 300;"><span style="font-weight: 500;">Name: </span><%- element.review_name %></div>
 
-                <div class="review-p">Rating: 
+                <div class="review-p"><span style="font-weight: 500;">Rating: </span> 
                     <% 
 
                         const rating = element.review_rating;
@@ -134,7 +134,7 @@
 
 
                 
-                <div class="review-p-comment">Review:<br> <%- element.review_comment %></div>
+                <div class="review-p-comment" style="font-weight: 300;"><span style="font-weight: 500;">Review: </span><br> <%- element.review_comment %></div>
             </div>
             <br>
     

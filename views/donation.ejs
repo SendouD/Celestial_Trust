@@ -85,7 +85,7 @@
 					<h2 class="text-md mb-5">I want to support you</h2>
 					<p class="mb-6 is-size-5">Soluta odit consequuntur adipisci consectetur culpa sequi exercitationem molestias dolores saepe, aut, ratione quam recusandae nulla. Beatae eius, voluptas.</p>
 
-					<form class="donation-form"  action="/donate" method="POST">
+					<form class="donation-form">
 						<fieldset>
 							<div class="columns is-multiline">
 								<label class="column is-3 has-text-weight-bold h3">Donation</label>
@@ -503,6 +503,42 @@
 
   
     <script src="/js/donation.js"></script>
+
+	<script>
+		const btn = document.querySelector('.btn');
+
+		btn.addEventListener('click', async(e) => {
+            e.preventDefault();
+            const reviewForm = document.querySelector(".donation-form");
+            const formData = new FormData(reviewForm);
+            const res = Object.fromEntries(formData);
+            const payload = JSON.stringify(res);
+
+            try {
+                console.log('start');
+                const response = await fetch("/donate", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: payload
+                });
+                console.log(response);
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+				else {
+					window.location.href = '/confirmation';
+				}
+
+                console.log('Data posted successfully');
+            } catch (error) {
+                console.error('Error posting data:', error);
+            }
+        });
+	</script>
 
 
   </body>

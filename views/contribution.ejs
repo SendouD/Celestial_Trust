@@ -133,52 +133,52 @@
     <p class="account_para">Volunteer Work</p>
   </div>
 
-  <div class="give_the_date_range">
-    <form action="/contribution/volunteer-date-wise" method="post">
-      <div class="date">
-        <div class="date_range">Enter the Date Range</div>
-        <div class="main_content">
-          <label for="start_date">Enter the Start Date:</label>
-          <input type="date" id="start_date" name="start_date" required />
-          <label for="end_date">Enter the Enter Date:</label>
-          <input type="date" id="end_date" name="end_date" required />
-          <button type="submit" class="btn btn-dark btn-sm">
-            Show My Contribution
-          </button>
+    <div class="give_the_date_range">
+      <form action="/contribution/volunteer-date-wise" method="post">
+        <div class="date">
+          <div class="date_range">Enter the Date Range</div>
+          <div class="main_content">
+            <label for="start_date">Enter the Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required />
+            <label for="end_date">Enter the Enter Date:</label>
+            <input type="date" id="end_date" name="end_date" required />
+            <button type="submit" class="btn btn-dark btn-sm">
+              Show My Contribution
+            </button>
+          </div>
         </div>
-      </div>
-    </form>
-  </div>
-  <div class="project_display_table volunteer_table">
-    <table class="display_table">
-      <tbody id="tableBody">
-        <tr class="t_header">
-          <th>Trust Id</th>
-          <th>Trust Name</th>
-          <th>Start Date</th>
-          <th>No of Hours</th>
-          <th>Review</th>
-        </tr>
-        <% if(volunteer_trusts.length !=0) { %>
-          <% volunteer_trusts.forEach((volunteer_trust)=> { %>
-            <tr>
-              <td><%- volunteer_trust.trust_id %></td>
-              <td><a><%- volunteer_trust.trust_name %></a></td>
-              <td><%- volunteer_trust.start_date %></td>
-              <td><%- volunteer_trust.no_of_hours %></td>
-              <td><a href="/<%- volunteer_trust.trust_name %>/review">Review</a></td>
-              <td><a href="/<%- volunteer_trust.trust_name %>/report">Report</a></td>
-
-            </tr>
-            <% }); %>
-              <% }else{ %>
-                <tr>
-                  <td colspan="5">No Volunteer Work</td>
-                </tr>
-                <% } %>
-      </tbody>
-    </table>
-  </div>
+      </form>
+    </div>
+    <div class="project_display_table volunteer_table">
+      <table class="display_table">
+        <tbody id="tableBody">
+          <tr class="t_header">
+            <th>Trust Id</th>
+            <th>Trust Name</th>
+            <th>Start Date</th>
+            <th>No of Hours</th>
+            <th>Review</th>
+            <th>Report</th>
+          </tr>
+          <% if(volunteer_trusts.length != 0) { %> <%
+          volunteer_trusts.forEach((volunteer_trust) => { %>
+          <tr>
+            <td><%- volunteer_trust.trust_id %></td>
+            <td><a><%- volunteer_trust.trust_name %></a></td>
+            <td><%- volunteer_trust.start_date %></td>
+            <td><%- volunteer_trust.no_of_hours %></td>
+            <td><a href="/reviews/<%- volunteer_trust.trust_id %>">Review</a></td>
+            <td><a href="/report/<%- volunteer_trust.trust_id %>">Report</a></td>
+          
+          </tr>
+          <% }); %> <% }else{ %>
+          <tr>
+            <td colspan="5">No Volunteer Work</td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
 
   <div class="print_btn" id="volunteer_btn">
     <button type="button" class="btn btn-dark btn-sm" style="width: 100px">
