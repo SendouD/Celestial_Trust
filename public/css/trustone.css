@@ -171,10 +171,10 @@ button:hover {
     font-weight: 700;
 }
 
-/* .content1,.content2,.content3,.content4 {
+.content1,.content2,.content3,.content4 {
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
-} */
+}
 
 .con1,.con2,.con3,.con4 {
     display: none;
@@ -281,8 +281,6 @@ button:hover {
     background-color:#333;
 }
 
-
-
 .navlink:hover {
     cursor: pointer;
 
@@ -297,35 +295,6 @@ button:hover {
     font-size: 15px;
     color: #fff;
 
-}
-
-#logo {
-    object-fit: cover;
-}
-
-.navlink:hover .navlink a {
-    text-decoration: underline dashed;
-    transition: all 1s ease-out;
-}
-
-.navlink a {
-    color: #f1f1f1 !important;
-    font-size: 1rem !important;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.navlink {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: #1C0118;
-    font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
 }
 
 .trust-hyperlinks {
