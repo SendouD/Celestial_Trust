@@ -28,21 +28,25 @@
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <% if(unverified_trusts.length != 0) { %>
-            <% unverified_trusts.forEach((trust) => { %>
-              <tr>
-                <th scope="row" class="trust_id"><%- trust.trust_unique_no %></th>
-                <td><%- trust.name %> </td>
-                <td><a href="<%- trust.signed_url %>"><%- trust.trust_unique_no %>_doc</a></td>
-                <td><a  class="verify">Review</a></td>
-              </tr>
-            <% }); %>
-          
-           <% }else{ %>
-              <tr>
-                <td colspan="5">No Donation Work</td>
-              </tr>
-          <%  } %>
+          <% if(unverified_trusts.length != 0) { %> <%
+          unverified_trusts.forEach((trust) => { %>
+          <tr>
+            <th scope="row" class="trust_id"><%- trust.trust_unique_no %></th>
+            <td><%- trust.name %></td>
+            <td>
+              <a
+                href="../public/trust_verify_docs/TOC_END.pdf"
+                download="trust.pdf"
+                ><%- trust.trust_unique_no %>_doc</a
+              >
+            </td>
+            <td><a class="verify">Review</a></td>
+          </tr>
+          <% }); %> <% }else{ %>
+          <tr>
+            <td colspan="5">No Donation Work</td>
+          </tr>
+          <% } %>
         </tbody>
       </table>
     </div>
