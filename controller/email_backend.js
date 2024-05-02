@@ -52,7 +52,7 @@ async function donation_failure() {
     text: "Your Payment has not been accepted due to some circumstancial issues. Please try again",
   });
 
-}
+} 
 
 async function weekly_newsletter(to,week,sub,text) {
   const info = await transporter.sendMail({
