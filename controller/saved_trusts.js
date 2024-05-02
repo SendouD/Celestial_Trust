@@ -9,7 +9,6 @@ saved_trusts.route('/').all(saved_middleware)
         let trusts;
         if(req.cookies.id !== undefined) await savedTrusts.find({user:req.cookies.id}).then((data) => trusts = data);
         else await savedTrusts.find({user:'1'}).then((data) => trusts = data);
-        console.log(trusts);
         res.render('saved_trusts',{trusts : trusts});
     })
     .post( async (req,res) => {

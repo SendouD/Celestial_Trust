@@ -10,11 +10,9 @@ reported_trusts.route('/')
             let temp;
             let trusts = [];
             await reportcountModel.find({no_of_reports: {$gte: 1}}).then((data) => temp = data);
-            console.log(temp);
             for(let i=0; i < temp.length; i++){
                 await trustDetails.findOne({trust_unique_no: temp[i].trust_id}).then((data) => trusts.push(data));
             }
-            console.log(trusts);
             res.render('verify_reports',{ trusts: trusts });
         }
         else{
