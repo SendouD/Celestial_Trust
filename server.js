@@ -10,7 +10,7 @@ const cookie = require("cookie-parser");
 app.use(cookie());
 
 const bcrypt = require("bcrypt");
-const about=require("./controller/about")
+const about = require("./controller/about")
 const donate = require("./controller/donate");
 const prominent_trust = require("./controller/prominent_trust");
 const account = require("./controller/account");
@@ -20,15 +20,16 @@ const volunteer = require("./controller/volunteer_form");
 const rep_trusts = require("./controller/reported_trusts");
 
 
-const reviews=require("./controller/reviews");
-const report=require("./controller/report");
+const reviews = require("./controller/reviews");
+const report = require("./controller/report");
 
-const admin=require("./controller/admin/admin");
-const trust=require("./controller/trust/trust");
-const trustInfo=require("./controller/trustInfo");
-const confirmation=require("./controller/confirmation");
-const savedTrusts=require("./controller/saved_trusts");
-const contribution=require("./controller/contribution");
+const admin = require("./controller/admin/admin");
+const trust = require("./controller/trust/trust");
+const trustInfo = require("./controller/trustInfo");
+const confirmation = require("./controller/confirmation");
+const savedTrusts = require("./controller/saved_trusts");
+const contribution = require("./controller/contribution");
+const forgot_password = require("./controller/forgetPassword");
 
 app.use(express.static(path.join(process.cwd(), "public")));
 app.set("view engine", "ejs");
@@ -42,23 +43,23 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-  const role=req.cookies.role;
-  if(!role){
+  const role = req.cookies.role;
+  if (!role) {
     if (req.cookies.cookie) {
       return res.render("index", { signin: "Logout" });
     } else {
       return res.render("index", { signin: "Signin" });
     }
-  }else{
-    if(role==="admin"){
+  } else {
+    if (role === "admin") {
       if (req.cookies.cookie) {
         return res.render("admin_index", { signin: "Logout" });
       } else {
         return res.render("admin_index", { signin: "Signin" });
       }
-      
 
-    }else{
+
+    } else {
       if (req.cookies.cookie) {
         return res.render("trust_index", { signin: "Logout" });
       } else {
@@ -72,20 +73,24 @@ app.get("/", (req, res) => {
 app.use("/donate", donate);
 app.use("/login", login);
 app.use("/register", register);
-app.use("/volunteer",volunteer)
+app.use("/volunteer", volunteer)
 app.use("/account", account);
-app.use("/trust",trust);
-app.use("/admin",admin);
-app.use("/trustInfo",trustInfo);
+app.use("/trust", trust);
+app.use("/admin", admin);
+app.use("/trustInfo", trustInfo);
 app.use("/trustInfo", volunteer);
-app.use("/savedTrusts",savedTrusts);
-app.use("/contribution",contribution);
-app.use("/reviews",reviews);
-app.use("/report",report);
-app.use("/about",about);
-app.use("/confirmation",confirmation);
-app.use("/verifyReportedTrusts",rep_trusts);
-app.use("/prominent_trust",prominent_trust)
+app.use("/savedTrusts", savedTrusts);
+app.use("/contribution", contribution);
+app.use("/reviews", reviews);
+app.use("/report", report);
+app.use("/about", about);
+app.use("/confirmation", confirmation);
+app.use("/verifyReportedTrusts", rep_trusts);
+app.use("/prominent_trust", prominent_trust);
+app.use("/forgotpassword", forgot_password);
+app.get("/blog", (req, res) => {
+  res.render("blog");
+})
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

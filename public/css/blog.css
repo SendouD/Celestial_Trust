@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    width: 100vw;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.intro {
+    /* padding: 10px 2px 10px 5px; */
+    color: #262626;
+    /* border: #262626 5px solid; */
+    /* margin: 0px 10px 0px 10px;  */
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.services {
+    /* display: flex;
+    flex-wrap: wrap; */
+    justify-content: space-around;
+    margin: 20px auto;
+    color: #262626
+}
+
+.service-cards {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.service-card {
+    background-color: #f5c92b;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 50vw;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.contact {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+/* .blog {
+/* 
+} */
+
+@media screen and (max-width: 600px) {
+    .service-card {
+        width: calc(100% - 20px);
+    }
+}
+
+.image-section {
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    max-width: 100%;
+    height: 60vh;
+    float: right;
+    margin-left: 5px;
+    box-shadow: 0 2px 4px rgba(2, 2, 2, 2);
+    border-radius: 20px;
+    margin-top: 1rem;
+}
+
+.account_para {
+    font-family: "Poppins";
+    font-size: 2rem;
+    color: #333;
+    max-width: 100vw;
+    width: 100vw;
+
+    letter-spacing: 1.5px;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border-left: #f5c92b solid 5px;
+    margin-left: 0.5rem;
+    padding-bottom: 1rem;
+
+}
+
+
+.top_div {
+    margin-top: 5rem;
+}
+
+.us_title {
+    background-color: #fff;
+
+    margin-top: 5rem;
+
+
+}
+
+.two {
+    display: flex;
+    justify-content: row;
+
+}
+
+.header {
+    text-align: center;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
