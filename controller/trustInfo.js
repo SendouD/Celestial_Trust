@@ -51,8 +51,11 @@ t_info.route("/")
                 console.log("No trusts found!");
             }
             length = trusts.length;
-            for(let i=1;i<(length/4)+1;i++) str = str + '<div class="t-hy hyp'+i+'">'+i+'</div>';
-            res.render("trustOne",{ trust1 : trusts[(4*(page_no-1))%length] , trust2 : trusts[(1+4*(page_no-1))%length] , trust3 : trusts[(4*(page_no-1)+2)%length] , trust4 : trusts[(4*(page_no-1)+3)%length] , hyperlinks : str});
+            for(let i=1;i<(length/4)+1;i++){
+                if(i === page_no) str = str + '<div class="t-hy hyp'+i+'" style="background-color: #f9c11beb; text-decoration: none; color: black;">'+i+'</div>';
+                else str = str + '<div class="t-hy hyp'+i+'">'+i+'</div>';
+            }
+            res.render("trustOne",{ trust1 : trusts[(12+4*(page_no-1))%length] , trust2 : trusts[(12+1+4*(page_no-1))%length] , trust3 : trusts[(12+4*(page_no-1)+2)%length] , trust4 : trusts[(12+4*(page_no-1)+3)%length] , hyperlinks : str});
         } catch (error) {
             console.log(error);
         }
@@ -79,10 +82,8 @@ t_info.route("/:id")
         let trustId = req.params.id;
         let userreview;
         await trustInfo.find({trust_unique_no : trustId}).then((data) => trust = data);
-        console.log(trust);
         try{
             await review.find({trustname :trust[0].name}).then((data) => userreview = data);
-            console.log(userreview);
         }
         catch(e){
             console.log('second run');
