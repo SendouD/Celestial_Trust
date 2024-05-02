@@ -285,30 +285,33 @@
 						<div class="columns is-gapless is-align-items-center is-multiline">
 							<label class="column is-3-desktop has-text-weight-bold">Trust</label>
 							<div class="column is-9-desktop">
-								<select id="inputtrusts" class="input" name="trust_name">
-									<option selected>Choose Trust</option>
-									<option>GRACE AND COMPASSION TRUST</option>
-									<option>Health Care Trust</option>
-									<option>JIPMER PENSIONER'S ASSOCIATION</option>
-									<option>Puduvai Sun Trust</option>
-									<option>Womens Organisation for Social Education and Developemnt</option>
-									<option>SINGARAVELU ABARANJI MEMORIAL TRUST</option>
-									<option>Thillai Nadarajar Human Welfare Charitable Trust</option>
-									<option>THE PUDUCHERRY COIR ARTISANS CO OPERTAIVE SOCIETY LIMITED NO P 774</option>
-									<option>AANANTHA KUDIL CHARITABLE TRUST</option>
-									<option>society for civic virtue cultivation</option>
-									<option>Anbarasi madhar sangam</option>
-									<option>RAJIVGANDHI HOME FOR HANDICAPPED</option>
-									<option>Puducherry Corporation for the Development of Women and Differently Abled Persons Limited</option>
-									<option>RAMYAA CHARITABLE TRUST</option>
-									<option>LPT RESEARCH FOUNDATION</option>
-									<option>santhosha nanban</option>
-									<option>CENTRE FOR SOCIAL ACTION AND WOMENS DEVELOPMENT</option>
-									<option>THAYAGAM GIRLS HOME</option>
-									<option>ANJALAIAMAL CHARITABLE TRUST & EDUCATIONAL INSTITUTE FOR DEVELOPMENT</option>
-									<option>vijay foundation</option>
-									<option>WISDOM CHARITABLE TRUST</option>
-								</select>
+								<% if(typeof trustname == "undefined") { %>
+									<select id="inputtrusts" class="input" name="trust_name">
+										<option selected>Choose Trust</option>
+										<option>GRACE AND COMPASSION TRUST</option>
+										<option>Health Care Trust</option>
+										<option>JIPMER PENSIONER'S ASSOCIATION</option>
+										<option>Puduvai Sun Trust</option>
+										<option>Womens Organisation for Social Education and Developemnt</option>
+										<option>SINGARAVELU ABARANJI MEMORIAL TRUST</option>
+										<option>Thillai Nadarajar Human Welfare Charitable Trust</option>
+										<option>THE PUDUCHERRY COIR ARTISANS CO OPERTAIVE SOCIETY LIMITED NO P 774</option>
+										<option>AANANTHA KUDIL CHARITABLE TRUST</option>
+										<option>society for civic virtue cultivation</option>
+										<option>Anbarasi madhar sangam</option>
+										<option>RAJIVGANDHI HOME FOR HANDICAPPED</option>
+										<option>Puducherry Corporation for the Development of Women and Differently Abled Persons Limited</option>
+										<option>RAMYAA CHARITABLE TRUST</option>
+										<option>LPT RESEARCH FOUNDATION</option>
+										<option>santhosha nanban</option>
+										<option>CENTRE FOR SOCIAL ACTION AND WOMENS DEVELOPMENT</option>
+										<option>THAYAGAM GIRLS HOME</option>
+										<option>ANJALAIAMAL CHARITABLE TRUST & EDUCATIONAL INSTITUTE FOR DEVELOPMENT</option>
+										<option>vijay foundation</option>
+									</select>
+								<% } else { %>
+									<input type="text" class="input" id="trustname" placeholder="Trust Name" name="trust_name" value="<%- trustname %>" readonly>
+								<% } %>
 								
 							</div>
 						</div>

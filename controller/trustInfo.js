@@ -96,8 +96,11 @@ t_info.route("/:id")
 
 t_info.route("/:id/donate")
   .all(donate_middleware)
-  .get((req, res) => {
-    res.render("donation");
+  .get(async(req, res) => {
+    let trustid = req.params.id;
+    let trustname;
+    await trustInfo.findOne({trust_unique_no: trustid}).then((data) => trustname = data.name)
+    res.render("donation",{trustname: trustname});
   })
   .post(async (req, res) => {
     console.log("hii");
