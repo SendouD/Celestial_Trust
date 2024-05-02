@@ -15,12 +15,17 @@
 
 }
 
+.navlink:hover {
+    transform: scale(1.1);
+
+}
+
 header {
     height: 12vh;
     color: #daac19;
     width: 100vw;
     z-index: 5;
-    background-color: transparent;
+    position: absolute;
 }
 
 .left {
