@@ -70,11 +70,12 @@ app.get("/", (req, res) => {
 app.use("/donate", donate);
 app.use("/login", login);
 app.use("/register", register);
-app.use("/trustInfo", volunteer);
+app.use("/volunteer",volunteer)
 app.use("/account", account);
 app.use("/trust",trust);
 app.use("/admin",admin);
 app.use("/trustInfo",trustInfo);
+app.use("/trustInfo", volunteer);
 app.use("/savedTrusts",savedTrusts);
 app.use("/contribution",contribution);
 app.use("/reviews",reviews);

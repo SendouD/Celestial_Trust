@@ -16,7 +16,19 @@ async function donation_success(recieverID, amount) {
     subject: "Confirmation of Donation ",
     text: `Your Donation of RS ${amount} is successful the receipt is attached with this Mail . Thank You for being a part of making a change :>`,
   });
+  
 
+}
+
+async function volunteer(recieverID,amount) {
+  
+  const info = await transporter.sendMail({
+    from: `"ik " <${process.env.EMAIL_ID}>`, 
+    to:`${recieverID}`, 
+    subject: "volunteer application status", 
+    text: `your volunteer application is under review. Thank You for being a part of making a change :>`,
+  });
+  
 
 }
 
@@ -112,4 +124,4 @@ async function report(recieverID) {
 
 
 // donation_failure();
-module.exports = { donation_success, donation_failure, newsletter, weekly_newsletter, report };
+module.exports = { donation_success,donation_failure,newsletter,weekly_newsletter,volunteer};
