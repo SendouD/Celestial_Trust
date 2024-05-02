@@ -3,7 +3,7 @@ require("dotenv").config();
 
 
 
-mongoose.connect(`mongodb+srv://FFSD:FFSD%40CHARITY%401234@ffsd.bmgbdqd.mongodb.net/CELESTIAL_TRUST?retryWrites=true&w=majority&appName=FFSD`, {
+mongoose.connect(`${process.env.MONGO_URI}`, {
   // useNewUrlParser: true,
   // useUnifiedTopology: true,
 });
