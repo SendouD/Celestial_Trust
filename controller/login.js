@@ -7,20 +7,21 @@ const jsonwebtoken_verification = require("./jwt_verification");
 login.use(cookie());
 
 login.route("/").get((req, res) => {
-  if(req.cookies.cookie && req.cookies.id){
+  if (req.cookies.cookie && req.cookies.id) {
     res.clearCookie('cookie');
     res.clearCookie('id');
-    if(req.cookies.role){
+    if (req.cookies.role) {
       res.clearCookie('role');
     }
-    res.render("index",{signin:"Signin"});
-    
-  }else{
+    res.render("index", { signin: "Signin" });
+
+  } else {
     res.render("user_login");
   }
 });
 login.route("/").post(async (req, res) => {
   const { email, pswd } = req.body;
+  console.log(req.body);
 
   try {
     // Find the user by email
@@ -34,9 +35,10 @@ login.route("/").post(async (req, res) => {
           maxAge: 7 * 24 * 60 * 60 * 1000,
         });
         res.cookie("id", user._id, { maxAge: 7 * 24 * 60 * 60 * 1000 });
-        res.redirect("/");
+        console.log("got it");
+        return res.status(200).redirect("/");
       } else {
-        res.status(401).json({ message: "Incorrect email or password" });
+        return res.status(401).json({ message: "Incorrect email or password" });
       }
     } else {
       res.status(404).json({ message: "User not found" });
