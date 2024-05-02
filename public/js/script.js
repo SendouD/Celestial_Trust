@@ -32,9 +32,10 @@ const imagechanger = () => {
   });
   dot_container[v].innerText = "radio_button_checked";
   ++v;
-  img.setAttribute("src", "./images/" + v + ".jpg");
+  img.setAttribute("src", "/images/" + v + ".jpg");
 };
 
+setInterval(imagechanger, 2000);
 window.addEventListener("load", function () {
   setTimeout(function () {
     document.querySelector(".h3-bg-image-text").classList.add("loaded");
@@ -54,7 +55,7 @@ function incrementCounterOne() {
   var target = 200;
   var increment = 1;
   var intervalTime = 10; // Interval time in milliseconds
-  
+
   var timer = setInterval(function () {
     if (counter >= target) {
       clearInterval(timer);
@@ -71,7 +72,7 @@ function incrementCounterTwo() {
   var target = 1000;
   var increment = 1;
   var intervalTime = 10; // Interval time in milliseconds
-  
+
   var timer = setInterval(function () {
     if (counter >= target) {
       clearInterval(timer);
@@ -105,7 +106,7 @@ function incrementCounterFour() {
   var target = 50;
   var increment = 1;
   var intervalTime = 50; // Interval time in milliseconds
-  
+
   var timer = setInterval(function () {
     if (counter >= target) {
       clearInterval(timer);
@@ -164,11 +165,11 @@ document.addEventListener("DOMContentLoaded", () => {
         registerForm.reset();
         window.location.href = "/"; // Reset the form fields
       } else {
-        if(confirm("Email already exists !!!! Login Again")){
+        if (confirm("Email already exists !!!! Login Again")) {
           window.location.href = "/login";
           registerForm.reset();
         }
-        
+
       }
     } catch (error) {
       console.error("Error:", error);
@@ -194,11 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
       console.log(response.status);
-      if(response.ok){
+      if (response.ok) {
         window.location.href = "/";
+      } else {
+        alert("Invalid Email or Password");
+        window.location.href = "/login";
       }
-      
-       // Reset the form fields
+
+      // Reset the form fields
     } catch (error) {
       console.error("Error:", error);
     }
@@ -210,9 +214,9 @@ donate_btn.addEventListener("click", function (e) {
 });
 
 const volunteer_btn = document.getElementById("volunteer-btn");
-volunteer_btn.style.backgroundColor="blue"
+volunteer_btn.style.backgroundColor = "blue"
 volunteer_btn.addEventListener("click", function (e) {
   console.log("janan")
   window.location.href = "/volunteer";
-  
+
 });

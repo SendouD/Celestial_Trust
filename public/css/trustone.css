@@ -24,8 +24,7 @@ body {
     padding: 0px;
     margin: 0px;
     border: none;
-   
-
+    margin-top: 12vh;
 }
 
 .top-info {
@@ -65,18 +64,12 @@ body {
     color:#5490c2;
 }
 
-.header {
-    padding: 2vh 16vw;
-    background-color: #333;
-}
-
 .body-photo {
     height: 80vh;
     background-image: url('../images/1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    position: relative;
 }
 
 .rand-space {
@@ -195,10 +188,6 @@ button:hover {
     display: none;
 }
 
-.trust1, .trust2, .trust3, .trust4 {
-    position: relative;
-}
-
 .trust1:hover .con1,.trust2:hover .con2,.trust3:hover .con3,.trust4:hover .con4 {
     display: flex;
 }
@@ -297,31 +286,6 @@ button:hover {
 .navlink:hover {
     cursor: pointer;
 
-}
-
-.right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 100px;
-    width: 100%;
-    
-    align-self: center;
-    margin-right: 2rem;
-    
-    height: inherit;
-    gap: 10px;
-}
-
-.left {
-    display: flex;
-    justify-content: flex-start;
-    /* Changed from 'center' to 'flex-start' */
-    align-items: center;
-    gap: 10px;
-    width: fit-content;
-    margin-left: 2rem;
-    /* Reintroduce margin-left */
 }
 
 .material-symbols-outlined {
