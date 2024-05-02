@@ -32,9 +32,10 @@ const imagechanger = () => {
   });
   dot_container[v].innerText = "radio_button_checked";
   ++v;
-  img.setAttribute("src", "./images/" + v + ".jpg");
+  img.setAttribute("src", "/images/" + v + ".jpg");
 };
 
+setInterval(imagechanger, 2000);
 window.addEventListener("load", function () {
   setTimeout(function () {
     document.querySelector(".h3-bg-image-text").classList.add("loaded");
