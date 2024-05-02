@@ -31,22 +31,20 @@ prominent_trust
     reviews.forEach(review => {
       const trustname = review.trustname.toString(); // Convert trustName to string
 
-      const {review_rating, /* other attributes */ } = review;
+      const {review_rating, } = review;
 
-      // Check if the trust name already exists in the trustReviews object
+      
       if (trustReviews.hasOwnProperty(trustname)) {
-        // If the trust name exists, add the review score to the total score and increase the count by 1
+
         trustReviews[trustname].totalScore += review_rating;
         trustReviews[trustname].count++;
-        // You can include other attributes as needed
-        // trustReviews[trustName].otherAttribute += review.otherAttribute;
+        
       } else {
-        // If the trust name doesn't exist, initialize it with the current review score
+      
         trustReviews[trustname] = {
           totalScore: review_rating,
           count: 1,
-          // You can include other attributes as needed
-          // otherAttribute: review.otherAttribute
+        
         };
       }
     });
