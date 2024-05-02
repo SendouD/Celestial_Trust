@@ -5,7 +5,10 @@ const volunteerdata = require('../Models/volunteer_schema');
 const trustInfo = require("../Models/TrustInfo_schema");
 
 const mail=require('./email_backend');
-volunteer.route('/').get(async(req,res)=>{        res.render("volunteer", {trust_name : null});
+volunteer.route('/').get(async(req,res)=>{      
+    const trusts = await trustInfo.find({}, { name: 1, _id: 0 });
+    console.log(trusts)
+    res.render("volunteer", {trust_name : null,trusts:trusts});
 }).post(async (req, res) => {
     try {
         const newvolunteerdata = new volunteerdata({
@@ -39,7 +42,7 @@ volunteer.route('/:id/volunteer')
         let trustId = req.params.id;
         let trust;
         await trustInfo.find({trust_unique_no : trustId}).then((data) => trust = data);
-        res.render("volunteer", {trust_name : trust[0].name});
+        res.render("volunteer", {trust_name : trust[0].name,trusts:null});
     })
     .post(async (req, res) => {
         console.log(req.body)

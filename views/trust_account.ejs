@@ -28,12 +28,12 @@
                 <h2>Volunteer request</h2>
                 <button onclick="toggleDetails()">View Details</button>
                 <p class="details">Name: <%= volunt_req[i].full_name %></p>
-                <p class="details">Email: <%= volunt_req[i].email %></p>
+                <p class="details" >Email: <%= volunt_req[i].email %></p>
                 <p class="details">Phone: <%= volunt_req[i].phone_number %></p>
                 <p class="details">Dates: <%= sdate[i] %> - <%= edate[i] %></p>
-                <div class="approval">
-                    <button class="details">Accept</button>
-                    <button class="details">Reject</button>
+                <div class="approval <%= volunt_req[i].email %>">
+                    <button class="details" id="accept">Accept</button>
+                    <button class="details" id="reject">Reject</button>
                 </div>           
             </nav>
         <% } %>
