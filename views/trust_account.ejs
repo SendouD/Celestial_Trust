@@ -24,17 +24,19 @@
             <div id="bar3" class="bar"></div>
           </button>
           <% for (let i = 0; i < volunt_req.length; i++) { %>
-            <nav class="notification">        
-                <h2>Volunteer request</h2>
-                <button onclick="toggleDetails()">View Details</button>
-                <p class="details">Name: <%= volunt_req[i].full_name %></p>
-                <p class="details" >Email: <%= volunt_req[i].email %></p>
-                <p class="details">Phone: <%= volunt_req[i].phone_number %></p>
-                <p class="details">Dates: <%= sdate[i] %> - <%= edate[i] %></p>
-                <div class="approval <%= volunt_req[i].email %>">
-                    <button class="details" id="accept">Accept</button>
-                    <button class="details" id="reject">Reject</button>
-                </div>           
+            <nav class="notification" style="border: 2px solid #ccc; padding: 20px; margin-bottom: 20px;">
+                <h4 style="margin-bottom: 10px; font-size: 16px;">Volunteer request</h4>
+                <button onclick="toggleDetails()" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; margin-bottom: 10px;">View Details</button>
+                <div class="details" style="display: none;">
+                    <p style="margin-bottom: 5px;">Name: <%= volunt_req[i].full_name %></p>
+                    <p style="margin-bottom: 5px;">Email: <%= volunt_req[i].email %></p>
+                    <p style="margin-bottom: 5px;">Phone: <%= volunt_req[i].phone_number %></p>
+                    <p style="margin-bottom: 5px;">Dates: <%= sdate[i] %> - <%= edate[i] %></p>
+                    <div class="approval <%= volunt_req[i].email %>" style="margin-top: 10px;">
+                        <button id="accept" style="background-color: #4CAF50; color: white; padding: 8px 16px; border: none; cursor: pointer; margin-right: 10px;">Accept</button>
+                        <button id="reject" style="background-color: #f44336; color: white; padding: 8px 16px; border: none; cursor: pointer;">Reject</button>
+                    </div>
+                </div>
             </nav>
         <% } %>
         

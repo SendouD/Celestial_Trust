@@ -4,7 +4,7 @@
     font-family: 'csc';
     src: url(./fonts/CarosSoft.otf)format('opentype');
     font-weight: normal;
-    font-style: normal;
+    font-style: normal;
 }
 
 *,
@@ -24,6 +24,8 @@ body {
     padding: 0px;
     margin: 0px;
     border: none;
+   
+
 }
 
 .top-info {

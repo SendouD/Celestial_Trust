@@ -19,13 +19,13 @@
 <body>
     <div class="review-center">
         <div class="review-left">
-            <form action="/report" method="POST">
+            <form action="/report/<%= name.trust_unique_no %>" method="POST">
                 <label for="trustname">Trust Name:</label>
-                <input type="text" id="trustname" name="trustname" required placeholder="Trust Name"><br>
+                <input type="text" id="trustname" name="trustname" value="<%- name.name %>"  placeholder="Trust Name" readonly><br>
                 <label for="review-name">Name:</label>
                 <input type="text" id="report_name" name="report_name" required placeholder="User Name"> <br>
                 <label for="review-email">Email:</label>
-                <input type="text" id="report_email" name="report_email" required placeholder="User Email"> <br>
+                <input type="text" id="report_email" name="report_email"  placeholder="User Email"> <br>
 
                 <label for="report_comment">Reason for Report:</label><br>
                 <textarea id="report_comment" name="report_comment" rows="4" cols="50" required></textarea><br>
