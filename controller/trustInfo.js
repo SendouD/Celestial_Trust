@@ -86,7 +86,6 @@ t_info.route("/:id")
         catch(e){
             console.log('second run');
         }
-        // const userreview=await review.find({});
         res.render("trustTwo", {trust : trust[0],trustId : trustId ,jone:userreview});
     })
     .post( (req, res) => {

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/reviews.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;700&family=Outfit&family=Petrona:ital,wght@1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <div class="review-center">
+        <div class="review-left">
+            <form action="/report" method="POST">
+                <label for="trustname">Trust Name:</label>
+                <input type="text" id="trustname" name="trustname" required placeholder="Trust Name"><br>
+                <label for="review-name">Name:</label>
+                <input type="text" id="report_name" name="report_name" required placeholder="User Name"> <br>
+                <label for="review-email">Email:</label>
+                <input type="text" id="report_email" name="report_email" required placeholder="User Email"> <br>
+
+                <label for="report_comment">Reason for Report:</label><br>
+                <textarea id="report_comment" name="report_comment" rows="4" cols="50" required></textarea><br>
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+        <div class="review-right">
+            <h3 class="review-h3">How your report helps us</h3>
+            <p class="review-p"><br>Your review plays a vital role in building trust and confidence among our
+                community. By sharing your honest feedback, you're helping others make informed decisions and
+                shaping a more transparent marketplace.<br><br> Together, we can create a trusted environment where
+                everyone feels confident in their choices. Your voice matters, and we truly appreciate your
+                contribution to our shared journey of trust-building.<br><br>
+                Thank you for being an integral part of our journey towards building a stronger, more connected
+                community based on trust and shared experiences.
+                Your feedback is invaluable, and we are deeply grateful for your ongoing support and contribution.
+                <br><br>Thank you for taking the time to share your experience with us!<br>
+            </p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

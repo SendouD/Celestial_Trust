@@ -8,28 +8,28 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-async function donation_success(recieverID,amount) {
-  
+async function donation_success(recieverID, amount) {
+
   const info = await transporter.sendMail({
-    from: `"ik " <${process.env.EMAIL_ID}>`, 
-    to:`${recieverID}`, 
-    subject: "Confirmation of Donation ", 
+    from: `"ik " <${process.env.EMAIL_ID}>`,
+    to: `${recieverID}`,
+    subject: "Confirmation of Donation ",
     text: `Your Donation of RS ${amount} is successful the receipt is attached with this Mail . Thank You for being a part of making a change :>`,
   });
-  
+
 
 }
 
 
 async function newsletter(mail_id) {
-  
+
   const info = await transporter.sendMail({
-    from: `"ik " inthrakumar.a22@iiits.com`, 
+    from: `"ik " inthrakumar.a22@iiits.com`,
     to: `${mail_id}`,
-    subject: "News Letter", 
+    subject: "News Letter",
     text: "Congratulation You Will be receiving a newsletter from our side, based on our ongoing projects", // plain text body
   });
-  
+
 
 }
 // newsletter();
@@ -37,7 +37,7 @@ async function newsletter(mail_id) {
 async function donation_failure() {
   const info = await transporter.sendMail({
     from: `"ik " <${process.env.EMAIL_ID}.com>`,
-    to:'jananathan.m22@iiits.in',
+    to: 'jananathan.m22@iiits.in',
     subject: "Hello ✔",
     text: "Your Payment has not been accepted due to some circumstancial issues. Please try again",
   });
@@ -47,17 +47,17 @@ async function donation_failure() {
 async function donation_failure() {
   const info = await transporter.sendMail({
     from: `"ik " <${process.env.EMAIL_ID}.com>`,
-    to:'jananathan.m22@iiits.in',
+    to: 'jananathan.m22@iiits.in',
     subject: "Hello ✔",
     text: "Your Payment has not been accepted due to some circumstancial issues. Please try again",
   });
 
 }
 
-async function weekly_newsletter(to,week,sub,text) {
+async function weekly_newsletter(to, week, sub, text) {
   const info = await transporter.sendMail({
     from: `"ik " <${process.env.EMAIL_ID}.com>`,
-    to:`${to}`,
+    to: `${to}`,
     subject: `${sub}`,
     html: `<!DOCTYPE html>
     <html lang="en">
@@ -99,8 +99,17 @@ async function weekly_newsletter(to,week,sub,text) {
     </html>
     `,
   });
-  
-
 }
+
+async function report(recieverID) {
+  const mailOptions = await transporter.sendMail({
+    from: `"ik " <${process.env.EMAIL_ID}.com>`,
+    to: `${recieverID}`, 
+    subject: 'Notification of Reported Trust',
+    text: 'This mail is to inform you that, you have reported concerns regarding potential misconduct within [Trust Name]. We ensure you appropriate action will be taken to address these concerns. Thank you for your attention to this matter.'
+  });
+}
+
+
 // donation_failure();
-module.exports = { donation_success,donation_failure,newsletter,weekly_newsletter};
+module.exports = { donation_success, donation_failure, newsletter, weekly_newsletter, report };
