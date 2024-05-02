@@ -12,7 +12,6 @@ router.route('/:id')
         message='';
     })
     .post(async (req, res) => {
-        console.log('inside post');
         try {
             const data = {
                 unique_id: req.body.trustname.concat(req.cookies.id),
@@ -31,7 +30,6 @@ router.route('/:id')
             }
             else {
                 const review = await reviewModel.create(data);
-                console.log(review);
                 message = 'Your review has been received sucessfully!';
                 flag = 1;
                 return res.status(200).redirect("/");

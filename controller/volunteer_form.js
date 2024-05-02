@@ -8,7 +8,6 @@ const user_volunteer = require("../Models/user_volunteer");
 const mail = require('./email_backend');
 volunteer.route('/').get(async (req, res) => {
     const trusts = await trustInfo.find({}, { name: 1, _id: 0 });
-    console.log(trusts)
     res.render("volunteer", { trust_name: null, trusts: trusts,trustid:null });
 }).post(async (req, res) => {
     try {
@@ -25,8 +24,6 @@ volunteer.route('/').get(async (req, res) => {
         });
 
         const savedFormData = await newvolunteerdata.save();
-        console.log('Form data saved:', savedFormData);
-        console.log(req.body.email);
         mail.volunteer(req.body.email);
 
 
@@ -41,14 +38,12 @@ volunteer.route('/').get(async (req, res) => {
 volunteer.route('/:id/volunteer')
     .get(async (req, res) => {
         let trustId = req.params.id;
-        console.log(req.params.id);
         let trust;
         await trustInfo.find({ trust_unique_no: trustId }).then((data) => trust = data);
         res.render("volunteer", { trust_name: trust[0].name ,trustid:trustId});
     })
     .post(async (req, res) => {
         try {
-            console.log(req.params);
             
             const new_vol = {
                 trust_id: req.params.id,
@@ -72,8 +67,6 @@ volunteer.route('/:id/volunteer')
 
             const savedFormData = await newvolunteerdata.save();
             await user_volunteer.create(new_vol);
-            // console.log('Form data saved:', savedFormData);
-            // console.log(req.body.email);
             mail.volunteer(req.body.email);
 
 
