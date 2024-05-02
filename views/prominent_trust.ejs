@@ -115,21 +115,25 @@
 									<%= trusts[i].name %>
 								</a></td>
 							<td>
-								<% const rating=ratings[trusts[i].name]; let stars=Math.round(rating); // Round the
-									rating to nearest integer if(isNaN(stars)){ stars=0 } if(stars==0){ %>
+								<% const rating=ratings[trusts[i].name]; let stars=Math.round(rating); 
+								 if(isNaN(stars))
+								 { stars=0 } 
+								 if(stars==0) { %>
 									<div style="display:inline-block; color: green;">&#9734;</div>
 									<div style="display:inline-block; color: green;">&#9734;</div>
 									<div style="display:inline-block; color: green;">&#9734;</div>
 									<div style="display:inline-block; color: green;">&#9734;</div>
 									<div style="display:inline-block; color: green;">&#9734;</div>
 
-									<% } else { for (let j=0; j < stars; j++) { %>
+									<% } 
+								else { for (let j=0; j < stars; j++) { %>
+										
 										<div style="display:inline-block; color: green;">&#9733;</div>
 
-										<% } %>
-											<% for(k=stars;k< 5;k++){ %>
+									<% } %>
+									<% for(k=stars;k< 5;k++){ %>
 												<div style="display:inline-block; color: green;">&#9734;</div>
-												<% } }%>
+								<% } }%>
 
 							</td>
 						</tr>
