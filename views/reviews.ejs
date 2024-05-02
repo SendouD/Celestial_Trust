@@ -19,7 +19,7 @@
 <body>
     <div class="review-center">
         <div class="review-left">
-            <form action="/reviews" method="POST">
+            <form  id="review-form">
                 <label for="trustname">Trust Name:</label>
                 <input type="text" id="trustname" name="trustname" required placeholder="Trust Name"><br>
                 <label for="review-name">Name:</label>
@@ -38,7 +38,7 @@
                 <label for="review_comment">review:</label><br>
                 <textarea id="review_comment" name="review_comment" rows="4" cols="50" required></textarea><br>
 
-                <button type="submit">Submit Review</button>
+                <button class="submit-btn">Submit Review</button>
             </form>
         </div>
         <div class="review-right">
@@ -56,9 +56,21 @@
         </div>
     </div>
 
+    <% if(flag === 1) { %>
+        <div style="color: green; margin: 80px; font-size: 1.5rem; padding-top: 0px;margin-top: 0;">
+            <%= message %>
+        </div>
+    <% } %>
+    <% if(flag === 0) { %>
+        <div style="color: red; margin: 80px; font-size: 1.5rem; padding-top: 0px;margin-top: 0;">
+            <%= message %>
+        </div>
+    <% } %>
+
     <script>
-        const allStar = document.querySelectorAll('.rating .star')
-        const ratingValue = document.querySelector('.rating input')
+        const allStar = document.querySelectorAll('.rating .star');
+        const ratingValue = document.querySelector('.rating input');
+        const btn = document.querySelector('.submit-btn');
 
         allStar.forEach((item, idx) => {
             item.addEventListener('click', function () {
@@ -79,7 +91,37 @@
                     }
                 }
             })
-        })
+        });
+
+        btn.addEventListener('click', async(e) => {
+            e.preventDefault();
+            const reviewForm = document.getElementById("review-form");
+            const formData = new FormData(reviewForm);
+            const res = Object.fromEntries(formData);
+            const payload = JSON.stringify(res);
+
+            try {
+                console.log('start');
+                const response = await fetch('/reviews', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: payload
+                });
+                console.log(response);
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                else window.location.reload();
+
+                console.log('Data posted successfully');
+            } catch (error) {
+                console.error('Error posting data:', error);
+            }
+        });
     </script>
 
 </body>
