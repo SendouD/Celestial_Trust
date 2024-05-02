@@ -19,7 +19,7 @@
 <body>
     <div class="review-center">
         <div class="review-left">
-            <form action="/report" method="POST">
+            <form action="/report/<%= name.trust_unique_no %>" method="POST">
                 <label for="trustname">Trust Name:</label>
                 <input type="text" id="trustname" name="trustname" value="<%- name.name %>"  placeholder="Trust Name" readonly><br>
                 <label for="review-name">Name:</label>
