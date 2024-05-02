@@ -28,7 +28,7 @@ donate.route("/").post(async (req, res) => {
   console.log("hii");
   console.log(req.body);
   const newDonation = new Donation({
-    
+    trust_name:req.body.trust_name,
     donationAmount: req.body.donationAmount,
     paymentMethod: req.body.paymentMethod,
     name: req.body.name,
