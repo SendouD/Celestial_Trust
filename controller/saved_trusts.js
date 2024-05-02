@@ -7,13 +7,10 @@ const saved_middleware = require("../middlewares/verify_login");
 saved_trusts.route('/').all(saved_middleware)
     .get( async (req,res) => {
         let trusts;
-        let t_url=[];
         if(req.cookies.id !== undefined) await savedTrusts.find({user:req.cookies.id}).then((data) => trusts = data);
         else await savedTrusts.find({user:'1'}).then((data) => trusts = data);
-        for(let i=0; i<trusts.length; i++){
-            await trustInfo.findOne({trust_unique_no : trusts[i].trust_unique_no}).then((data) => t_url.push(data.signed_url));
-        }
-        res.render('saved_trusts',{trusts : trusts, t_url : t_url});
+        console.log(trusts);
+        res.render('saved_trusts',{trusts : trusts});
     })
     .post( async (req,res) => {
         const { trustId } = req.body;

@@ -52,7 +52,7 @@ t_info.route("/")
             }
             length = trusts.length;
             for(let i=1;i<(length/4)+1;i++) str = str + '<div class="t-hy hyp'+i+'">'+i+'</div>';
-            res.render("trustOne",{ trust1 : trusts[(4*(page_no-1)+12)%length] , trust2 : trusts[(1+4*(page_no-1)+12)%length] , trust3 : trusts[(12+4*(page_no-1)+2)%length] , trust4 : trusts[(12+4*(page_no-1)+3)%length] , hyperlinks : str});
+            res.render("trustOne",{ trust1 : trusts[(4*(page_no-1))%length] , trust2 : trusts[(1+4*(page_no-1))%length] , trust3 : trusts[(4*(page_no-1)+2)%length] , trust4 : trusts[(4*(page_no-1)+3)%length] , hyperlinks : str});
         } catch (error) {
             console.log(error);
         }
