@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const reviewModel = require('../Models/reviews_schema');
-const alert=require('alert');
 
 let message='',flag = 0;
 
