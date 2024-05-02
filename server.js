@@ -20,7 +20,7 @@ const rep_trusts = require("./controller/reported_trusts");
 
 
 const reviews=require("./controller/reviews");
-
+const report=require("./controller/report");
 
 const admin=require("./controller/admin/admin");
 const trust=require("./controller/trust/trust");
@@ -28,6 +28,7 @@ const trustInfo=require("./controller/trustInfo");
 const confirmation=require("./controller/confirmation");
 const savedTrusts=require("./controller/saved_trusts");
 const contribution=require("./controller/contribution");
+
 app.use(express.static(path.join(process.cwd(), "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -70,14 +71,16 @@ app.get("/", (req, res) => {
 app.use("/donate", donate);
 app.use("/login", login);
 app.use("/register", register);
-app.use("/trustInfo", volunteer);
+app.use("/volunteer",volunteer)
 app.use("/account", account);
 app.use("/trust",trust);
 app.use("/admin",admin);
 app.use("/trustInfo",trustInfo);
+app.use("/trustInfo", volunteer);
 app.use("/savedTrusts",savedTrusts);
 app.use("/contribution",contribution);
 app.use("/reviews",reviews);
+app.use("/report",report);
 app.use("/about",about);
 app.use("/confirmation",confirmation);
 app.use("/verifyReportedTrusts",rep_trusts);

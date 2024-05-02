@@ -154,12 +154,16 @@
 			<div class="column is-6-desktop is-6-tablet">
 				<span class="text-color">Join With Us</span>
 				<h2 class="mb-5 text-md">Become A Volunteer</h2>
-				<form action="/trustInfo/:id/volunteer" class="volunteer-form" method="POST">
+				<form action="/trustInfo/:id/volunteer" class="volunteer-form" id="volunteerForm" method="POST">
 					<div class="mb-4">
 						
 						<label for="Trust_name" class="label"> <a href="/trustinfo">Not sure about the Trust?</a><label>
-						<input type="text" class="input" placeholder="Trust Name" name="Trust_name" value = "<%- trust_name %>" style="font-weight: 700;" disabled>
+							<div id="trustNameContainer">
+								<!-- This div will be replaced by either the input field or the selection bar -->
+							</div>
 					</div>
+					
+					  
 					<div class="mb-4">
 						<input type="text" class="input" placeholder="Full Name" name="full_name">
 					</div>
@@ -284,29 +288,66 @@
     Essential Scripts
     =====================================-->
 
-    
-    <!-- Main jQuery -->
-    <script src="plugins/jquery/jquery.js"></script>
-    <script src="js/contact.js"></script>
-   <!--  Magnific Popup-->
-    <script src="plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-    <!-- Slick Slider -->
-    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
-    <!-- Counterup -->
-    <script src="plugins/counterup/jquery.waypoints.min.js"></script>
-    <script src="plugins/counterup/jquery.counterup.min.js"></script>
-
-    <script src="plugins/modal-video/jquery-modal-video.min.js"></script>
-
-    <!-- Google Map -->
-    <script src="plugins/google-map/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>    
-    
-
 
 
 
     <script src="js/script.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Get the trust name container element
+			var trustNameContainer = document.getElementById('trustNameContainer');
+			var form = document.getElementById('volunteerForm');
+			
+			// Check if the initial value is null or empty
+			var trustNameValue = "<%- trust_name %>";
+		
+
+			const trustNames = [
+  { name: 'GRACE AND COMPASSION TRUST' },
+  { name: 'Health Care Trust' },
+  { name: "JIPMER PENSIONER'S ASSOCIATION" },
+  { name: 'Puduvai Sun Trust' },
+  { name: 'Womens Organisation for Social Education and Developemnt' }, 
+  { name: 'SINGARAVELU ABARANJI MEMORIAL TRUST' },
+  { name: 'Thillai Nadarajar Human Welfare Charitable Trust' },
+  { name: 'THE PUDUCHERRY COIR ARTISANS CO OPERTAIVE SOCIETY LIMITED NO P 774' },
+  { name: 'AANANTHA KUDIL CHARITABLE TRUST' },
+  { name: 'society for civic virtue cultivation' },
+  { name: 'Anbarasi madhar sangam' },
+  { name: 'RAJIVGANDHI HOME FOR HANDICAPPED' },
+  { name: 'Puducherry Corporation for the Development of Women and Differently Abled Persons Limited' },
+  { name: 'RAMYAA CHARITABLE TRUST' },
+  { name: 'LPT RESEARCH FOUNDATION' },
+  { name: 'santhosha nanban' },
+  { name: 'CENTRE FOR SOCIAL ACTION AND WOMENS DEVELOPMENT' },
+  { name: 'THAYAGAM GIRLS HOME' },
+  { name: 'ANJALAIAMAL CHARITABLE TRUST & EDUCATIONAL INSTITUTE FOR DEVELOPMENT' },
+  { name: 'vijay foundation' },
+  { name: 'WISDOM CHARITABLE TRUST' }
+];
+			if (!trustNameValue.trim()) {
+				form.setAttribute('action', '/volunteer');
+				// Generate the HTML for select options
+let optionsHTML = '<select class="input" name="Trust_name" style="font-weight: 700;">';
+	optionsHTML += '<option value="">Select a Trust</option>'; // Default option
+	
+	trustNames.forEach(trust => {
+	  optionsHTML += `<option value="${trust.name}">${trust.name}</option>`;
+	});
+	
+	optionsHTML += '</select>';
+	
+	// Set the innerHTML of the container
+	trustNameContainer.innerHTML = optionsHTML;
+			} else {
+				// If value is not null, render the input field
+				trustNameContainer.innerHTML = '<input type="text" class="input" placeholder="Trust Name" name="Trust_name" value="' + trustNameValue + '" style="font-weight: 700;" readonly>';
+				console.log(trustNameContainer.innerHTML);
+			}
+			
+		});
+		</script>
+		
 
   </body>
   </html>

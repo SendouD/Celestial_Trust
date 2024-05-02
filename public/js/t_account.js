@@ -1,7 +1,7 @@
 
 const save_changes=document.getElementById("save_changes");
 const details=document.querySelectorAll(".detail_info p");
-console.log(save_changes);
+
 
 function toggleEditMode(event, fieldId) {
   event.preventDefault();
@@ -25,6 +25,60 @@ function show() {
   document.querySelector(".hamburger").classList.toggle("open");
   document.querySelector(".navigation").classList.toggle("active");
 }
+const accept=document.querySelectorAll("#accept");
+accept.forEach((ele) => {
+
+  ele.addEventListener("click",async(event)=>{
+    const email=event.target.parentNode.classList[1];
+    
+  const detail={
+    type:"accept", 
+    email:email
+  }
+  const result=await fetch("/trust/volunt_req",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify(detail)
+  })
+  
+  if(result.ok){
+    window.location.href="/trust/account";
+  }else{
+    console.log("error: ");
+  }
+})})
+
+
+
+
+
+const decline=document.querySelectorAll("#reject");
+decline.forEach((ele) => {
+
+  ele.addEventListener("click",async(event)=>{
+    const email=event.target.parentNode.classList[1];
+    
+  const detail={
+    type:"decline", 
+    email:email
+  }
+  const result=await fetch("/trust/volunt_req",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify(detail)
+  })
+  
+  if(result.ok){
+    window.location.href="/trust/account";
+  }else{
+    console.log("error: ");
+  }
+})})
+
 
 save_changes.addEventListener("click", async()=>{
   const updatedDetails = [];
