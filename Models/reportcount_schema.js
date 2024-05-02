@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const reportSchema=new mongoose.Schema({
-    trust_name: String,
+    trust_id: String,
     no_of_reports: Number,
 });
 

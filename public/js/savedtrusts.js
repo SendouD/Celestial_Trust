@@ -21,7 +21,6 @@ don_btns.forEach( don_btn => {
 del_btns.forEach( del_btn => {
     del_btn.addEventListener('click', async (event) => {
         try {
-            console.log("inside");
             trustId = event.target.parentNode.classList[0];
             console.log(trustId);
             const response = await fetch('/savedTrusts', {

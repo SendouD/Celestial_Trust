@@ -1,5 +1,6 @@
 const express = require("express");
 let reported_trusts = express.Router();
+const report = require('../Models/report_schema');
 const reportcountModel = require('../Models/reportcount_schema');
 const trustDetails = require("../Models/Trust_Schema");
 
@@ -9,14 +10,29 @@ reported_trusts.route('/')
             let temp;
             let trusts = [];
             await reportcountModel.find({no_of_reports: {$gte: 2}}).then((data) => temp = data);
+            console.log(temp);
             for(let i=0; i < temp.length; i++){
-                await trustDetails.findOne({name: temp[i].trust_name}).then((data) => trusts.push(data));
+                await trustDetails.findOne({trust_unique_no: temp[i].trust_id}).then((data) => trusts.push(data));
             }
+            console.log(trusts);
             res.render('verify_reports',{ trusts: trusts });
         }
         else{
             res.send('You are not authorized to visit this page.');
         }
+    })
+    .post(async(req,res) => {
+        const { trustid,flag } = req.body;
+        if(flag === 1){
+            console.log(trustid);
+            await reportcountModel.findOneAndUpdate({trust_id: trustid},{no_of_reports: 0});
+            await report.deleteMany({trust_id: trustid});
+        }
+        else if(flag === 2){
+            await reportcountModel.findOneAndUpdate({trust_id: trustid},{no_of_reports: 0});
+            await report.deleteMany({trust_id: trustid});
+        }
+        return res.status(200).redirect('/');
     })
 
 module.exports = reported_trusts;
