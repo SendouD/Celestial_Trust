@@ -12,8 +12,6 @@ dotenv.config();
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         const path_of_file = path.join(__dirname, "../../public/trustimages");
-        console.log(req.files);
-        console.log(path_of_file);
         cb(null, path_of_file);
     },
     filename: function (req, file, cb) {

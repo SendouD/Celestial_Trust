@@ -33,72 +33,49 @@
     />
   </head>
   <body>
-    <div class="head">
+     <header>
+    <div class="header">
       <div class="left">
-        <div class="logo">
-          <img
-            id="logo"
-            src="../images/logo.png"
-            alt=""
-            style="width: 50px; height: 50px; padding-top: 10px"
-          />
-        </div>
-        
-        <div class="title">
-          <p>Celestial Trust NetWork</p>
+        <div class="img"><img src="/images/celestial-trust-network-favicon-white.png" alt=""></div>
+        <div class="head_title">
+          <h1>Celestial Trust Network</h1>
         </div>
       </div>
       <div class="right">
         <div class="navlink">
-          <a href="account.html">Home</a>
+          <a href="/">Home</a>
         </div>
         <div class="navlink">
-          <a href="account.html">About</a>
+          <a href="/about">About</a>
         </div>
         <div class="navlink">
-          <a  href="">Get Involved</a>
+          <a  href="/account">Account</a>
         </div>
         <div class="navlink">
-          <a href="account.html">Projects</a>
+          <a href="/trustinfo">Projects</a>
         </div>
         <div class="navlink">
           <a href="account.html">Prominent Trusts</a>
         </div>
+        
         <div class="navlink">
-          <a href="account.html">Sign in</a>
+          <a href="/blog">Blog
+          </a>
+        </div>
+        <div class="navlink">
+          <a href="/contribution">Contribution</a>
         </div>
       </div>
     </div>
-    <div class="navigation">
-      <button class="hamburger" onclick="show()">
-        <div id="bar1" class="bar"></div>
-        <div id="bar2" class="bar"></div>
-        <div id="bar3" class="bar"></div>
-      </button>
       
-      <nav>
-        <ul>
-          <li><a>My Account</a></li>
-          <li><a>My Contributions</a></li>
-          <li><a>Volunteering</a></li>
-          <li><a>About Donation</a></li>
-            <li><a>Blog</a></li>
-          
-          <li><a>Contact</a></li>
-        </ul>
-      </nav>
+      </div>
     </div>
-    
+  </header>
+<
     <div class="us_title user_div_relative">
       <p class="account_para">Account Info</p>
       <div class="user_top_info">
-        <div class="img">
-          <img
-            src="./images/profile.jpg"
-            alt=""
-            style="width: 150px; height: 150px"
-          />
-        </div>
+        
         <div class="user_name">
           <p>Hey <%= user.name %></p>
           <br />
@@ -175,16 +152,7 @@
             </div>
           </div>
           
-          <div class="user_detail">
-            <div class="detail_title">Profile pic</div>
-            <div class="detail_info" id="profile_pic">
-              <p contenteditable="true">
-                <form action=""><input type="file" name="profile_pic" id="profile_pic" accept=".png, .jpeg"></form>
-              </p>
-            </div>
-            <div class="detail_edit">
-            </div>
-          </div>
+          
          
           <div class="save_changes">
             <button type="button" class="btn btn-warning" type="submit" id="save_changes">Save Changes</button>
