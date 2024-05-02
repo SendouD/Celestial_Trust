@@ -73,7 +73,7 @@ button {
 
 }
 
-.print_btn{
+.print_btn {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-evenly;
@@ -325,10 +325,14 @@ td {
 
 }
 
+.top_div {
+    margin-top: 5rem;
+}
+
 .us_title {
     background-color: #fff;
 
-    margin-top: 1rem;
+    margin-top: 5rem;
 
 
 }
