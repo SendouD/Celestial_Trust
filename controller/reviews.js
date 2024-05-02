@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const reviewModel = require('../Models/reviews_schema');
+const trust=require("../Models/Trust_Schema");
 
 let message='',flag = 0;
 
-router.get('/', async (req, res) => {
-    res.render('reviews',{message:message,flag: flag});
+router.get('/:id', async (req, res) => {
+    const tname=await trust.findOne({trust_unique_no:req.params.id});
+    res.render('reviews',{message:message,flag: flag,name:tname.name});
     message='';
 });
 

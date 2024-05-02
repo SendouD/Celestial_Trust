@@ -5,9 +5,10 @@ const reportcountModel = require('../Models/reportcount_schema');
 const trustDetails = require("../Models/Trust_Schema");
 const saved_middleware = require("../middlewares/verify_login");
 
-router.route('/').all(saved_middleware)
+router.route('/:id').all(saved_middleware)
     .get(async (req, res) => {
-        res.render('report');
+        const data=await trustDetails.findOne({trust_unique_no:req.params.id});
+        res.render('report',{name:data});
     })
     .post( async (req, res) => {
         try {

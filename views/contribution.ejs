@@ -161,6 +161,7 @@
             <th>Start Date</th>
             <th>No of Hours</th>
             <th>Review</th>
+            <th>Report</th>
           </tr>
           <% if(volunteer_trusts.length != 0) { %> <%
           volunteer_trusts.forEach((volunteer_trust) => { %>
@@ -169,8 +170,8 @@
             <td><a><%- volunteer_trust.trust_name %></a></td>
             <td><%- volunteer_trust.start_date %></td>
             <td><%- volunteer_trust.no_of_hours %></td>
-            <td><a href="/<%- volunteer_trust.trust_name %>/review">Review</a></td>
-            <td><a href="/<%- volunteer_trust.trust_name %>/report">Report</a></td>
+            <td><a href="/reviews/<%- volunteer_trust.trust_id %>">Review</a></td>
+            <td><a href="/report/<%- volunteer_trust.trust_id %>">Report</a></td>
           
           </tr>
           <% }); %> <% }else{ %>
