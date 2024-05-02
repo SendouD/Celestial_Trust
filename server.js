@@ -12,6 +12,7 @@ app.use(cookie());
 const bcrypt = require("bcrypt");
 const about=require("./controller/about")
 const donate = require("./controller/donate");
+const prominent_trust = require("./controller/prominent_trust");
 const account = require("./controller/account");
 const login = require("./controller/login");
 const register = require("./controller/register");
@@ -84,6 +85,7 @@ app.use("/report",report);
 app.use("/about",about);
 app.use("/confirmation",confirmation);
 app.use("/verifyReportedTrusts",rep_trusts);
+app.use("/prominent_trust",prominent_trust)
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
