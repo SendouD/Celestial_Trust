@@ -6,12 +6,21 @@ const bcrypt = require("bcrypt");
 const cookie = require("cookie-parser");
 const jsonwebtoken_verification = require("../jwt_verification");
 const multer = require("multer");
-const { s3uploadV2, getobjecturl } = require('../aws_file_upload');
-const trust_verify = require('../../middlewares/trust_check');
-const trust_file = require("../../Models/Trust_files");
+const path = require("path");
 
 route.use(cookie());
-const storage = multer.memoryStorage();
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const path_of_file = path.join(__dirname, "../../public/trustimages");
+    console.log(req.files);
+    console.log(path_of_file);
+    cb(null, path_of_file);
+  },
+  filename: function (req, file, cb) {
+
+    cb(null, file.originalname);
+  }
+});
 
 const upload = multer({
   storage,
@@ -46,8 +55,10 @@ route.post("/login", async (req, res) => {
 });
 
 route.post("/signup", upload.single('t_docs'), async (req, res) => {
+
   const existingUser = await database.findOne({ trust_unique_no: req.body.trust_no });
   if (existingUser) {
+    console.log("got it");
     // If the email already exists, send a response indicating the conflict
     return res.status(409).send("Email already exists");
   }
@@ -57,21 +68,12 @@ route.post("/signup", upload.single('t_docs'), async (req, res) => {
     req.body.re_trsut_pass === "" ||
     req.body.trust_pass !== req.body.re_trust_pass
   ) {
+    console.log("pass error");
     res.status(409).send("Enter  Trust password correctly");
   }
-  let url;
-  if (!req.file) {
-    trust_file.create(
-      { trust_no: req.body.trust_no, signed_url: "verification_doc_not_given" }
-    );
 
+  let url = "path to file";
 
-  } else {
-    await s3uploadV2(req.file, req.body.trust_no, process.env.TRUST_VERIFY_BUCKET);
-    url = await getobjecturl(process.env.TRUST_VERIFY_BUCKET, req.body.trust_no);
-    console.log(url);
-
-  }
 
   const hashedpassword = await bcrypt.hash(req.body.trust_pass, 10);
   const newTrustdetail = new database({

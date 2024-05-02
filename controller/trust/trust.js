@@ -2,19 +2,32 @@ const route = require("express").Router();
 const trust_data_insert = require("./trust_data");
 const database_model = require("../../Models/Trust_Schema");
 const trust_info = require("../../Models/TrustInfo_schema");
-const volunteerdata=require("../../Models/volunteer_schema")
-const mail=require('../email_backend');
+const volunteerdata = require("../../Models/volunteer_schema")
+const mail = require('../email_backend');
 const multer = require("multer");
 const dotenv = require("dotenv");
+const path = require("path");
 dotenv.config();
-const { s3uploadV2, getobjecturl } = require('../aws_file_upload');
 
-const storage = multer.memoryStorage();
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        const path_of_file = path.join(__dirname, "../../public/trustimages");
+        console.log(req.files);
+        console.log(path_of_file);
+        cb(null, path_of_file);
+    },
+    filename: function (req, file, cb) {
+
+        cb(null, file.originalname);
+    }
+});
 
 const upload = multer({
     storage,
     limits: { fileSize: 1000000000 },
 });
+
+
 route.get("/", (req, res) => {
     res.render("trust_login");
 
@@ -48,32 +61,32 @@ route.get("/account", async (req, res) => {
         contri_received: details.contri_received,
         Date_Joined: details.Date_Joined
     };
-    
-    
-    let t_name=newuser.name
-   
-   
-    const volunt_req= await volunteerdata.find({Trust_name:newuser.name});
-   
-    let stdate=[];
-    let endate=[];
-    for(let i=0;i<volunt_req.length;i++){
-        let sdate=volunt_req[i].start_date;
-        let edate=volunt_req[i].end_date;
-        sdate=formatDate(sdate.toString())
-        edate=formatDate(edate.toString())
-        volunt_req[i].start_date=sdate;
-        volunt_req[i].end_date=edate;
-        stdate[i]=sdate;
-        endate[i]=edate;
-        
-        
-      
+
+
+    let t_name = newuser.name;
+
+
+    const volunt_req = await volunteerdata.find({ Trust_name: newuser.name });
+
+    let stdate = [];
+    let endate = [];
+    for (let i = 0; i < volunt_req.length; i++) {
+        let sdate = volunt_req[i].start_date;
+        let edate = volunt_req[i].end_date;
+        sdate = formatDate(sdate.toString())
+        edate = formatDate(edate.toString())
+        volunt_req[i].start_date = sdate;
+        volunt_req[i].end_date = edate;
+        stdate[i] = sdate;
+        endate[i] = edate;
+
+
+
 
     }
 
 
-    res.render("trust_account", { trust: newuser,volunt_req:volunt_req,sdate:stdate,edate:endate});
+    res.render("trust_account", { trust: newuser, volunt_req: volunt_req, sdate: stdate, edate: endate });
 
 })
 route.post("/account", async (req, res) => {
@@ -103,14 +116,9 @@ route.get("/trustinfo", async (req, res) => {
     res.render("trust_info");
 })
 route.post("/trustinfo", upload.array('fileUpload'), async (req, res) => {
-    let url;
     try {
         console.log(req.body);
-        console.log(req.files);
-        await s3uploadV2(req.files[0], req.body.trust_unique_no, process.env.TRUST_OWNER_BUCKET);
-        await s3uploadV2(req.files[1], req.body.trust_unique_no, process.env.TRUST_IMAGES_BUCKET);
-        url = await getobjecturl(process.env.TRUST_IMAGES_BUCKET, req.body.trust_unique_no);
-        console.log("file added successfully");
+
 
     } catch (err) {
         console.log(err);
@@ -122,7 +130,7 @@ route.post("/trustinfo", upload.array('fileUpload'), async (req, res) => {
         about2: req.body.about2,
         trust_unique_no: req.body.trust_unique_no,
         trust_types: req.body.trust_types,
-        signed_url:url
+        signed_url: "path to file"
     }
     const trust = await trust_info.create(trust_details);
     console.log(trust);
@@ -135,11 +143,11 @@ route.post("/volunt_req", async (req, res) => {
         const details = await database_model.findOne({ _id: req.cookies.id });
         console.log(details.name)
         console.log(req.body);
-        if(req.body.type==="accept"){
-            mail.approval(req.body.email,details.name)
+        if (req.body.type === "accept") {
+            mail.approval(req.body.email, details.name)
         }
-        if(req.body.type==="decline"){
-            mail.decline(req.body.email,details.name)
+        if (req.body.type === "decline") {
+            mail.decline(req.body.email, details.name)
         }
         const deleteResult = await volunteerdata.deleteMany({ email: req.body.email });
 
