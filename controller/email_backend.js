@@ -120,7 +120,24 @@ async function report(recieverID) {
     text: 'This mail is to inform you that, you have reported concerns regarding potential misconduct within [Trust Name]. We ensure you appropriate action will be taken to address these concerns. Thank you for your attention to this matter.'
   });
 }
-
+async function approval(recieverID,trustname) {
+  
+  const info = await transporter.sendMail({
+    from: `"ik " <${process.env.EMAIL_ID}>`, 
+    to:`${recieverID}`, 
+    subject: "volunteer application status", 
+    text: `you are approved to visit the trust ${trustname} in the applied dates . Thank You for being a part of making a change :>`,
+  });
+}
+async function decline(recieverID,trustname) {
+  
+  const info = await transporter.sendMail({
+    from: `"ik " <${process.env.EMAIL_ID}>`, 
+    to:`${recieverID}`, 
+    subject: "volunteer application status", 
+    text: `your request  to visit the trust ${trustname} is declined on the given dates . Thank You for being a part of making a change :>`,
+  });
+}
 
 // donation_failure();
 module.exports = { donation_success,donation_failure,newsletter,weekly_newsletter,volunteer,approval,decline};
