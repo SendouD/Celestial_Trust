@@ -18,6 +18,12 @@
     rel="stylesheet">
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        .trust-img {
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body>
     <div class="head">
@@ -65,8 +71,8 @@
     <% if(trusts.length !== 0) { %>
         <% for(let i=0;i < trusts.length; i++) { %>
             <div class="saved-trust">
-                <div class="trust-img">
-        
+                <div class="trust-img" style="background-image: url('<%- t_url[i] %>')">
+
                 </div>
                 <div class="trust-info">
                     <div class="<%- trusts[i].trust_unique_no %>" style="display: flex; justify-content: flex-end;"><button class="delete-btn">&#10006;</button></div>
@@ -83,7 +89,11 @@
             </div>
         <% } %>
     <% } %>
+    <% if(trusts.length === 1) { %>
+        <div class="saved-trust" style="background-color: white; box-shadow: none;"></div>
+    <% } %>
 
+    </div>
     <footer class="footer">
         <div class="blocks">
             <div class="foot_logo foot_divs">

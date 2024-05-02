@@ -300,11 +300,45 @@
 			
 			// Check if the initial value is null or empty
 			var trustNameValue = "<%- trust_name %>";
-			
+		
+
+			const trustNames = [
+  { name: 'GRACE AND COMPASSION TRUST' },
+  { name: 'Health Care Trust' },
+  { name: "JIPMER PENSIONER'S ASSOCIATION" },
+  { name: 'Puduvai Sun Trust' },
+  { name: 'Womens Organisation for Social Education and Developemnt' }, 
+  { name: 'SINGARAVELU ABARANJI MEMORIAL TRUST' },
+  { name: 'Thillai Nadarajar Human Welfare Charitable Trust' },
+  { name: 'THE PUDUCHERRY COIR ARTISANS CO OPERTAIVE SOCIETY LIMITED NO P 774' },
+  { name: 'AANANTHA KUDIL CHARITABLE TRUST' },
+  { name: 'society for civic virtue cultivation' },
+  { name: 'Anbarasi madhar sangam' },
+  { name: 'RAJIVGANDHI HOME FOR HANDICAPPED' },
+  { name: 'Puducherry Corporation for the Development of Women and Differently Abled Persons Limited' },
+  { name: 'RAMYAA CHARITABLE TRUST' },
+  { name: 'LPT RESEARCH FOUNDATION' },
+  { name: 'santhosha nanban' },
+  { name: 'CENTRE FOR SOCIAL ACTION AND WOMENS DEVELOPMENT' },
+  { name: 'THAYAGAM GIRLS HOME' },
+  { name: 'ANJALAIAMAL CHARITABLE TRUST & EDUCATIONAL INSTITUTE FOR DEVELOPMENT' },
+  { name: 'vijay foundation' },
+  { name: 'WISDOM CHARITABLE TRUST' }
+];
 			if (!trustNameValue.trim()) {
 				form.setAttribute('action', '/volunteer');
-				// If value is null, replace the container content with a selection bar
-				trustNameContainer.innerHTML = '<select class="input" name="Trust_name" style="font-weight: 700;"><option value="Trust 1">Trust 1</option><option value="Trust 2">Trust 2</option><option value="Trust 3">Trust 3</option></select>';
+				// Generate the HTML for select options
+let optionsHTML = '<select class="input" name="Trust_name" style="font-weight: 700;">';
+	optionsHTML += '<option value="">Select a Trust</option>'; // Default option
+	
+	trustNames.forEach(trust => {
+	  optionsHTML += `<option value="${trust.name}">${trust.name}</option>`;
+	});
+	
+	optionsHTML += '</select>';
+	
+	// Set the innerHTML of the container
+	trustNameContainer.innerHTML = optionsHTML;
 			} else {
 				// If value is not null, render the input field
 				trustNameContainer.innerHTML = '<input type="text" class="input" placeholder="Trust Name" name="Trust_name" value="' + trustNameValue + '" style="font-weight: 700;" readonly>';

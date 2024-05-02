@@ -6,7 +6,6 @@ let trustId;
 
 det_btns.forEach( det_btn => {
     det_btn.addEventListener('click', async (event) => {
-        console.log('inside');
         trustId = event.target.parentNode.classList[1];
         window.location.href = '/trustInfo/'+trustId;
     })
@@ -24,6 +23,7 @@ del_btns.forEach( del_btn => {
         try {
             console.log("inside");
             trustId = event.target.parentNode.classList[0];
+            console.log(trustId);
             const response = await fetch('/savedTrusts', {
                 method: 'POST',
                 headers: {

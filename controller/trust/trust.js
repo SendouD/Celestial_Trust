@@ -3,6 +3,7 @@ const trust_data_insert = require("./trust_data");
 const database_model = require("../../Models/Trust_Schema");
 const trust_info = require("../../Models/TrustInfo_schema");
 const volunteerdata=require("../../Models/volunteer_schema")
+const mail=require('../email_backend');
 const multer = require("multer");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -48,12 +49,12 @@ route.get("/account", async (req, res) => {
         Date_Joined: details.Date_Joined
     };
     
-    console.log(newuser.name);
+    
     let t_name=newuser.name
-    console.log(t_name)
+   
    
     const volunt_req= await volunteerdata.find({Trust_name:newuser.name});
-    console.log(volunt_req);
+   
     let stdate=[];
     let endate=[];
     for(let i=0;i<volunt_req.length;i++){
@@ -128,4 +129,26 @@ route.post("/trustinfo", upload.array('fileUpload'), async (req, res) => {
     return res.status(200).redirect("/");
 
 });
+
+route.post("/volunt_req", async (req, res) => {
+    try {
+        const details = await database_model.findOne({ _id: req.cookies.id });
+        console.log(details.name)
+        console.log(req.body);
+        if(req.body.type==="accept"){
+            mail.approval(req.body.email,details.name)
+        }
+        if(req.body.type==="decline"){
+            mail.decline(req.body.email,details.name)
+        }
+        const deleteResult = await volunteerdata.deleteMany({ email: req.body.email });
+
+
+    } catch (err) {
+        console.log(err);
+    }
+    return res.status(200).redirect("/");
+
+});
+
 module.exports = route;

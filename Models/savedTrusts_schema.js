@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const savedtrustsSchema = new mongoose.Schema({
     name: String,
+    user: String,
     trust_type: [String],
     email: String,
     phone_no: String,

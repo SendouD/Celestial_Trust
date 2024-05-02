@@ -1,0 +1,15 @@
+body {
+    margin: 0px;
+    border: none;
+    padding: 0px;
+    color: white;
+}
+
+.reported-trust {
+    background-color: rgb(177, 177, 177);
+    height: 340px;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 5px 5px rgb(235, 235, 235);
+}
