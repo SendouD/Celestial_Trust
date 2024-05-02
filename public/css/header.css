@@ -18,9 +18,10 @@
 header {
     background-color: #302d2d;
     height: 12vh;
-    color: #B2B2B2;
+    color: #daac19;
     position: fixed;
     width: 100vw;
+    top: 0;
 }
 
 .left {
@@ -30,7 +31,7 @@ header {
     width: 23vw;
     gap: 25px;
     font-family: 'Paddington';
-    padding-left: 1rem;
+    padding-left: 0rem;
 
 }
 
@@ -62,6 +63,7 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 0.5rem;
 }
 
 
@@ -79,9 +81,10 @@ header h1 {
     height: inherit;
     align-items: center;
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     font-style: normal;
     width: 60vw;
+
 }
 
 

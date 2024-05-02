@@ -13,18 +13,6 @@ button {
     font: inherit;
 }
 
-.navlink {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: #1C0118;
-    font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-}
 
 .reveal {
     position: relative;
