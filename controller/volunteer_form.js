@@ -42,10 +42,9 @@ volunteer.route('/:id/volunteer')
         let trustId = req.params.id;
         let trust;
         await trustInfo.find({trust_unique_no : trustId}).then((data) => trust = data);
-        res.render("volunteer", {trust_name : trust[0].name,trusts:null});
+        res.render("volunteer", {trust_name : trust[0].name,trustid : trust[0].trustId});
     })
     .post(async (req, res) => {
-        console.log(req.body)
         
         try {
             const newvolunteerdata = new volunteerdata({
