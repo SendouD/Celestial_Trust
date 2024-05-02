@@ -22,12 +22,13 @@ t_info.route("/")
         try {
             if(flag2 === 1){
                 let trusts1;
-                await savedTrusts.find({trust_unique_no : trust_id}).then((data) => trusts = data);
-                if(trusts.length === 0){
+                await savedTrusts.find({trust_unique_no : trust_id,user:req.cookies.id}).then((data) => trusts = data);
+                if(trusts.length === 0 && req.cookies.id !== undefined){
                     await trustInfo.find({trust_unique_no : trust_id}).then((data) => trusts = data);
                     await trustDetails.find({trust_unique_no : trust_id}).then((data) => trusts1 = data);
                     const newTrust = new savedTrusts({
                         name: trusts[0].name,
+                        user: req.cookies.id,
                         trust_type: trusts[0].trust_types,
                         email: trusts1[0].email,
                         phone_no: trusts1[0].phonenumber,
@@ -51,7 +52,7 @@ t_info.route("/")
             }
             length = trusts.length;
             for(let i=1;i<(length/4)+1;i++) str = str + '<div class="t-hy hyp'+i+'">'+i+'</div>';
-            res.render("trustOne",{ trust1 : trusts[(4*(page_no-1))%length] , trust2 : trusts[(1+4*(page_no-1))%length] , trust3 : trusts[(4*(page_no-1)+2)%length] , trust4 : trusts[(4*(page_no-1)+3)%length] , hyperlinks : str});
+            res.render("trustOne",{ trust1 : trusts[(4*(page_no-1)+12)%length] , trust2 : trusts[(1+4*(page_no-1)+12)%length] , trust3 : trusts[(12+4*(page_no-1)+2)%length] , trust4 : trusts[(12+4*(page_no-1)+3)%length] , hyperlinks : str});
         } catch (error) {
             console.log(error);
         }

@@ -16,6 +16,7 @@ const account = require("./controller/account");
 const login = require("./controller/login");
 const register = require("./controller/register");
 const volunteer = require("./controller/volunteer_form");
+const rep_trusts = require("./controller/reported_trusts");
 
 
 const reviews=require("./controller/reviews");
@@ -79,7 +80,7 @@ app.use("/contribution",contribution);
 app.use("/reviews",reviews);
 app.use("/about",about);
 app.use("/confirmation",confirmation);
-
+app.use("/verifyReportedTrusts",rep_trusts);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

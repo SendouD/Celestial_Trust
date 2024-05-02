@@ -1,8 +1,3 @@
-
-const temp1 = document.querySelector('.trust1');
-const temp2 = document.querySelector('.trust2');
-const temp3 = document.querySelector('.trust3');
-const temp4 = document.querySelector('.trust4');
 const btn = document.querySelector('.filter1');
 const btn1 = document.querySelector('.search1');
 const t_hyp = document.querySelectorAll('.t-hy');
@@ -25,10 +20,6 @@ let trustId,trustId1;
 let type = 'All';
 let num = '1';
 let name1 = 'Child';
-temp1.style.backgroundImage = 'url("../images/images/trusts/child education/child-1.jpg")';
-temp2.style.backgroundImage = 'url("../images/images/trusts/child education/child-2.jpg")';
-temp3.style.backgroundImage = 'url("../images/images/trusts/child education/child-3.webp")';
-temp4.style.backgroundImage = 'url("../images/images/trusts/child education/child-4.jpg")';
 
 btn.addEventListener('click', async () => {
     type = searchbar.value;
