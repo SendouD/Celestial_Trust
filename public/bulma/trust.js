@@ -1,25 +1,14 @@
-const route = require("express").Router();
-const trust_data_insert = require("./trust_data");
-const database_model = require("../../Models/Trust_Schema");
-const trust_info = require("../../Models/TrustInfo_schema");
-const volunteerdata=require("../../Models/volunteer_schema")
-const multer = require("multer");
-const dotenv = require("dotenv");
-dotenv.config();
-const { s3uploadV2, getobjecturl } = require('../aws_file_upload');
-
-const storage = multer.memoryStorage();
-
-const upload = multer({
-    storage,
-    limits: { fileSize: 1000000000 },
-});
-route.get("/", (req, res) => {
+const route=require("express").Router();
+const trust_data_insert=require("./trust_data");
+const database_model=require("../../Models/Trust_Schema");
+const volunteerdata=require("../../Models/volunteer_schema");
+route.get("/",(req,res)=>{
     res.render("trust_login");
 
 })
 route.use('/data', trust_data_insert);
 
+route.use('/data',trust_data_insert);
 function formatDate(dateString) {
     const date = new Date(dateString);
 

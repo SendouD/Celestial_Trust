@@ -6,6 +6,9 @@ const trustDetails = require("../Models/Trust_Schema");
 const donate_middleware = require("../middlewares/verify_login");
 const Donation = require("../Models/Donation_schema");
 const savedTrusts = require("../Models/savedTrusts_schema");
+
+const review = require("../Models/reviews_schema");
+
 var trusts;
 let type1 = 'All';
 let page_no = 1,flag1=0,flag2 = 0; 
@@ -37,8 +40,9 @@ t_info.route("/")
             }
             if(flag1 === 1)
                 await trustInfo.find({name : {$regex : name2}}).then((data) => trusts = data);
-            else if(type1 === 'All')
+            else if(type1 === 'All'){
                 await trustInfo.find({}).then((data) => trusts = data);
+            }   
             else
                 await trustInfo.find({trust_types : { $in: [type1] }}).then((data) => trusts = data);
             if(trusts.length === 0){
@@ -72,8 +76,17 @@ t_info.route("/:id")
     .get(async (req,res) => {
         let trust;
         let trustId = req.params.id;
+        let userreview;
         await trustInfo.find({trust_unique_no : trustId}).then((data) => trust = data);
-        res.render("trustTwo", {trust : trust[0],trustId : trustId});
+        console.log(trust);
+        try{
+            await review.find({trustname :trust[0].name}).then((data) => userreview = data);
+            console.log(userreview);
+        }
+        catch(e){
+            console.log('second run');
+        }
+        res.render("trustTwo", {trust : trust[0],trustId : trustId ,jone:userreview});
     })
     .post( (req, res) => {
         let trustId = req.params.id;

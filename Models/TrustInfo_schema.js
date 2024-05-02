@@ -7,9 +7,8 @@ const TrustInfoSchema = new mongoose.Schema({
     about2: String, 
     trust_unique_no: String,
     trust_types: [String],
-    signed_url:String
+    signed_url:{type:String,default:"not provided"}
 });
-
 const Trust_Info = mongoose.model("TrustInfo", TrustInfoSchema);
 
 module.exports = Trust_Info;

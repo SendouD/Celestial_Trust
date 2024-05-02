@@ -1,128 +1,165 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/trust_account.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    />
-  </head>
-  <body>
-    <div class="us_title user_div_relative">
-      <p class="account_para"> Trust Account Info</p>
-      
-    </div>
-    <div class="user_top_info">
-  
-      
-    </div>
-  <div class="profile_details">
-      <div class="info_div">
-        <div class="user_detail">
-          <div class="detail_title">Name</div>
-          <div class="detail_info" id="name">
-            <p contenteditable="true"><%= trust.name %></p>
-          </div>
-          <div class="detail_edit">
-            <a href="" onclick="toggleEditMode(event,'name')">Edit</a>
-          </div>
-        </div>
-        <div class="user_detail">
-          <div class="detail_title">Trust Id</div>
-          <div class="detail_info" id="user_name">
-            <p contenteditable="true"><%= trust.trust_unique_no %></p>
-          </div>
-          <div class="detail_edit">
-            <a href="" onclick="toggleEditMode(event,'user_name')">Edit</a>
-          </div>
-        </div>
-        <div class="user_detail">
-          <div class="detail_title">Phone Number </div>
-          <div class="detail_info" id="phone_no">
-            <p contenteditable="true"><%= trust.phonenumber %> <br>
-          </p>
-          </div>
-          <div class="detail_edit">
-            <a href="" onclick="toggleEditMode(event,'phone_no')">Edit</a>
-          </div>
-        </div>
-        <div class="user_detail">
-          <div class="detail_title">State</div>
-          <div class="detail_info" id="state">
-            <p contenteditable="true"><%= trust.state %></p>
-          </div>
-          <div class="detail_edit">
-            <a href="" onclick="toggleEditMode(event,'state')">Edit</a>
-          </div>
-        </div>
-        <div class="user_detail">
-          <div class="detail_title">Contact Email</div>
-          <div class="detail_info" id="email">
-            <p contenteditable="true"><%= trust.email %></p>
-          </div>
-          <div class="detail_edit">
-            <a href="" onclick="toggleEditMode(event,'email')">Edit</a>
-          </div>
-        </div>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <link rel="stylesheet" href="/css/trust_acount.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      />
+    </head>
+    <body>
+      <div class="us_title user_div_relative">
+        <p class="account_para"> Trust Account Info</p>
+        <div class="navigation">
+          <button class="hamburger" onclick="show()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+          </button>
+          <% for (let i = 0; i < volunt_req.length; i++) { %>
+            <nav class="notification">        
+                <h2>Volunteer request</h2>
+                <button onclick="toggleDetails()">View Details</button>
+                <p class="details">Name: <%= volunt_req[i].full_name %></p>
+                <p class="details">Email: <%= volunt_req[i].email %></p>
+                <p class="details">Phone: <%= volunt_req[i].phone_number %></p>
+                <p class="details">Dates: <%= sdate[i] %> - <%= edate[i] %></p>
+                <div class="approval">
+                    <button class="details">Accept</button>
+                    <button class="details">Reject</button>
+                </div>           
+            </nav>
+        <% } %>
         
-        <div class="user_detail">
-          <div class="detail_title">Address</div>
-          <div class="detail_info" id="address">
-            <p contenteditable="true">
-              <%= trust.address %>
-            </p>
-          </div>
-          <div class="detail_edit">
-            <a href="" onclick="toggleEditMode(event,'address')">Edit</a>
-          </div>
-        </div>
-         <div class="user_detail">
-          <div class="detail_title">Contributions Received</div>
-          <div class="detail_info" id="contri_num">
-            <p contenteditable="true"><%= trust.contri_received %></p>
-          </div>
-          <div class="detail_edit">
-          </div>
-        </div>
-        <div class="user_detail">
-          <div class="detail_title">Started On</div>
-          <div class="detail_info" id="contri_num">
-            <p contenteditable="true"><%= trust.Date_Joined %></p>
-          </div>
-          <div class="detail_edit">
-          </div>
-        </div>
-        
-       
-       
-        <div class="save_changes">
-          <button type="button" class="btn btn-warning"  id="save_changes"type="submit">Save Changes</button>
-        
+          
         </div>
       </div>
-  </div>
-  <div class="qoutation_filler">
-    <div class="lazy_load"><img src="https://karuna.org/wp-content/uploads/2023/10/top_green.svg" alt=""></div>
-    <div class="quotation">
-      <div><h3>When an individual’s life changes, they can change their community. <p> When a community changes, they can change society.</p></h3></div>
-      <div class="be_the_change"><h2>Be The Change</h2></div>
-
-    </div>
-  </div>
- 
-
-
+      <div class="user_top_info">
     
+        
+      </div>
+    <div class="profile_details">
+        <div class="info_div">
+          <div class="user_detail">
+            <div class="detail_title">Name</div>
+            <div class="detail_info" id="name">
+              <p contenteditable="true"><%= trust.name %></p>
+            </div>
+            <div class="detail_edit">
+              <a href="" onclick="toggleEditMode(event,'name')">Edit</a>
+            </div>
+          </div>
+          <div class="user_detail">
+            <div class="detail_title">Trust Id</div>
+            <div class="detail_info" id="user_name">
+              <p contenteditable="true"><%= trust.trust_unique_no %></p>
+            </div>
+            <div class="detail_edit">
+              <a href="" onclick="toggleEditMode(event,'user_name')">Edit</a>
+            </div>
+          </div>
+          <div class="user_detail">
+            <div class="detail_title">Phone Number </div>
+            <div class="detail_info" id="phone_no">
+              <p contenteditable="true"><%= trust.phonenumber %> <br>
+            </p>
+            </div>
+            <div class="detail_edit">
+              <a href="" onclick="toggleEditMode(event,'phone_no')">Edit</a>
+            </div>
+          </div>
+          <div class="user_detail">
+            <div class="detail_title">State</div>
+            <div class="detail_info" id="state">
+              <p contenteditable="true"><%= trust.state %></p>
+            </div>
+            <div class="detail_edit">
+              <a href="" onclick="toggleEditMode(event,'state')">Edit</a>
+            </div>
+          </div>
+          <div class="user_detail">
+            <div class="detail_title">Contact Email</div>
+            <div class="detail_info" id="email">
+              <p contenteditable="true"><%= trust.email %></p>
+            </div>
+            <div class="detail_edit">
+              <a href="" onclick="toggleEditMode(event,'email')">Edit</a>
+            </div>
+          </div>
+          
+          <div class="user_detail">
+            <div class="detail_title">Address</div>
+            <div class="detail_info" id="address">
+              <p contenteditable="true">
+                <%= trust.address %>
+              </p>
+            </div>
+            <div class="detail_edit">
+              <a href="" onclick="toggleEditMode(event,'address')">Edit</a>
+            </div>
+          </div>
+          <div class="user_detail">
+            <div class="detail_title">Contributions Received</div>
+            <div class="detail_info" id="contri_num">
+              <p contenteditable="true"><%= trust.contri_received %></p>
+            </div>
+            <div class="detail_edit">
+            </div>
+          </div>
+          <div class="user_detail">
+            <div class="detail_title">Started On</div>
+            <div class="detail_info" id="contri_num">
+              <p contenteditable="true"><%= trust.Date_Joined %></p>
+            </div>
+            <div class="detail_edit">
+            </div>
+          </div>
+          
+        
+        
+          <div class="save_changes">
+            <button type="button" class="btn btn-warning"  id="save_changes"type="submit">Save Changes</button>
+          
+          </div>
+        </div>
+    </div>
+    <div class="qoutation_filler">
+      <div class="lazy_load"><img src="https://karuna.org/wp-content/uploads/2023/10/top_green.svg" alt=""></div>
+      <div class="quotation">
+        <div><h3>When an individual’s life changes, they can change their community. <p> When a community changes, they can change society.</p></h3></div>
+        <div class="be_the_change"><h2>Be The Change</h2></div>
+
+      </div>
+    </div>
+  
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>    
-  <script src="/js/t_account.js"></script>
-  </body>
-</html>
+      
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>    
+    <script src="/js/t_account.js">
+      
+    </script>
+    <script>
+      function toggleDetails() {
+        var details = document.getElementsByClassName("details");
+        for (var i = 0; i < details.length; i++) {
+          if (details[i].style.display === "none") {
+            details[i].style.display = "block";
+          } else {
+            details[i].style.display = "none";
+          }
+        }
+      }
+      
+    </script>
+    </body>
+  </html>
