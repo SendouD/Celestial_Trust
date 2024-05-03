@@ -50,59 +50,52 @@
   </head>
 
   <body>
-    <div class="head">
-      <div class="left">
-        <div class="logo">
-          <img
-            id="logo"
-            src="../images/logo.png"
-            alt=""
-            style="width: 50px; height: 50px; padding-top: 10px"
-          />
+    <header>
+      <div class="header">
+        <div class="left">
+          <div class="img"><img src="/images/celestial-trust-network-favicon-white.png" alt=""></div>
+          <div class="head_title">
+            <h1>Celestial Trust Network</h1>
+          </div>
         </div>
-        
-        <div class="title">
-          <p>Celestial Trust NetWork</p>
-        </div>
-      </div>
-      <div class="right">
-        <div class="navlink">
-          <a href="/">Home</a>
-        </div>
-        <div class="navlink">
-          <a href="/about">About</a>
-        </div>
-      
-        <div class="navlink">
-          <a href="/trustInfo">Projects</a>
-        </div>
-        <div class="navlink">
-          <a href="/account">Prominent Trusts</a>
-        </div>
-        <div class="navlink">
-          <a href="/login"><%= signin %></a>
-        </div>
-      </div>
-    </div>
-    <div class="navigation">
-      <button class="hamburger" onclick="show()">
-        <div id="bar1" class="bar"></div>
-        <div id="bar2" class="bar"></div>
-        <div id="bar3" class="bar"></div>
-      </button>
-      
-      <nav>
-        <ul>
-          <li><a>Verify Trusts</a></li>
-          <li><a>Reported Trusts</a></li>
-          <li><a>Volunteering</a></li>
-          <li><a>About Donation</a></li>
-            <li><a>Blog</a></li>
+        <div class="right">
+          <div class="navlink">
+            <a href="/">Home</a>
+          </div>
+          <div class="navlink">
+            <a href="/about">About</a>
+          </div>
+          <div class="navlink">
+            <a href="/admin/trust_verify">Trust Verify</a>
+          </div>
           
-          <li><a>Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+          <div class="navlink">
+            <a href="/admin/news_letter">News Letter
+            </a>
+          </div>
+          <div class="navlink">
+            <a href="/trustinfo">Projects</a>
+          </div>
+          <div class="navlink">
+            <a href="/prominent_trust">Prominent Trusts</a>
+          </div>
+  
+          <div class="navlink">
+            <a href="/blog">Blog
+            </a>
+          </div>
+          <div class="navlink">
+            <a href="/login">
+              <%= signin %>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+      </div>
+    </header>
+    
     <div class="bg-image-text">
       <div class="bg-image-text-container">
         <!-- Add class container here -->
