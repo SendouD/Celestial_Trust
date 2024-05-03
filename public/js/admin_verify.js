@@ -19,7 +19,7 @@ verify.addEventListener('click', async(e)=>{
         console.log(response);
       if(response.ok){
         alert("Verified the trust");
-
+        
         window.location.href="/admin/trust_verify";
       
       }else{

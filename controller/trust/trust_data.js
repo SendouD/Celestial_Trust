@@ -12,13 +12,12 @@ route.use(cookie());
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const path_of_file = path.join(__dirname, "../../public/trust_verify_docs");
-    console.log(req.files);
-    console.log(path_of_file);
     cb(null, path_of_file);
   },
   filename: function (req, file, cb) {
-
-    cb(null, file.originalname);
+    console.log(req.body);
+    
+    cb(null, req.body.trust_no+".pdf");
   }
 });
 
