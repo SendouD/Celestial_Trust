@@ -7,6 +7,7 @@ route.post("/news_letter", async (req, res) => {
     const path = await mailer.newsletter(req.body.news_email);
     console.log("done");
     await database.create({email:req.body.news_email});
+    res.redirect("/");
   });
 
 

@@ -32,6 +32,7 @@ const contribution = require("./controller/contribution");
 const forgot_password = require("./controller/forgetPassword");
 const tAc=require("./controller/t&c");
 const events=require('./controller/events');
+const footer=require("./controller/footer");
 
 app.use(express.static(path.join(process.cwd(), "public")));
 app.set("view engine", "ejs");
@@ -76,7 +77,8 @@ app.use("/donate", donate);
 app.use("/login", login);
 app.use("/register", register);
 app.use("/volunteer", volunteer);
-app.use('/t&c', tAc)
+app.use('/t&c', tAc);
+app.use("/footer",footer);
 app.use("/account", account);
 app.use("/trust", trust);
 app.use("/admin", admin);
