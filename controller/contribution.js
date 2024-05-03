@@ -146,7 +146,8 @@ route.post("/trust/donation-date-wise", async (req, res) => {
 
 route.post("/trust",async (req,res) =>{
     console.log(req.body);  
-    const path_to_certificate=path.join(__dirname,"/certificates");
+    const path_to_certificate=path.join(__dirname,"/../certificates");
+    console.log(path_to_certificate);
     await pdf_generation.generatePDF(req.body.user_name,path_to_certificate);
     console.log("PDF CREATED");
 })

@@ -177,8 +177,9 @@ print_btn.forEach((p_btn)=>{
     p_btn.addEventListener("click", async() => {
         console.log("fetch hit");
         
-        const parent=print_btn.parentElement.parentElement;
-        const volunteer_name=parent.querySelector(".user_name").textContent;
+        const parent=p_btn.parentElement
+        const parent_of_parent=parent.parentElement;
+        const volunteer_name=parent_of_parent.querySelector(".user_name").textContent;
         const json_file={
             user_name:volunteer_name
         }
