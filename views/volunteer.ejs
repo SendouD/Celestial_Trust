@@ -16,101 +16,46 @@
 
 	<link rel="stylesheet" href="/bulma/bulma.min.css">
 	<link rel="stylesheet" href="/css/donation.css">
+	<link rel="stylesheet" href="/css/header.css">
 
 </head>
 
 <body>
-	<header class="navigation">
-		<div class="header-top ">
-			<div class="container">
-				<div class="columns is-gapless is-justify-content-space-between is-align-items-center">
-					<div class="column is-6-desktop is-4-tablet has-text-left-desktop has-text-centered-mobile">
-						<div class="header-top-info">
-							<a href="tel:+23-345-67890"><i class="icofont-phone mr-2"></i><span>+23-345-67890</span></a>
-							<a href="mailto:support@gmail.com"><i
-									class="icofont-email mr-2"></i><span>support@gmail.com</span></a>
-						</div>
-					</div>
-					<div class="column is-6-desktop is-8-tablet">
-						<div class="header-top-right has-text-right-tablet has-text-centered-mobile">
-							<a href="https://www.facebook.com/themefisher" target="_blank"><i
-									class="icofont-facebook"></i></a>
-							<a href="https://twitter.com/themefisher" target="_blank"><i
-									class="icofont-twitter"></i></a>
-							<a href="https://github.com/themefisher/" target="_blank"><i class="icofont-github"></i></a>
-							<a href="#" target="_blank"><i class="icofont-pinterest"></i></a>
-							<a href="#" target="_blank"><i class="icofont-linkedin"></i></a>
-							<a href="donation.html" class="top-btn">Donate Now</a>
-						</div>
-					</div>
-				</div>
+	<header class="navigation" style="position: fixed; z-index:10000">
+		<div class="header">
+			<div class="left">
+			  <div class="img"><img src="/images/celestial-trust-network-favicon-white.png" alt=""></div>
+			  <div class="head_title">
+				<h1 style="color: #daac19;">Celestial Trust Network</h1>
+			  </div>
 			</div>
-		</div>
-		<nav id="navbar" class="navbar main-nav">
-			<div class="container">
-				<div class="navbar-brand">
-					<a class="navbar-item" href="index.html">
-						<img src="images/logo.png" alt="logo">
-					</a>
-					<button role="button" class="navbar-burger burger" data-hidden="true" data-target="navigation">
-						<span aria-hidden="true"></span>
-						<span aria-hidden="true"></span>
-						<span aria-hidden="true"></span>
-					</button>
-				</div>
-
-				<div class="navbar-menu mr-0" id="navigation">
-					<ul class="navbar-end">
-						<li class="navbar-item">
-							<a class="navbar-link" href="index.html">Home</a>
-						</li>
-
-						<li class="navbar-item">
-							<a class="navbar-link" href="about.html">About</a>
-						</li>
-
-						<li class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link">Causes<span class="ml-1">+</span></a>
-							<div class="navbar-dropdown">
-								<a class="navbar-item" href="service.html">Causes</a>
-								<a class="navbar-item" href="cause-single.html">Cause details</a>
-							</div>
-						</li>
-
-						<li class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link">Get Involved<span class="ml-1">+</span></a>
-							<div class="navbar-dropdown">
-								<a class="navbar-item" href="donation.html">Donation</a>
-								<a class="navbar-item" href="volunteer.html">Be a Volunteer</a>
-							</div>
-						</li>
-
-						<li class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link">Pages<span class="ml-1">+</span></a>
-							<div class="navbar-dropdown">
-								<a class="navbar-item" href="event.html">Event</a>
-								<a class="navbar-item" href="event-single.html">Event Single</a>
-								<a class="navbar-item" href="confirmation.html">Confirmation</a>
-								<a class="navbar-item" href="404.html">404</a>
-							</div>
-						</li>
-
-						<li class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link">Blog +</a>
-							<div class="navbar-dropdown align-right">
-								<a class="navbar-item" href="blog-grid.html">Blog Grid</a>
-								<a class="navbar-item" href="blog-sidebar.html">Blog with Sidebar</a>
-								<a class="navbar-item" href="blog-single.html">Blog Single</a>
-							</div>
-						</li>
-
-						<li class="navbar-item">
-							<a class="navbar-link" href="contact.html">Contact</a>
-						</li>
-					</ul>
-				</div>
+			<div class="right">
+			  <div class="navlink">
+				<a href="/" style="color:#daac19 !important;" >Home</a>
+			  </div>
+			  <div class="navlink">
+				<a href="/about" style="color:#daac19 !important;">About</a>
+			  </div>
+			  <div class="navlink">
+				<a  href="/account" style="color:#daac19 !important;" >Account</a>
+			  </div>
+			  <div class="navlink">
+				<a href="/trustinfo" style="color:#daac19 !important;" >Projects</a>
+			  </div>
+			  <div class="navlink">
+				<a href="/prominent_trust" style="color:#daac19 !important;" >Prominent Trusts</a>
+			  </div>
+			  
+			  <div class="navlink">
+				<a href="/blog" style="color:#daac19 !important;" >Blog
+				</a>
+			  </div>
+			  <div class="navlink">
+				<a href="/contribution" style="color:#daac19 !important;" >Contribution</a>
+			  </div>
 			</div>
-		</nav>
+		  </div>
+		
 	</header>
 	<!-- Header Close -->
 	<section class="page-title bg-1">
@@ -203,11 +148,12 @@
 				<div class="column is-4-desktop is-6-tablet">
 					<div class="footer-widget widget">
 						<h4 class="is-capitalize mb-4 text-white">Company</h4>
-						<p>Flat 20, Reynolds Neck, North <br>Helenaville, FV77</p>
+						<p>Tower House, 24, Homi Mody Street,<br>
+							Chennai 400 001, India</p>
 
 						<ul class="list-unstyled footer-menu mt-4">
 							<li><a href="#"><i class="icofont-phone"></i>+2(305) 587-3407</a></li>
-							<li><a href="#"><i class="icofont-email"></i>info@example.com</a></li>
+							<li><a href="#"><i class="icofont-email"></i>celestialtrust@gmail.com</a></li>
 						</ul>
 						<ul class="list-inline footer-socials">
 							<li class="list-inline-item"><a href="https://www.facebook.com/themefisher"><i
@@ -225,7 +171,7 @@
 						<h4 class="is-capitalize mb-4 text-white">Quick Links</h4>
 
 						<ul class="list-unstyled footer-menu lh-35">
-							<li><a href="#">About</a></li>
+							<li><a href="/about">About</a></li>
 							<li><a href="#">Services</a></li>
 							<li><a href="#">Team</a></li>
 							<li><a href="#">Contact</a></li>
@@ -245,40 +191,14 @@
 					</div>
 				</div>
 
-				<div class="column is-3-desktop is-6-tablet">
-					<div class="widget footer-widget">
-						<h4 class="is-capitalize mb-4 text-white">Gallery</h4>
-
-						<div class="gallery-wrap">
-							<div class="gallery-img">
-								<img src="images/blog/gallery-1.jpg" alt="" class="">
-							</div>
-							<div class="gallery-img">
-								<img src="images/blog/gallery-2.jpg" alt="" class="">
-							</div>
-							<div class="gallery-img">
-								<img src="images/blog/gallery-3.jpg" alt="" class="">
-							</div>
-							<div class="gallery-img">
-								<img src="images/blog/gallery-6.jpg" alt="" class="">
-							</div>
-							<div class="gallery-img">
-								<img src="images/blog/gallery-5.jpg" alt="" class="">
-							</div>
-							<div class="gallery-img">
-								<img src="images/blog/gallery-2.jpg" alt="" class="">
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 
 			<div class="footer-btm py-5">
 				<div class="columns is-justify-content-center">
 					<div class="column is-12">
 						<div class="copyright has-text-centered">
-							<small>&copy; Copyright Reserved to WishFund by <a href="https://themefisher.com/"
-									target="_blank" class="text-color">Themefisher</a></small>
+							<small>&copy; Copyright Reserved to CelestialTrustNetWork
 						</div>
 					</div>
 				</div>

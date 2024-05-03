@@ -27,7 +27,7 @@ volunteer.route('/').get(async (req, res) => {
         mail.volunteer(req.body.email);
 
 
-        res.redirect("/");
+        res.redirect("/confirmation");
     } catch (error) {
         console.error('Error saving form data:', error);
         res.status(500).send('Internal Server Error');
@@ -70,7 +70,7 @@ volunteer.route('/:id/volunteer')
             mail.volunteer(req.body.email);
 
 
-            res.redirect("/");
+            res.redirect("/confirmation");
         } catch (error) {
             console.error('Error saving form data:', error);
             res.status(500).send('Internal Server Error');
