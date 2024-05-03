@@ -1,6 +1,9 @@
 const donate_btn = document.getElementById("donate_btn");
 const volunteer_btn = document.getElementById("volunteer_btn");
 const style = document.getElementsByTagName("style")[0];
+const print_btn = document.querySelectorAll(".print_btn1");
+console.log(print_btn);
+
 let newstyle;
 if (!style) {
     newstyle = document.createElement("style");
@@ -168,3 +171,38 @@ td {
     document.head.appendChild(newstyle);
     print();
 });
+
+
+print_btn.forEach((p_btn)=>{
+    p_btn.addEventListener("click", async() => {
+        console.log("fetch hit");
+        
+        const parent=print_btn.parentElement.parentElement;
+        const volunteer_name=parent.querySelector(".user_name").textContent;
+        const json_file={
+            user_name:volunteer_name
+        }
+    
+        const response=await fetch("/contribution/trust",{
+            
+            method: "POST",
+            body:JSON.stringify(json_file) ,
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            console.log(response);
+          if(response.ok){
+            alert("Issued the certificate");
+            
+            window.location.href="/contribution/trust";
+          
+          }else{
+            console.log("error");
+          }
+        
+        
+            
+        })
+        
+})

@@ -6,7 +6,37 @@ const cookie = require("cookie-parser");
 const jsonwebtoken_verification = require("./jwt_verification");
 register.use(cookie());
 
+
+function validatePassword(password) {
+  return /^\S{8,}$/.test(password);
+}
+
+
+function validateName(name) {
+  return /^[a-zA-Z]+$/.test(name);
+}
+
+
+
+  
+
 register.route("/").post(async (req, res) => {
+    if (!validatePassword(req.body.newpassword)) {
+      console.log("newpass");
+    return res.status(400).send("Password must contain at least one letter, one number, one special character, and be at least 8 characters long.");
+  }
+  
+  if (!validateName(req.body.name)) {
+    console.log("name ");
+    return res.status(400).send("Name should contain only letters.");
+  }
+
+  if (!validateName(req.body.username)) {
+    console.log("username");
+    return res.status(400).send("Username should contain only letters.");
+  }
+  
+  
   const existingUser = await User.findOne({ email: req.body.email });
   if (existingUser) {
     // If the email already exists, send a response indicating the conflict

@@ -6,6 +6,8 @@ const user_donation = require("../Models/user_donation_schema");
 const trust_details = require("../Models/Trust_Schema");
 const trust_volunteer = require("../Models/trust_volunteer_schema");
 const trust_donation = require("../Models/trust_donation_schema");
+const pdf_generation=require("./pdf_production");
+const path=require("path");
 
 
 route.get("/", async (req, res) => {
@@ -141,6 +143,13 @@ route.post("/trust/donation-date-wise", async (req, res) => {
 
 
 });
+
+route.post("/trust",async (req,res) =>{
+    console.log(req.body);  
+    const path_to_certificate=path.join(__dirname,"/certificates");
+    await pdf_generation.generatePDF(req.body.user_name,path_to_certificate);
+    console.log("PDF CREATED");
+})
 route.post("/trust/volunteer-date-wise", async (req, res) => {
     const user = await trust_details.findOne({ _id: req.cookies.id });
     const trust_d_details = await trust_donation.find({ trust_unique_no: user.trust_unique_no });
