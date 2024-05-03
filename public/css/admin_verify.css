@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+body {
+    margin-top: 13vh;
+}
+
 
 input,button{
     font: inherit;
@@ -54,7 +58,7 @@ td, th {
     text-wrap: nowrap;
 }
 .content{
-    margin-top: 4rem;
+    margin-top: 13vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
