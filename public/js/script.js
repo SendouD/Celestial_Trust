@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         registerForm.reset();
         window.location.href = "/"; // Reset the form fields
       } else {
-        if (confirm("Email already exists !!!! Login Again")) {
+        if (confirm("INVALID CREDENTIALS!")) {
           window.location.href = "/login";
           registerForm.reset();
         }

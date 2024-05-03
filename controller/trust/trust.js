@@ -7,6 +7,7 @@ const mail = require('../email_backend');
 const multer = require("multer");
 const dotenv = require("dotenv");
 const path = require("path");
+const middle_ware=require("../../middlewares/trust_verified");
 dotenv.config();
 
 const storage = multer.diskStorage({
@@ -110,7 +111,7 @@ route.post("/account", async (req, res) => {
     return res.status(200).redirect("/");
 
 })
-route.get("/trustinfo", async (req, res) => {
+route.get("/trustinfo",middle_ware, async (req, res) => {
     res.render("trust_info");
 })
 route.post("/trustinfo", upload.array('fileUpload'), async (req, res) => {
